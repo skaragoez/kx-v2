@@ -1,0 +1,16 @@
+.hero {
+    padding-bottom: 35px;
+
+    > .wp-block-columns {
+        margin-bottom: 0;
+    }
+
+    > .wp-block-group {
+        padding-block: fluid(rem(10px), rem(40px));
+
+        figure {
+            padding: 0;
+        }
+    }
+
+}

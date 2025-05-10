@@ -1,0 +1,94 @@
+# To override/extend any of these settings for your local environment:
+# create a `docker-compose.override.yaml` with the settings that should be different
+
+services:
+
+  mysql:
+    env_file:
+      - path: .env
+        required: true
+      - path: .env.local
+        required: false
+    image: mariadb:${MARIADB_VERSION}
+    container_name: ${PROJECT}-mysql
+    ports:
+      - "3306:3306"
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-password}
+      MYSQL_DATABASE: ${PROJECT}
+    volumes:
+      - ${WORDPRESS_ROOT}:/var/www/html
+      - db:/var/lib/mysql
+      - ./.bashrc:/root/.bashrc
+      - ./:/var/www/html/docker
+    networks:
+      - wordpress
+
+  nginx:
+    env_file:
+      - path: .env
+        required: true
+      - path: .env.local
+        required: false
+    image: nginx:${NGINX_VERSION}
+    container_name: ${PROJECT}-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: unless-stopped
+    volumes:
+      - ./nginx.conf:/etc/nginx/templates/default.conf.template
+      - ${WORDPRESS_ROOT}:/var/www/html
+    networks:
+      - wordpress
+
+  wordpress:
+    env_file:
+      - path: .env
+        required: true
+      - path: .env.local
+        required: false
+    container_name: ${PROJECT}-wordpress
+    build:
+      context: .
+      dockerfile: wordpress.dockerfile
+      args:
+        - PHP_VERSION=php${PHP_VERSION}
+    restart: unless-stopped
+    depends_on:
+      - mysql
+    environment:
+      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD:-password}
+      WORDPRESS_DB_NAME: ${PROJECT}
+      WORDPRESS_TABLE_PREFIX: ${ABBR:-wp}_
+      WP_ENVIRONMENT_TYPE: local
+    volumes:
+      - ${WORDPRESS_ROOT}:/var/www/html
+      - ./php.ini:/usr/local/etc/php/conf.d/php.ini
+      - ./xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
+      - ./.bashrc:/root/.bashrc
+    extra_hosts:
+      - ${HOST}:172.17.0.1
+    networks:
+      - wordpress
+
+  mailhog:
+    container_name: ${PROJECT}-mailhog
+    image: mailhog/mailhog
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+    restart: unless-stopped
+    networks:
+      - wordpress
+
+networks:
+  wordpress:
+    name: ${PROJECT}
+
+volumes:
+  db:
+    name: ${PROJECT}

@@ -1,0 +1,149 @@
+.site-header {
+  background: #B3D3E6;
+  padding: 0 40px;
+  min-height: 80px;
+
+  .site-header__inner {
+    max-width: $max-content-width;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: $font-family-heading;
+    position: relative;
+  }
+}
+
+.site-branding {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  img {
+    max-width: 300px;
+    height: auto;
+    display: block;
+  }
+}
+
+.site-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+}
+
+.main-navigation {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: none;
+  box-shadow: none;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li a {
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+  text-decoration: none;
+  padding: 8px 0;
+  border-radius: 8px;
+  position: relative;
+  transition: background $transition, color $transition;
+  text-underline-offset: 0.25em;
+}
+
+.nav-menu li a::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 4px;
+  width: 0;
+  height: 3px;
+  background: $orange;
+  border-radius: 2px;
+  transition: width $transition;
+  z-index: 1;
+}
+
+.nav-menu li a:hover {
+  background: none;
+  color: #000;
+}
+
+.nav-menu li a:hover::after {
+  width: 100%;
+}
+
+.menu-toggle {
+  display: none !important;
+  background: #FC7016;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-family: $font-family-heading;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@include mobile {
+  .menu-toggle {
+    display: block !important;
+    margin: 16px 0 0 0;
+  }
+}
+
+// Login/Register Buttons (optional, falls im Menü)
+.nav-menu li .button, .nav-menu li .wp-block-button__link {
+  background: #FC7016;
+  color: #fff;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-family: 'Poppins', Arial, sans-serif;
+  font-weight: 700;
+  border: none;
+  margin-left: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-menu li .button:hover, .nav-menu li .wp-block-button__link:hover {
+  background: #000;
+  color: #FC7016;
+}
+
+// Responsive
+@media (max-width: 900px) {
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 16px;
+    min-height: unset;
+  }
+  .main-navigation {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nav-menu {
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    background: #B3D3E6;
+    padding: 16px 0;
+  }
+}

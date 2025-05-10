@@ -1,0 +1,54 @@
+{
+  "version": 2,
+  "settings": {
+    "color" : {
+      "defaultGradients": false,
+      "defaultPalette": false,
+      "palette": [
+        { "name": "Orange", "slug": "orange", "color": "#FC7016" },
+        { "name": "Light Blue", "slug": "light-blue", "color": "#B3D3E6" },
+        { "name": "White", "slug": "white", "color": "#FFFFFF" },
+        { "name": "Black", "slug": "black", "color": "#000000" },
+        { "name": "Grey", "slug": "grey", "color": "#8B8B8B" },
+        { "name": "Accent Orange", "slug": "accent-orange", "color": "#F55F1D" },
+        { "name": "Dark Blue", "slug": "dark-blue", "color": "#043451" },
+        { "name": "Dark Grey", "slug": "dark-grey", "color": "#130F26" },
+        { "name": "Lavender", "slug": "lavender", "color": "#E6E4FF" },
+        { "name": "Light Sky", "slug": "light-sky", "color": "#E1EDFB" },
+        { "name": "Off White", "slug": "off-white", "color": "#F9F9F9" },
+        { "name": "Mint", "slug": "mint", "color": "#F8FFF9" },
+        { "name": "Red", "slug": "red", "color": "#FF302F" },
+        { "name": "Blue", "slug": "blue", "color": "#3686F7" },
+        { "name": "Yellow", "slug": "yellow", "color": "#FFBA40" },
+        { "name": "Green White", "slug": "green-white", "color": "#FAFFFB" },
+        { "name": "Pink", "slug": "pink", "color": "#F62B54" },
+        { "name": "Yellow Light", "slug": "yellow-light", "color": "#FFCC00" },
+        { "name": "Grey Dark", "slug": "grey-dark", "color": "#333333" }
+      ]
+    },
+    "layout": {
+      "contentSize": "1230px",
+      "wideSize": "1660px"
+    },
+    "typography": {
+      "fluid": true,
+      "fontSizes": [
+        { "name": "Hero", "slug": "hero", "size": "50px" },
+        { "name": "H2", "slug": "h2", "size": "39.2px" },
+        { "name": "H3", "slug": "h3", "size": "30px" },
+        { "name": "H4", "slug": "h4", "size": "24px" },
+        { "name": "Body", "slug": "body", "size": "20px" },
+        { "name": "Small", "slug": "small", "size": "18px" }
+      ],
+      "fontFamilies": [],
+      "fontWeight": false,
+      "textTransform": false,
+      "textDecoration": false,
+      "customFontSize": false,
+      "dropCap": false,
+      "fontStyle": false,
+      "letterSpacing": false,
+      "lineHeight": false
+    }
+  }
+}

@@ -1,0 +1,110 @@
+// ---
+// Colors.
+
+$black: #000000;
+$white: #FFFFFF;
+
+$success: #61c653;
+$error: #ec695e;
+
+$orange: #FC7016;
+$light-blue: #B3D3E6;
+$grey: #8B8B8B;
+$accent-orange: #F55F1D;
+$dark-blue: #043451;
+$dark-grey: #130F26;
+$lavender: #E6E4FF;
+$light-sky: #E1EDFB;
+$off-white: #F9F9F9;
+$mint: #F8FFF9;
+$red: #FF302F;
+$blue: #3686F7;
+$yellow: #FFBA40;
+$green-white: #FAFFFB;
+$pink: #F62B54;
+$yellow-light: #FFCC00;
+$grey-dark: #333333;
+
+$colors: (
+    'black': $black,
+    'white': $white,
+    'text': $black,
+    'orange': $orange,
+    'light-blue': $light-blue,
+    'grey': $grey,
+    'accent-orange': $accent-orange,
+    'dark-blue': $dark-blue,
+    'dark-grey': $dark-grey,
+    'lavender': $lavender,
+    'light-sky': $light-sky,
+    'off-white': $off-white,
+    'mint': $mint,
+    'red': $red,
+    'blue': $blue,
+    'yellow': $yellow,
+    'green-white': $green-white,
+    'pink': $pink,
+    'yellow-light': $yellow-light,
+    'grey-dark': $grey-dark,
+    'success': $success,
+    'error': $error,
+);
+
+$font-color-text: var(--color-text);
+$font-color-heading: $font-color-text;
+$font-color-link: inherit;
+$font-color-link-hover: $font-color-text;
+$font-color-link-active: $font-color-text;
+
+// ---
+// Typography.
+
+$rpx: 10px; // rem
+
+$font-family-base: 'Avenir', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+$font-family-heading: 'Poppins', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// ...
+
+$spacing-min: 36px;
+$spacing-max: 130px;
+
+// ---
+// Transitions.
+
+$transition: 0.2s ease;
+
+$breakpoints: (
+    xs: 664px,
+    sm: 782px,
+    md: 1030px,
+    lg: 1230px,
+    xl: 1660px,
+    xxl: 1920px
+);
+
+$max-content-width: map-get($breakpoints, lg);
+
+$breakpoints: map-merge($breakpoints, (
+    mobile: map-get($breakpoints, sm),
+    desktop: map-get($breakpoints, xl),
+
+    // make same setting in `theme.json`
+    content: map-get($breakpoints, lg), // default
+    wide: map-get($breakpoints, xl)
+));
+
+// Create icons map.
+// Do order icons by name (asc) to be in sync with icon font.
+// Get content via `map-get($Icont, ICON);`
+
+@import "../utilities/css/functions/dec2hex";
+
+$Icont: ();
+@each $icon in () {
+  $Icont: map-merge($Icont, ($icon: unquote("\"#{\f1+dec2hex(length($Icont) + 1)}\"")));
+}

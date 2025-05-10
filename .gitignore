@@ -1,23 +1,65 @@
 /.DS_Store
 /.cursor
 /.ddev
-/index.php
-/license.txt
-/wp-activate.php
-/wp-admin
-/wp-blog-header.php
-/wp-comments-post.php
-/wp-config-ddev.php
-/wp-config-sample.php
-/wp-config.php
-/wp-content
-/wp-cron.php
-/wp-includes
-/wp-links-opml.php
-/wp-load.php
-/wp-login.php
-/wp-mail.php
-/wp-settings.php
-/wp-signup.php
-/wp-trackback.php
-/xmlrpc.php
+# WordPress core files
+/wp-admin/
+/wp-includes/
+
+# Ignore wp-content except for themes and plugins
+/wp-content/*
+!/wp-content/themes/
+!/wp-content/plugins/
+
+# Ignore uploads, cache, upgrade, and backup directories
+/wp-content/uploads/
+/wp-content/cache/
+/wp-content/upgrade/
+/wp-content/backups/
+
+# Ignore log files and databases
+*.log
+*.sql
+*.sqlite
+
+# Ignore OS generated files
+Thumbs.db
+ehthumbs.db
+Icon?
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Ignore IDE and editor folders/files
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# Ignore environment files
+.env
+.env.*
+
+# Ignore node modules and build output
+node_modules/
+dist/
+build/
+
+# Ignore composer vendor directory
+/vendor/
+
+# Ignore backup and temp files
+*.bak
+*.tmp
+*.swp
+*.swo
+
+# Ignore other WordPress files that should not be versioned
+/wp-content/advanced-cache.php
+/wp-content/object-cache.php
+/wp-content/wp-cache-config.php
+/wp-content/debug.log
+
+# Allow index.php in wp-content (for security)
+!wp-content/index.php

@@ -1,0 +1,113 @@
+%button {
+  display: inline-block;
+  border-radius: 14px !important;
+  padding: 20px 40px;
+  text-shadow: none;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  text-decoration: none !important;
+  transition: all .3s ease-out;
+  font-family: $font-family-heading;
+  font-weight: $font-weight-bold;
+  font-size: 16px;
+  color: #fff;
+  border: none;
+  background-color: #FC7016;
+
+  &:hover, &.active {
+    color: #FC7016;
+    background-color: #000;
+    border: none;
+  }
+
+  .is-style-outline & {
+    @each $name, $color in $colors {
+      &.has-#{$name}-color {
+        &:hover,
+        &.active {
+          border-color: var(--color-#{$name});
+          background-color: var(--color-#{$name});
+
+          @if type-of($color) == color and lightness($color) >= 60 {
+            color: $font-color-text !important;
+          }
+        }
+      }
+    }
+  }
+
+  .is-style-fill & {
+    @each $name, $color in $colors {
+      &.has-#{$name}-background-color {
+        border-color: var(--color-#{$name});
+
+        @if type-of($color) == color and lightness($color) < 60 {
+          color: #fff !important;
+        }
+        @else {
+          color: $font-color-text !important;
+        }
+
+        &:hover,
+        &.active {
+          color: var(--color-#{$name}) !important;
+          border-color: currentColor !important;
+          background-color: transparent !important;
+        }
+      }
+    }
+  }
+}
+
+button, .button, .wp-block-button__link, input[type="submit"] {
+  .site & {
+    @extend %button;
+  }
+}
+
+.form-item {
+  position: relative;
+}
+
+label {
+  text-align: left;
+
+  .required &:after {
+    content: "*";
+  }
+}
+
+input,
+textarea,
+select {
+  font-family: $font-family-base;
+  font-size: 16px;
+  padding: 18px;
+  background-color: #fff;
+  border: 1.5px solid #FC7016;
+  border-radius: 10px;
+  box-sizing: border-box;
+  width: 100%;
+  color: $font-color-text;
+  transition: border-color 0.2s;
+
+  &::placeholder {
+    color: #8B8B8B;
+    opacity: 1;
+  }
+
+  &:focus {
+    outline: none;
+    border: 2px solid #FC7016;
+  }
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  width: auto;
+}
+
+textarea {
+  resize: vertical;
+}

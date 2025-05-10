@@ -1,0 +1,23 @@
+node_modules
+*.map
+
+# Cursor rules
+.cursorrules
+# WordPress
+wp-content/uploads/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/backup-*/
+
+# Build/Dist
+/dist/
+/build/
+
+# System/Editor
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.swp
+.idea/
+.vscode/

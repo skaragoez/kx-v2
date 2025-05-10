@@ -1,0 +1,16 @@
+/**
+ * Wrap CSS especially for ltr or rtl direction.
+ */
+
+@mixin ltr() {
+  html[dir="ltr"] &,
+  html:not([dir]) & {
+    @content
+  }
+}
+
+@mixin rtl() {
+  html[dir="rtl"] & {
+    @content
+  }
+}

@@ -1,0 +1,40 @@
+@import "../../../css/mixins/loader";
+
+#pjax-transition {
+    position: fixed;
+    z-index: 9;
+    inset: 0 0 0 0;
+    background-color: #fff;
+    opacity: 0;
+    transition: opacity 800ms;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+
+    @include loader;
+
+    &:before, &:after {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    &:before {
+        content: "";
+        opacity: .15;
+
+        display: block;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        border: 2.5px solid currentColor;
+    }
+
+    &:after {
+        top: initial;
+        left: initial;
+    }
+
+    body[data-pjax-transition] & {
+        opacity: 1;
+    }
+}

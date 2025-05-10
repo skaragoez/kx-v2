@@ -1,0 +1,58 @@
+{
+  "name": "_s",
+  "version": "1.10.0",
+  "description": "I'm the next, most awesome, WordPress theme out there.",
+  "author": "artcom venture GmbH",
+  "license": "GPL-2.0-or-later",
+  "keywords": [
+    "WordPress",
+    "Theme"
+  ],
+  "homepage": "https://github.com/artcomventure/_s",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artcomventure/_s.git"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.23.4",
+    "@babel/core": "^7.23.3",
+    "@babel/preset-env": "^7.23.3",
+    "@wordpress/icons": "^9.37.0",
+    "@wordpress/scripts": "^26.17.0",
+    "autoprefixer": "^10.4.16",
+    "babel-preset-minify": "^0.5.2",
+    "browser-sync": "^2.29.3",
+    "fantasticon": "^2.0.0",
+    "sass": "^1.77.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.31",
+    "postcss-cli": "^10.1.0"
+  },
+  "scripts": {
+    "browser-sync": "browser-sync http://localhost --files **/*.css,**/*.min.js,**/*.php --no-open",
+
+    "watch": "npm-run-all --parallel *:watch & npm run browser-sync",
+    "build": "npm-run-all --parallel *:build",
+
+    "theme:watch": "npm run theme:watch:scss & npm run theme:watch:js",
+    "theme:watch:scss": "sass --watch css/style.scss:style.css --style=expanded --embed-source-map",
+    "theme:watch:js": "babel js -d js --out-file-extension .min.js --source-maps --ignore=js/**/*.min.js --presets=@babel/preset-env --watch",
+
+    "theme:build": "npm run theme:build:scss & npm run theme:build:js",
+    "theme:build:scss": "sass css/style.scss:style.css --style=compressed",
+    "theme:build:js": "babel js -d js --out-file-extension .min.js --no-comments --ignore=js/**/*.min.js --presets=@babel/preset-env,babel-preset-minify",
+
+    "theme:i18n:pot": "wp i18n make-pot . languages/_s.pot --exclude=src,node_modules,**/*.min.*",
+    "theme:i18n:po": "wp i18n update-po languages/_s.pot languages",
+    "theme:i18n:mo": "wp i18n make-mo languages languages",
+    "theme:i18n:json": "wp i18n make-json languages --no-purge",
+
+    "editor:watch": "sass --watch css/editor-style.scss:css/editor-style.css --style=expanded --embed-source-map",
+    "editor:build": "sass css/editor-style.scss:css/editor-style.css --style=compressed",
+
+    "icont:generate": "cd media/fonts/Icont && npm run generate"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1"
+  }
+}
