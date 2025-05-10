@@ -1,3 +1,7 @@
+section {
+    padding-block: fluid(rem(20px), rem(65px));
+}
+
 .hero {
     padding-bottom: 35px;
 
@@ -13,4 +17,27 @@
         }
     }
 
+}
+
+.facts {
+    > .wp-block-group {
+        align-items: stretch;
+
+        > .wp-block-group {
+            display: flex;
+            flex-direction: column;
+
+            > * {
+                width: 100%;
+            }
+
+            .wp-block-columns {
+                justify-content: center;
+                height: 60%;
+                margin-top: auto;
+                margin-bottom: 0;
+            }
+        }
+
+    }
 }

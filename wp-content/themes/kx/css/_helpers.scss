@@ -1,0 +1,37 @@
+.w-50 {
+    @include media-breakpoint-up(lg) {
+        max-width: 50%;
+        margin-left: 0 !important;
+    }
+}
+
+.w-75 {
+    @include media-breakpoint-up(lg) {
+        max-width: 75%;
+        margin-left: 0 !important;
+    }
+}
+
+.mb-0 {
+    margin-bottom: 0;
+}
+
+.mt-0 {
+    margin-top: 0;
+}
+
+.mt-5 {
+    margin-top: 5rem;
+}
+
+.mt-half-rem {
+    margin-top: 0.5rem;
+}
+
+.mb-half-rem {
+    margin-bottom: 0.5rem;
+}
+
+.gap-0 {
+    gap: 0;
+}
