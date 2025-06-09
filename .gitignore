@@ -45,6 +45,7 @@ Icon?
 node_modules/
 dist/
 build/
+.sass-cache/
 
 # Ignore composer vendor directory
 /vendor/

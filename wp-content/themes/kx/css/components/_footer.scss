@@ -1,1 +1,262 @@
-.site-footer {}
+.site-footer {
+  background-color: $light-blue; // #B3D3E6 from Figma
+  color: $black;
+  padding: 60px 0 30px;
+  margin-top: 80px;
+  
+  .site-footer__inner {
+    max-width: $max-content-width;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+  
+  .footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr; // Two columns instead of three
+    gap: 80px;
+    margin-bottom: 40px;
+    
+    @media (max-width: map-get($breakpoints, md)) {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    
+    @media (max-width: map-get($breakpoints, sm)) {
+      gap: 30px;
+    }
+  }
+  
+  // Footer Branding Section
+  .footer-branding {
+    .footer-logo {
+      margin-bottom: 20px;
+      
+      .custom-logo-link {
+        display: block;
+        
+        img {
+          max-width: 200px;
+          height: auto;
+          // Remove the white filter since background is light
+        }
+      }
+    }
+    
+    .footer-logo-text {
+      font-family: $font-family-heading;
+      font-size: 39.2px; // From Figma style_G4QVW2
+      font-weight: $font-weight-bold;
+      line-height: 1.5;
+      color: $black;
+      margin: 0 0 20px 0;
+    }
+    
+    .footer-description {
+      font-family: $font-family-base; // Avenir from Figma
+      font-size: 20px; // From Figma style_VYCCYB
+      line-height: 1.366;
+      color: $black;
+      margin: 0 0 30px 0; // Add margin bottom for social icons
+      max-width: 328px; // From Figma layout
+    }
+
+    // Social Media Icons in Branding Section
+    .footer-social {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      
+      .social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        background-color: $orange; // #FC7016 from Figma
+        border-radius: 50%;
+        color: $off-white; // #F9F9F9 from Figma
+        text-decoration: none;
+        transition: all $transition;
+        
+        &:hover {
+          background-color: $accent-orange;
+          transform: translateY(-3px);
+          box-shadow: 0 5px 15px rgba($orange, 0.3);
+        }
+        
+        // Social media icons using CSS content
+        &.social-facebook {
+          @include icon-before(facebook);
+        }
+        
+        &.social-twitter {
+          @include icon-before(twitter);
+        }
+        
+        &.social-instagram {
+          @include icon-before(instagram);
+        }
+        
+        &.social-linkedin {
+          @include icon-before(linkedin);
+        }
+        
+        &.social-youtube {
+          @include icon-before(youtube);
+        }
+        
+        &.social-whatsapp {
+          @include icon-before(whatsapp);
+        }
+      }
+    }
+  }
+  
+  // Footer Contact Section
+  .footer-contact {
+    .footer-section-title {
+      font-family: $font-family-heading;
+      font-size: 20px; // From Figma style_10A2S6
+      font-weight: $font-weight-semibold;
+      line-height: 1.5;
+      color: $black;
+      margin: 0 0 25px 0;
+    }
+    
+    .footer-contact-info {
+      .contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 20px;
+        
+        &:last-child {
+          margin-bottom: 0;
+        }
+        
+        .contact-icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 24px;
+          height: 24px;
+          flex-shrink: 0;
+          margin-top: 2px;
+          
+          // Contact icons using CSS content
+          &.phone-icon::before {
+            content: "\f322"; // Phone icon
+            font-family: dashicons;
+            font-size: 18px;
+            color: $orange;
+          }
+          
+          &.email-icon::before {
+            content: "\f465"; // Email icon
+            font-family: dashicons;
+            font-size: 18px;
+            color: $orange;
+          }
+          
+          &.location-icon::before {
+            content: "\f230"; // Location icon
+            font-family: dashicons;
+            font-size: 18px;
+            color: $orange;
+          }
+        }
+        
+        .contact-link {
+          font-family: $font-family-base; // Avenir
+          font-size: 18px;
+          font-weight: $font-weight-medium;
+          line-height: 1.366;
+          color: $black;
+          text-decoration: none;
+          transition: color $transition;
+          
+          &:hover {
+            color: $orange;
+          }
+        }
+        
+        .contact-text {
+          font-family: $font-family-base; // Avenir
+          font-size: 18px;
+          font-weight: $font-weight-medium;
+          line-height: 1.366;
+          color: $black;
+        }
+        
+        &.address-item {
+          align-items: flex-start;
+        }
+      }
+    }
+  }
+  
+  // Footer Bottom Section
+  .footer-bottom {
+    padding-top: 30px;
+    
+    .footer-copyright {
+      font-family: $font-family-base; // Avenir
+      font-size: 20px; // From Figma style_538D9I
+      font-weight: $font-weight-medium;
+      line-height: 1.366;
+      color: $black;
+    }
+  }
+  
+  // Responsive adjustments
+  @media (max-width: map-get($breakpoints, sm)) {
+    padding: 40px 0 20px;
+    margin-top: 60px;
+    
+    .site-footer__inner {
+      padding: 0 20px;
+    }
+    
+    .footer-content {
+      margin-bottom: 30px;
+    }
+    
+    .footer-branding {
+      .footer-logo-text {
+        font-size: 32px;
+      }
+      
+      .footer-description {
+        font-size: 18px;
+        max-width: 100%;
+        margin-bottom: 25px;
+      }
+
+      .footer-social {
+        .social-link {
+          width: 45px;
+          height: 45px;
+          
+          &::before {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+    
+    .footer-contact {
+      .footer-section-title {
+        font-size: 18px;
+      }
+      
+      .footer-contact-info {
+        .contact-item {
+          .contact-link,
+          .contact-text {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -41,11 +41,12 @@ function kx_setup() {
 		*/
 	add_theme_support( 'post-thumbnails' );
 
-	// This theme uses wp_nav_menu() in one location.
+	// This theme uses wp_nav_menu() in multiple locations.
 	register_nav_menus(
 		array(
 			'navigation' => esc_html__( 'Navigation', 'kx' ),
 			'footer' => esc_html__( 'Footer', 'kx' ),
+			'footer-legal' => esc_html__( 'Footer Legal', 'kx' ),
 		)
 	);
 
@@ -144,6 +145,108 @@ function kx_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'kx_scripts' );
+
+/**
+ * Customize the WordPress Customizer for footer settings.
+ */
+function kx_customize_register( $wp_customize ) {
+	// Add Footer Section
+	$wp_customize->add_section( 'footer_settings', array(
+		'title'    => __( 'Footer Settings', 'kx' ),
+		'priority' => 120,
+	) );
+
+	// Footer Description
+	$wp_customize->add_setting( 'footer_description', array(
+		'default'           => 'Some footer text about the Agency. Just a little description to help people understand you better',
+		'sanitize_callback' => 'sanitize_textarea_field',
+	) );
+
+	$wp_customize->add_control( 'footer_description', array(
+		'label'   => __( 'Footer Description', 'kx' ),
+		'section' => 'footer_settings',
+		'type'    => 'textarea',
+	) );
+
+	// Footer Phone
+	$wp_customize->add_setting( 'footer_phone', array(
+		'default'           => '+49 123 456 789',
+		'sanitize_callback' => 'sanitize_text_field',
+	) );
+
+	$wp_customize->add_control( 'footer_phone', array(
+		'label'   => __( 'Phone Number', 'kx' ),
+		'section' => 'footer_settings',
+		'type'    => 'text',
+	) );
+
+	// Footer Email
+	$wp_customize->add_setting( 'footer_email', array(
+		'default'           => 'info@komoxti.com',
+		'sanitize_callback' => 'sanitize_email',
+	) );
+
+	$wp_customize->add_control( 'footer_email', array(
+		'label'   => __( 'Email Address', 'kx' ),
+		'section' => 'footer_settings',
+		'type'    => 'email',
+	) );
+
+	// Footer Address
+	$wp_customize->add_setting( 'footer_address', array(
+		'default'           => '',
+		'sanitize_callback' => 'sanitize_textarea_field',
+	) );
+
+	$wp_customize->add_control( 'footer_address', array(
+		'label'       => __( 'Address (Optional)', 'kx' ),
+		'description' => __( 'Enter your business address. Leave empty to hide.', 'kx' ),
+		'section'     => 'footer_settings',
+		'type'        => 'textarea',
+	) );
+
+	// Footer Copyright
+	$wp_customize->add_setting( 'footer_copyright', array(
+		'default'           => sprintf( __( 'Copyright %s %d', 'kx' ), get_bloginfo( 'name' ), date( 'Y' ) ),
+		'sanitize_callback' => 'sanitize_text_field',
+	) );
+
+	$wp_customize->add_control( 'footer_copyright', array(
+		'label'   => __( 'Copyright Text', 'kx' ),
+		'section' => 'footer_settings',
+		'type'    => 'text',
+	) );
+
+	// Social Media Section
+	$wp_customize->add_section( 'social_media', array(
+		'title'    => __( 'Social Media Links', 'kx' ),
+		'priority' => 121,
+	) );
+
+	// Social Media Links
+	$social_platforms = array(
+		'facebook'  => 'Facebook',
+		'twitter'   => 'Twitter',
+		'instagram' => 'Instagram',
+		'linkedin'  => 'LinkedIn',
+		'youtube'   => 'YouTube',
+		'whatsapp'  => 'WhatsApp',
+	);
+
+	foreach ( $social_platforms as $platform => $label ) {
+		$wp_customize->add_setting( "social_{$platform}", array(
+			'default'           => '',
+			'sanitize_callback' => 'esc_url_raw',
+		) );
+
+		$wp_customize->add_control( "social_{$platform}", array(
+			'label'   => sprintf( __( '%s URL', 'kx' ), $label ),
+			'section' => 'social_media',
+			'type'    => 'url',
+		) );
+	}
+}
+add_action( 'customize_register', 'kx_customize_register' );
 
 // auto-include theme's /inc/ files see utilities/auto-include-files.php
 require_once get_template_directory() . '/utilities/utilities.php';

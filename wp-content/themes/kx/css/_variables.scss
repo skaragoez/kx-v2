@@ -105,6 +105,13 @@ $breakpoints: map-merge($breakpoints, (
 @import "../utilities/css/functions/dec2hex";
 
 $Icont: ();
-@each $icon in () {
+@each $icon in (
+    facebook,
+    linkedin,
+    twitter,
+    instagram,
+    youtube,
+    whatsapp,
+) {
   $Icont: map-merge($Icont, ($icon: unquote("\"#{\f1+dec2hex(length($Icont) + 1)}\"")));
 }
