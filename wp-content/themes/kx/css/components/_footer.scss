@@ -142,25 +142,21 @@
           margin-top: 2px;
           
           // Contact icons using CSS content
-          &.phone-icon::before {
-            content: "\f322"; // Phone icon
-            font-family: dashicons;
-            font-size: 18px;
-            color: $orange;
+          &.phone-icon {
+            @include icon-before(phone);
           }
           
-          &.email-icon::before {
-            content: "\f465"; // Email icon
-            font-family: dashicons;
-            font-size: 18px;
-            color: $orange;
+          &.email-icon {
+            @include icon-before(email);
           }
           
-          &.location-icon::before {
-            content: "\f230"; // Location icon
-            font-family: dashicons;
-            font-size: 18px;
+          &.location-icon {
+            @include icon-before(location);
+          }
+
+          &:before {
             color: $orange;
+            font-size: rem(24px);
           }
         }
         

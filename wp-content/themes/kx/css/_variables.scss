@@ -106,8 +106,11 @@ $breakpoints: map-merge($breakpoints, (
 
 $Icont: ();
 @each $icon in (
+    email,
     facebook,
-    linkedin
+    linkedin,
+    location,
+    phone
 ) {
   $index: length($Icont) + 1;
   $hex-value: dec2hex($index);
