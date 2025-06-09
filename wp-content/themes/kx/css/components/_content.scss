@@ -1,5 +1,6 @@
 section {
     padding-block: fluid(rem(20px), rem(65px));
+    overflow-x: clip;
 }
 
 .hero {

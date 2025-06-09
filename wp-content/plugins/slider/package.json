@@ -1,0 +1,41 @@
+{
+  "name": "slider",
+  "version": "3.4.7",
+  "description": "Swiper goes Gutenberg",
+  "author": "stefan.kaesche@artcom-venutre.de",
+  "license": "MIT",
+  "main": "build/index.js",
+  "scripts": {
+    "assets": "npm run assets:swiper",
+    "assets:swiper": "cp node_modules/swiper/swiper-bundle.min.js lib/swiper/swiper-bundle.min.js & cp node_modules/swiper/swiper-bundle.min.js.map lib/swiper/swiper-bundle.min.js.map & cp node_modules/swiper/swiper-bundle.min.css lib/swiper/swiper-bundle.min.css & cp node_modules/swiper/LICENSE lib/swiper/LICENSE",
+    "watch": "wp-scripts start src/block.js & npm run watch:css & npm run watch:js",
+    "build": "(wp-scripts build src/block.js && npm run compile:css && npm run compile:js) && gulp build",
+    "watch:css": "node-sass css/ -o css/ --source-map true --output-style expanded --indent-type tab --indent-width 1 -w",
+    "watch:js": "babel js -d js --out-file-extension .min.js --source-maps --no-comments --ignore=js/*.min.js --presets=@babel/preset-env --watch",
+    "compile:css": "node-sass css/ -o css/ --output-style compressed",
+    "compile:js": "babel js -d js --out-file-extension .min.js --no-comments --ignore=js/*.min.js --presets=@babel/preset-env,babel-preset-minify",
+    "i18n:scan": "npm run i18n:pot && npm run i18n:po",
+    "i18n:pot": "wp i18n make-pot . languages/slider.pot --exclude=src,dist,node_modules,**/*.min.*",
+    "i18n:po": "wp i18n update-po languages/slider.pot",
+    "i18n:create": "npm run i18n:mo & npm run i18n:json",
+    "i18n:mo": "wp i18n make-mo languages",
+    "i18n:json": "wp i18n make-json languages --no-purge"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.21.5",
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.5",
+    "@wordpress/icons": "^9.24.0",
+    "@wordpress/scripts": "^26.4.0",
+    "babel-preset-minify": "^0.5.2",
+    "del": "^6.1.0",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-gettext": "^0.3.0",
+    "gulp-replace": "^1.1.4",
+    "node-sass": "^9.0.0"
+  },
+  "dependencies": {
+    "swiper": "^11.1.14"
+  }
+}

@@ -1,0 +1,22 @@
+.swiper {
+  &-overflow-visible {
+    overflow: visible;
+  }
+
+  &-slide {
+    box-sizing: border-box;
+
+    > :first-child { margin-top: 0; }
+    > :last-child { margin-bottom: 0; }
+  }
+
+  &[data-swiper*='"slidesPerView":"auto"'] {
+    .swiper-slide {
+      width: auto;
+    }
+  }
+
+  &-lock .swiper-ui {
+    display: none;
+  }
+}
