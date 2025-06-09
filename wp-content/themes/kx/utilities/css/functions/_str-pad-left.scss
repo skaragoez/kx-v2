@@ -1,0 +1,11 @@
+/**
+ * Pad string from left with specified character.
+ */
+
+@function str-pad-left($string, $length, $pad: "0") {
+  $string: "#{$string}";
+  @while str-length($string) < $length {
+    $string: $pad + $string;
+  }
+  @return $string;
+} 

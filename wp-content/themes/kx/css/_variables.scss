@@ -107,11 +107,10 @@ $breakpoints: map-merge($breakpoints, (
 $Icont: ();
 @each $icon in (
     facebook,
-    linkedin,
-    twitter,
-    instagram,
-    youtube,
-    whatsapp,
+    linkedin
 ) {
-  $Icont: map-merge($Icont, ($icon: unquote("\"#{\f1+dec2hex(length($Icont) + 1)}\"")));
+  $index: length($Icont) + 1;
+  $hex-value: dec2hex($index);
+  $unicode: unquote("\"\\f1" + if(str-length($hex-value) == 1, "0" + $hex-value, $hex-value) + "\"");
+  $Icont: map-merge($Icont, ($icon: $unicode));
 }
