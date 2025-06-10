@@ -100,6 +100,7 @@ select {
   &:focus {
     outline: none;
     border: 2px solid #FC7016;
+    box-shadow: 0 0 0 3px rgba(252, 112, 22, 0.1);
   }
 }
 
@@ -110,4 +111,177 @@ input[type="radio"] {
 
 textarea {
   resize: vertical;
+}
+
+// ===== Contact Form 7 Specific Styles =====
+
+// Form sections for structured forms
+.form-section {
+  margin-bottom: 25px;
+
+  p {
+    margin-bottom: 10px;
+  }
+
+  strong {
+    font-family: $font-family-base;
+    font-weight: 600;
+    color: $font-color-text;
+    margin-bottom: 15px;
+    display: block;
+  }
+
+  label {
+    font-weight: 600;
+    color: $font-color-text;
+    margin-bottom: 8px;
+    display: block;
+    font-size: 14px;
+  }
+}
+
+// Conditional Fields
+.conditional-field {
+  transition: opacity 0.3s ease-in-out;
+
+  &.hidden {
+    display: none !important;
+  }
+}
+
+// Radio Button Service Selection
+.service-selection {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 15px;
+
+  .wpcf7-list-item {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      border-color: #FC7016;
+      background-color: #fff;
+    }
+
+    input[type="radio"] {
+      width: auto;
+      margin-right: 12px;
+      accent-color: #FC7016;
+    }
+  }
+
+  .wpcf7-list-item-label {
+    font-weight: 500;
+    color: $font-color-text;
+    cursor: pointer;
+    margin: 0;
+  }
+
+  // Responsive Design
+  @media (min-width: 768px) {
+    flex-direction: row;
+    gap: 20px;
+
+    .wpcf7-list-item {
+      flex: 1;
+      justify-content: center;
+      text-align: center;
+    }
+  }
+}
+
+// Acceptance Checkbox Section
+.acceptance-section {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #e9ecef;
+
+  .acceptance-checkbox {
+    .wpcf7-list-item {
+      margin: 0;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    input[type="checkbox"] {
+      width: auto;
+      margin-right: 12px;
+      margin-top: 2px;
+      accent-color: #FC7016;
+    }
+
+    label {
+      font-size: 13px;
+      line-height: 1.4;
+      color: #666;
+      margin: 0;
+      cursor: pointer;
+    }
+  }
+}
+
+// Submit Button specific styles (extending base button)
+.submit-button {
+  @extend %button;
+  width: 100%;
+  max-width: 300px;
+  margin: 20px auto 0;
+  display: block;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  @media (min-width: 768px) {
+    width: auto;
+    min-width: 300px;
+  }
+}
+
+// Contact Form 7 Error and Validation Styling
+.wpcf7-form {
+  .wpcf7-not-valid {
+    border-color: #dc3545 !important;
+  }
+
+  .wpcf7-response-output {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: 500;
+  }
+
+  .wpcf7-mail-sent-ok {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+  }
+
+  .wpcf7-validation-errors {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+  }
+
+  // Honeypot field styling (SPAM protection)
+  .wpcf7-form-control-wrap {
+    position: relative;
+  }
+
+  input[type="text"]:not(.form-control),
+  input[type="email"]:not(.form-control) {
+    position: absolute;
+    left: -9999px;
+    visibility: hidden;
+  }
 }

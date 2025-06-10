@@ -1,0 +1,46 @@
+<div class="form-section">
+    <p><strong>Hangi ÜCRETSİZ hizmeti istiyorsunuz?</strong></p>
+    <p class="has-normal-font-size">24 Saat içinde Rapor elinizde.</p>
+    [radio service-type class:service-selection "Website Analizi" "Sosyal Medya Analizi"]
+</div>
+
+<div class="form-section conditional-field" id="website-field" style="display: none;">
+    <p>
+        <label for="website">Website URL'si*</label>
+        [url website id:website class:form-control placeholder "https://website-adresiniz.com"]
+    </p>
+</div>
+
+<div class="form-section conditional-field" id="social-media-field" style="display: none;">
+    <p>
+        <label for="social-media">Sosyal Medya Hesabı*</label>
+        [text social-media id:social-media class:form-control placeholder "Instagram, Facebook, LinkedIn, vb."]
+    </p>
+</div>
+
+<div class="form-section">
+    <p>
+        <label for="email">E-posta Adresi*</label>
+        [email* email id:email class:form-control placeholder "E-posta adresiniz"]
+    </p>
+</div>
+
+<div class="form-section">
+    <p>
+        <label for="phone">Telefon Numarası (İsteğe bağlı)</label>
+        [tel phone id:phone class:form-control placeholder "Telefon numaranız"]
+    </p>
+</div>
+
+<div class="form-section acceptance-section">
+    <p>
+        [acceptance acceptance-terms class:acceptance-checkbox]
+        <label for="acceptance-terms">Kişisel verilerimin işlenmesine ve pazarlama amaçlı iletişim kurulmasına onay veriyorum.</label>
+    </p>
+</div>
+
+<div class="form-section submit-section">
+    <p>
+        [submit class:submit-button "Ücretsiz Raporumu Gönder"]
+    </p>
+</div>

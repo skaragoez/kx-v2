@@ -1,4 +1,3 @@
-// Contact Form 7 - Conditional Fields Logic
 document.addEventListener('DOMContentLoaded', function() {
     // Wait for Contact Form 7 to be fully loaded
     const checkFormReady = setInterval(function() {
@@ -29,10 +28,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const value = selectedValue.value;
 
-            if (value === 'Website Analizi') {
+            if (value === 'Website Optimizasyonu') {
                 showField(websiteField, websiteInput);
                 hideField(socialMediaField, socialMediaInput);
-            } else if (value === 'Sosyal Medya Analizi') {
+            } else if (value === 'Sosyal Medya Optimizasyonu') {
                 hideField(websiteField, websiteInput);
                 showField(socialMediaField, socialMediaInput);
             } else {
@@ -56,8 +55,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 input.setAttribute('required', 'required');
                 input.setAttribute('aria-required', 'true');
                 
-                // Add required class for CF7 validation
-                input.classList.add('wpcf7-validates-as-required');
+                // Update field name to make it required in CF7
+                const currentName = input.getAttribute('name');
+                if (currentName && !currentName.includes('*')) {
+                    // Add required class for CF7 validation
+                    input.classList.add('wpcf7-validates-as-required');
+                }
             }
         }
 
@@ -95,22 +98,6 @@ document.addEventListener('DOMContentLoaded', function() {
             radio.addEventListener('change', updateFields);
         });
 
-        // Make entire list item clickable for radio buttons
-        const listItems = document.querySelectorAll('.service-selection .wpcf7-list-item');
-        listItems.forEach(function(item) {
-            item.addEventListener('click', function(e) {
-                // Only trigger if not clicking directly on the radio button
-                if (e.target.type !== 'radio') {
-                    const radio = item.querySelector('input[type="radio"]');
-                    if (radio) {
-                        radio.checked = true;
-                        // Trigger change event to update conditional fields
-                        radio.dispatchEvent(new Event('change'));
-                    }
-                }
-            });
-        });
-
         // Initial check
         updateFields();
 
@@ -127,6 +114,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle form validation for conditional fields
     document.addEventListener('wpcf7invalid', function(event) {
         const form = event.target;
+        const websiteField = form.querySelector('#website-field');
+        const socialMediaField = form.querySelector('#social-media-field');
         
         // Scroll to first visible error field
         setTimeout(function() {
@@ -142,4 +131,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }, 100);
     });
-});
+}); 

@@ -1,0 +1,205 @@
+/* Contact Form 7 - Optimization Form Styles */
+.form-section {
+    margin-bottom: 25px;
+}
+
+/* Conditional Fields */
+.conditional-field {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.conditional-field.hidden {
+    display: none !important;
+}
+
+.form-section p {
+    margin-bottom: 10px;
+}
+
+.form-section strong {
+    font-family: "Avenir", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* Radio Button Styling */
+.service-selection {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.service-selection .wpcf7-list-item {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.service-selection .wpcf7-list-item:hover {
+    border-color: #FC7016;
+    background-color: #fff;
+}
+
+.service-selection .wpcf7-list-item input[type="radio"] {
+    width: auto;
+    margin-right: 12px;
+    accent-color: #FC7016;
+}
+
+.service-selection .wpcf7-list-item-label {
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    margin: 0;
+}
+
+/* Form Control Styles */
+.form-control {
+    font-family: "Avenir", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    padding: 18px;
+    background-color: #fff;
+    border: 1.5px solid #FC7016;
+    border-radius: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    color: #333;
+    transition: border-color 0.2s;
+}
+
+.form-control::placeholder {
+    color: #8B8B8B;
+    opacity: 1;
+}
+
+.form-control:focus {
+    outline: none;
+    border: 2px solid #FC7016;
+    box-shadow: 0 0 0 3px rgba(252, 112, 22, 0.1);
+}
+
+/* Label Styling */
+.form-section label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+    font-size: 14px;
+}
+
+/* Acceptance Checkbox Section */
+.acceptance-section {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #e9ecef;
+}
+
+.acceptance-checkbox .wpcf7-list-item {
+    margin: 0;
+    display: flex;
+    align-items: flex-start;
+}
+
+.acceptance-checkbox input[type="checkbox"] {
+    width: auto;
+    margin-right: 12px;
+    margin-top: 2px;
+    accent-color: #FC7016;
+}
+
+.acceptance-checkbox label {
+    font-size: 13px;
+    line-height: 1.4;
+    color: #666;
+    margin: 0;
+    cursor: pointer;
+}
+
+/* Submit Button */
+.submit-button {
+    background-color: #FC7016;
+    color: #fff;
+    border: none;
+    padding: 18px 40px;
+    border-radius: 14px;
+    font-family: "Avenir", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    width: 100%;
+    max-width: 300px;
+    margin: 20px auto 0;
+    display: block;
+}
+
+.submit-button:hover {
+    background-color: #000;
+    color: #FC7016;
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .service-selection {
+        flex-direction: row;
+        gap: 20px;
+    }
+    
+    .service-selection .wpcf7-list-item {
+        flex: 1;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .submit-button {
+        width: auto;
+        min-width: 300px;
+    }
+}
+
+/* Error Styling */
+.wpcf7-form .wpcf7-not-valid {
+    border-color: #dc3545 !important;
+}
+
+.wpcf7-form .wpcf7-response-output {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+.wpcf7-form .wpcf7-mail-sent-ok {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
+
+.wpcf7-form .wpcf7-validation-errors {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+}
+
+/* Honeypot field (if used) */
+.wpcf7-form .wpcf7-form-control-wrap {
+    position: relative;
+}
+
+.wpcf7-form input[type="text"]:not(.form-control),
+.wpcf7-form input[type="email"]:not(.form-control) {
+    position: absolute;
+    left: -9999px;
+    visibility: hidden;
+} 
