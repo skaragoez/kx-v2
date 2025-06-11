@@ -206,6 +206,15 @@ textarea {
   border-radius: 10px;
   border: 1px solid #e9ecef;
 
+  > p {
+    display: flex;
+    column-gap: rem(10px);
+
+    label {
+      transform: translateY(4px);
+    }
+  }
+
   .acceptance-checkbox {
     .wpcf7-list-item {
       margin: 0;
@@ -273,11 +282,75 @@ textarea {
     color: #721c24;
   }
 
-  // Honeypot field styling (SPAM protection)
+  // Individual field error messages
+  .wpcf7-not-valid-tip {
+    display: block;
+    background-color: #f8d7da;
+    color: #721c24;
+    font-size: 13px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-top: 8px;
+    border: 1px solid #f5c6cb;
+    font-weight: 500;
+  }
+
+  // Screen reader response (global error list)
+  .screen-reader-response {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+
+    p[role="status"] {
+      margin: 0 0 10px 0;
+      font-weight: 600;
+      color: #721c24;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        color: #721c24;
+        font-size: 14px;
+        margin-bottom: 5px;
+        padding-left: 20px;
+        position: relative;
+
+        &:before {
+          content: "⚠";
+          position: absolute;
+          left: 0;
+          color: #dc3545;
+          font-weight: bold;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        a {
+          color: #721c24;
+          text-decoration: underline;
+
+          &:hover {
+            color: #dc3545;
+          }
+        }
+      }
+    }
+  }
+
+  // Form control wrap styling
   .wpcf7-form-control-wrap {
     position: relative;
   }
 
+  // Honeypot field styling (SPAM protection)
   input[type="text"]:not(.form-control),
   input[type="email"]:not(.form-control) {
     position: absolute;
