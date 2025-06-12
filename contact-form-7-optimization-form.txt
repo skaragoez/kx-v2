@@ -4,19 +4,23 @@
     [radio service-type class:service-selection "Website Analizi" "Sosyal Medya Analizi"]
 </div>
 
-<div class="form-section conditional-field" id="website-field" style="display: none;">
+[group website-group]
+<div class="form-section">
     <p>
         <label for="website">Website URL'si*</label>
-        [url website id:website class:form-control placeholder "https://website-adresiniz.com"]
+        [url* website id:website class:form-control placeholder "https://website-adresiniz.com"]
     </p>
 </div>
+[/group]
 
-<div class="form-section conditional-field" id="social-media-field" style="display: none;">
+[group social-media-group]
+<div class="form-section">
     <p>
         <label for="social-media">Sosyal Medya Hesabı*</label>
-        [text social-media id:social-media class:form-control placeholder "Instagram, Facebook, LinkedIn, vb."]
+        [text* social-media id:social-media class:form-control placeholder "Instagram, Facebook, LinkedIn, vb."]
     </p>
 </div>
+[/group]
 
 <div class="form-section">
     <p>

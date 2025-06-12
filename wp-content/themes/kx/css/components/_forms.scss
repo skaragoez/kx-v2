@@ -140,14 +140,8 @@ textarea {
   }
 }
 
-// Conditional Fields
-.conditional-field {
-  transition: opacity 0.3s ease-in-out;
-
-  &.hidden {
-    display: none !important;
-  }
-}
+// Conditional Fields (handled by plugin)
+// Plugin handles show/hide automatically
 
 // Radio Button Service Selection
 .service-selection {
