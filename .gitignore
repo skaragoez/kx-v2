@@ -51,6 +51,7 @@ build/
 /vendor/
 
 # Ignore backup and temp files
+backup/
 *.bak
 *.tmp
 *.swp
