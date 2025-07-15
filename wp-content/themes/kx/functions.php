@@ -147,74 +147,180 @@ function kx_scripts() {
 add_action( 'wp_enqueue_scripts', 'kx_scripts' );
 
 /**
+ * Get available languages for multilingual footer support.
+ */
+function kx_get_available_languages() {
+	$languages = array();
+	
+	// Check for Bogo
+	if ( function_exists( 'bogo_get_available_languages' ) ) {
+		$bogo_languages = bogo_get_available_languages();
+		foreach ( $bogo_languages as $lang_code ) {
+			$locale_data = bogo_get_language( $lang_code );
+			if ( $locale_data ) {
+				$languages[ $lang_code ] = $locale_data['native_name'];
+			}
+		}
+	}
+	// Fallback to default languages
+	else {
+		$languages = array(
+			'tr' => 'Türkçe',
+			'de' => 'Deutsch',
+			'en' => 'English',
+		);
+	}
+	
+	return $languages;
+}
+
+/**
+ * Get current language for footer content.
+ */
+function kx_get_current_language() {
+	// Check for Bogo
+	if ( function_exists( 'bogo_get_current_locale' ) ) {
+		$locale = bogo_get_current_locale();
+		return substr( $locale, 0, 2 ); // Get first 2 characters (language code)
+	}
+	// Fallback to WordPress locale
+	else {
+		$locale = get_locale();
+		return substr( $locale, 0, 2 ); // Get first 2 characters (language code)
+	}
+}
+
+/**
+ * Get multilingual footer content.
+ */
+function kx_get_footer_content( $field, $default = '' ) {
+	$current_lang = kx_get_current_language();
+	$setting_name = "footer_{$field}_{$current_lang}";
+	
+	// Try language-specific setting first
+	$content = get_theme_mod( $setting_name );
+	
+	// Fallback to default field
+	if ( empty( $content ) ) {
+		$content = get_theme_mod( "footer_{$field}", $default );
+	}
+	
+	return $content;
+}
+
+/**
  * Customize the WordPress Customizer for footer settings.
  */
 function kx_customize_register( $wp_customize ) {
+	$languages = kx_get_available_languages();
+	
 	// Add Footer Section
 	$wp_customize->add_section( 'footer_settings', array(
 		'title'    => __( 'Footer Settings', 'kx' ),
 		'priority' => 120,
 	) );
 
-	// Footer Description
-	$wp_customize->add_setting( 'footer_description', array(
-		'default'           => 'Some footer text about the Agency. Just a little description to help people understand you better',
-		'sanitize_callback' => 'sanitize_textarea_field',
-	) );
+	// Create language-specific fields
+	foreach ( $languages as $lang_code => $lang_name ) {
+		// Language separator
+		$wp_customize->add_setting( "footer_separator_{$lang_code}", array(
+			'sanitize_callback' => 'sanitize_text_field',
+		) );
+		
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, "footer_separator_{$lang_code}", array(
+			'label'       => sprintf( __( '— %s Footer Content —', 'kx' ), $lang_name ),
+			'section'     => 'footer_settings',
+			'type'        => 'hidden',
+		) ) );
 
-	$wp_customize->add_control( 'footer_description', array(
-		'label'   => __( 'Footer Description', 'kx' ),
-		'section' => 'footer_settings',
-		'type'    => 'textarea',
-	) );
+		// Footer Description per language
+		$default_desc = '';
+		if ( $lang_code === 'tr' ) {
+			$default_desc = 'Ajans hakkında kısa bir metin. Bizi daha iyi anlamanıza yardımcı olacak küçük bir açıklama.';
+		} elseif ( $lang_code === 'de' ) {
+			$default_desc = 'Ein kurzer Text über die Agentur. Nur eine kleine Beschreibung, um Ihnen zu helfen, uns besser zu verstehen.';
+		} else {
+			$default_desc = 'Some footer text about the Agency. Just a little description to help people understand you better';
+		}
 
-	// Footer Phone
-	$wp_customize->add_setting( 'footer_phone', array(
-		'default'           => '+49 123 456 789',
-		'sanitize_callback' => 'sanitize_text_field',
-	) );
+		$wp_customize->add_setting( "footer_description_{$lang_code}", array(
+			'default'           => $default_desc,
+			'sanitize_callback' => 'sanitize_textarea_field',
+		) );
 
-	$wp_customize->add_control( 'footer_phone', array(
-		'label'   => __( 'Phone Number', 'kx' ),
-		'section' => 'footer_settings',
-		'type'    => 'text',
-	) );
+		$wp_customize->add_control( "footer_description_{$lang_code}", array(
+			'label'       => sprintf( __( 'Footer Description (%s)', 'kx' ), $lang_name ),
+			'section'     => 'footer_settings',
+			'type'        => 'textarea',
+		) );
 
-	// Footer Email
-	$wp_customize->add_setting( 'footer_email', array(
-		'default'           => 'info@komoxti.com',
-		'sanitize_callback' => 'sanitize_email',
-	) );
+		// Footer Phone per language
+		$default_phone = '';
+		if ( $lang_code === 'tr' ) {
+			$default_phone = '+90 212 123 4567';
+		} elseif ( $lang_code === 'de' ) {
+			$default_phone = '+49 123 456 789';
+		} else {
+			$default_phone = '+1 555 123 4567';
+		}
+		
+		$wp_customize->add_setting( "footer_phone_{$lang_code}", array(
+			'default'           => $default_phone,
+			'sanitize_callback' => 'sanitize_text_field',
+		) );
 
-	$wp_customize->add_control( 'footer_email', array(
-		'label'   => __( 'Email Address', 'kx' ),
-		'section' => 'footer_settings',
-		'type'    => 'email',
-	) );
+		$wp_customize->add_control( "footer_phone_{$lang_code}", array(
+			'label'   => sprintf( __( 'Phone Number (%s)', 'kx' ), $lang_name ),
+			'section' => 'footer_settings',
+			'type'    => 'text',
+		) );
 
-	// Footer Address
-	$wp_customize->add_setting( 'footer_address', array(
-		'default'           => '',
-		'sanitize_callback' => 'sanitize_textarea_field',
-	) );
+		// Footer Email per language
+		$default_email = '';
+		if ( $lang_code === 'tr' ) {
+			$default_email = 'info@komoxti.com.tr';
+		} elseif ( $lang_code === 'de' ) {
+			$default_email = 'info@komoxti.de';
+		} else {
+			$default_email = 'info@komoxti.com';
+		}
+		
+		$wp_customize->add_setting( "footer_email_{$lang_code}", array(
+			'default'           => $default_email,
+			'sanitize_callback' => 'sanitize_email',
+		) );
 
-	$wp_customize->add_control( 'footer_address', array(
-		'label'       => __( 'Address (Optional)', 'kx' ),
-		'description' => __( 'Enter your business address. Leave empty to hide.', 'kx' ),
-		'section'     => 'footer_settings',
-		'type'        => 'textarea',
-	) );
+		$wp_customize->add_control( "footer_email_{$lang_code}", array(
+			'label'   => sprintf( __( 'Email Address (%s)', 'kx' ), $lang_name ),
+			'section' => 'footer_settings',
+			'type'    => 'email',
+		) );
 
-	// Footer Copyright
+		// Footer Address per language
+		$wp_customize->add_setting( "footer_address_{$lang_code}", array(
+			'default'           => '',
+			'sanitize_callback' => 'sanitize_textarea_field',
+		) );
+
+		$wp_customize->add_control( "footer_address_{$lang_code}", array(
+			'label'   => sprintf( __( 'Address (%s)', 'kx' ), $lang_name ),
+			'section' => 'footer_settings',
+			'type'    => 'textarea',
+		) );
+	}
+
+	// Footer Copyright (shared)
 	$wp_customize->add_setting( 'footer_copyright', array(
-		'default'           => sprintf( __( 'Copyright %s %d', 'kx' ), get_bloginfo( 'name' ), date( 'Y' ) ),
+		/* translators: 1: site name, 2: current year */
+		'default'           => sprintf( __( 'Copyright %1$s %2$d', 'kx' ), get_bloginfo( 'name' ), date( 'Y' ) ),
 		'sanitize_callback' => 'sanitize_text_field',
 	) );
 
 	$wp_customize->add_control( 'footer_copyright', array(
-		'label'   => __( 'Copyright Text', 'kx' ),
-		'section' => 'footer_settings',
-		'type'    => 'text',
+		'label'       => __( 'Copyright Text (All Languages)', 'kx' ),
+		'description' => __( 'This text will be automatically translated.', 'kx' ),
+		'section'     => 'footer_settings',
+		'type'        => 'text',
 	) );
 
 	// Social Media Section
@@ -240,6 +346,7 @@ function kx_customize_register( $wp_customize ) {
 		) );
 
 		$wp_customize->add_control( "social_{$platform}", array(
+			/* translators: %s: social media platform name */
 			'label'   => sprintf( __( '%s URL', 'kx' ), $label ),
 			'section' => 'social_media',
 			'type'    => 'url',

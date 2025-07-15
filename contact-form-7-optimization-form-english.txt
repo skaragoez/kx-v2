@@ -1,0 +1,50 @@
+<div class="form-section">
+    <p><strong>Which FREE service would you like?</strong></p>
+    <p class="has-normal-font-size">Your report will be ready within 24 hours.</p>
+    [radio service-type class:service-selection "Website Analysis" "Social Media Analysis"]
+</div>
+
+[group website-group]
+<div class="form-section">
+    <p>
+        <label for="website">Website URL*</label>
+        [url* website id:website class:form-control placeholder "https://your-website.com"]
+    </p>
+</div>
+[/group]
+
+[group social-media-group]
+<div class="form-section">
+    <p>
+        <label for="social-media">Social Media Account*</label>
+        [text* social-media id:social-media class:form-control placeholder "Instagram, Facebook, LinkedIn, etc."]
+    </p>
+</div>
+[/group]
+
+<div class="form-section">
+    <p>
+        <label for="email">Email Address*</label>
+        [email* email id:email class:form-control placeholder "Your email address"]
+    </p>
+</div>
+
+<div class="form-section">
+    <p>
+        <label for="phone">Phone Number (Optional)</label>
+        [tel phone id:phone class:form-control placeholder "Your phone number"]
+    </p>
+</div>
+
+<div class="form-section acceptance-section">
+    <p>
+        [acceptance acceptance-terms class:acceptance-checkbox]
+        <label for="acceptance-terms">I agree to the processing of my personal data and to being contacted for marketing purposes.</label>
+    </p>
+</div>
+
+<div class="form-section submit-section">
+    <p>
+        [submit class:submit-button "Get My Free Report"]
+    </p>
+</div> 

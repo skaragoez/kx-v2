@@ -1,185 +1,112 @@
-# Copyright (C) 2024 artcom venture GmbH
-# This file is distributed under the GNU General Public License v2 or later.
+# Copyright (C) 2024 KX Theme
+# This file is distributed under the same license as the KX Theme package.
 msgid ""
 msgstr ""
-"Project-Id-Version: _s 1.0.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/_s\n"
+"Project-Id-Version: KX Theme\n"
+"POT-Creation-Date: 2024-01-01 12:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-03-01T08:24:09+00:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.8.1\n"
-"X-Domain: _s\n"
+"X-Generator: WordPress\n"
+"X-Domain: kx\n"
 
-#. Theme Name of the theme
-msgid "_s"
+#: footer.php:25
+msgid "Some footer text about the Agency. Just a little description to help people understand you better"
 msgstr ""
 
-#. Description of the theme
-msgid "I'm the next, most awesome, WordPress theme out there."
+#: footer.php:33
+msgid "Facebook"
 msgstr ""
 
-#. Author of the theme
-msgid "artcom venture GmbH"
+#: footer.php:37
+msgid "Twitter"
 msgstr ""
 
-#. Author URI of the theme
-msgid "https://www.artcom-venture.de"
+#: footer.php:41
+msgid "Instagram"
 msgstr ""
 
-#: 404.php:17
-msgid "Oops! That page can&rsquo;t be found."
+#: footer.php:45
+msgid "LinkedIn"
 msgstr ""
 
-#: 404.php:21
-msgid "It looks like nothing was found at this location."
+#: footer.php:49
+msgid "YouTube"
 msgstr ""
 
-#: 404.php:23
-msgid "Maybe try one of the links below%s?"
+#: footer.php:53
+msgid "WhatsApp"
 msgstr ""
 
-#: 404.php:24
-msgid "or a search"
+#: footer.php:67
+msgid "Contact"
 msgstr ""
 
-#: 404.php:33
-msgid "Most Used Categories"
+#: footer.php:70
+msgid "+49 123 456 789"
 msgstr ""
 
-#. translators: %1$s: smiley
-#: 404.php:46
-msgid "Try looking in the monthly archives. %1$s"
+#: footer.php:71
+msgid "info@komoxti.com"
 msgstr ""
 
-#. translators: 1: title.
-#: comments.php:35
-msgid "One thought on &ldquo;%1$s&rdquo;"
+#: footer.php:95
+#: functions.php:212
+msgid "Copyright %s %d"
 msgstr ""
 
-#. translators: 1: comment count number, 2: title.
-#: comments.php:41
-msgctxt "comments title"
-msgid "%1$s thought on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
-msgstr[0] ""
-msgstr[1] ""
-
-#: comments.php:68
-msgid "Comments are closed."
+#: functions.php:155
+msgid "Footer Settings"
 msgstr ""
 
-#: functions.php:47
-msgid "Navigation"
+#: functions.php:164
+msgid "Footer Description"
 msgstr ""
 
-#: functions.php:48
-msgid "Footer"
+#: functions.php:165
+msgid "This text supports multilingual plugins like WPML/Polylang for translation."
 msgstr ""
 
-#: functions.php:121
-msgid "Sidebar"
+#: functions.php:172
+msgid "Phone Number"
 msgstr ""
 
-#: functions.php:123
-msgid "Add widgets here."
+#: functions.php:173
+msgid "Phone number can be translated for different regions."
 msgstr ""
 
-#: header.php:26
-msgid "Skip to content"
+#: functions.php:181
+msgid "Email Address"
 msgstr ""
 
-#: header.php:49
-msgid "Primary Menu"
+#: functions.php:182
+msgid "Email address can be different for each language."
 msgstr ""
 
-#. translators: %s: post date.
-#: inc/template-tags.php:30
-msgctxt "post date"
-msgid "Posted on %s"
+#: functions.php:189
+msgid "Address (Optional)"
 msgstr ""
 
-#. translators: %s: post author.
-#: inc/template-tags.php:46
-msgctxt "post author"
-msgid "by %s"
+#: functions.php:190
+msgid "Enter your business address. Supports multiple languages. Leave empty to hide."
 msgstr ""
 
-#. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:63
-msgid ", "
+#: functions.php:197
+msgid "Copyright Text"
 msgstr ""
 
-#. translators: 1: list of categories.
-#: inc/template-tags.php:66
-msgid "Posted in %1$s"
+#: functions.php:198
+msgid "Copyright text that will be translated automatically."
 msgstr ""
 
-#. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:70
-msgctxt "list item separator"
-msgid ", "
+#: functions.php:201
+msgid "Social Media Links"
 msgstr ""
 
-#. translators: 1: list of tags.
-#: inc/template-tags.php:73
-msgid "Tagged %1$s"
-msgstr ""
-
-#. translators: %s: post title
-#: inc/template-tags.php:83
-msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
-msgstr ""
-
-#. translators: %s: Name of current post. Only visible to screen readers
-#: inc/template-tags.php:100
-#: template-parts/content-page.php:39
-msgid "Edit<span class=\"screen-reader-text\"> %s</span>"
-msgstr ""
-
-#. translators: %s: search query.
-#: search.php:21
-msgid "Search Results for: %s"
-msgstr ""
-
-#: single.php:23
-msgid "Previous:"
-msgstr ""
-
-#: single.php:24
-msgid "Next:"
-msgstr ""
-
-#: template-parts/content-none.php:14
-msgid "Nothing Found"
-msgstr ""
-
-#. translators: 1: link to WP admin new post page.
-#: template-parts/content-none.php:24
-msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
-msgstr ""
-
-#: template-parts/content-none.php:37
-msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
-msgstr ""
-
-#: template-parts/content-none.php:42
-msgid "It seems we can&rsquo;t find what you&rsquo;re looking for."
-msgstr ""
-
-#: template-parts/content-none.php:43
-msgid "Perhaps searching can help."
-msgstr ""
-
-#: template-parts/content-page.php:25
-#: template-parts/content.php:53
-msgid "Pages:"
-msgstr ""
-
-#. translators: %s: Name of current post. Only visible to screen readers
-#: template-parts/content.php:40
-msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
-msgstr ""
+#: functions.php:212
+msgid "%s URL"
+msgstr "" 

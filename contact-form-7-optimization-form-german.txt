@@ -1,0 +1,50 @@
+<div class="form-section">
+    <p><strong>Welchen KOSTENLOSEN Service möchten Sie?</strong></p>
+    <p class="has-normal-font-size">Ihr Bericht liegt innerhalb von 24 Stunden vor.</p>
+    [radio service-type class:service-selection "Website-Analyse" "Social Media-Analyse"]
+</div>
+
+[group website-group]
+<div class="form-section">
+    <p>
+        <label for="website">Website-URL*</label>
+        [url* website id:website class:form-control placeholder "https://ihre-website.de"]
+    </p>
+</div>
+[/group]
+
+[group social-media-group]
+<div class="form-section">
+    <p>
+        <label for="social-media">Social Media-Account*</label>
+        [text* social-media id:social-media class:form-control placeholder "Instagram, Facebook, LinkedIn, etc."]
+    </p>
+</div>
+[/group]
+
+<div class="form-section">
+    <p>
+        <label for="email">E-Mail-Adresse*</label>
+        [email* email id:email class:form-control placeholder "Ihre E-Mail-Adresse"]
+    </p>
+</div>
+
+<div class="form-section">
+    <p>
+        <label for="phone">Telefonnummer (Optional)</label>
+        [tel phone id:phone class:form-control placeholder "Ihre Telefonnummer"]
+    </p>
+</div>
+
+<div class="form-section acceptance-section">
+    <p>
+        [acceptance acceptance-terms class:acceptance-checkbox]
+        <label for="acceptance-terms">Ich stimme der Verarbeitung meiner personenbezogenen Daten und der Kontaktaufnahme zu Marketingzwecken zu.</label>
+    </p>
+</div>
+
+<div class="form-section submit-section">
+    <p>
+        [submit class:submit-button "Kostenlosen Bericht anfordern"]
+    </p>
+</div> 

@@ -22,6 +22,14 @@ section {
         }
     }
 
+    .wp-block-image {
+        display: flex;
+
+        img {
+            margin-left: auto;
+        }
+    }
+
 }
 
 .facts {

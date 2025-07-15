@@ -25,7 +25,7 @@
 					
 					<p class="footer-description">
 						<?php 
-						$footer_description = get_theme_mod( 'footer_description', 'Some footer text about the Agency. Just a little description to help people understand you better' );
+						$footer_description = kx_get_footer_content( 'description', __( 'Some footer text about the Agency. Just a little description to help people understand you better', 'kx' ) );
 						echo esc_html( $footer_description );
 						?>
 					</p>
@@ -36,27 +36,27 @@
 						$social_links = array(
 							'facebook' => array(
 								'url' => get_theme_mod( 'social_facebook', '' ),
-								'label' => 'Facebook'
+								'label' => __( 'Facebook', 'kx' )
 							),
 							'twitter' => array(
 								'url' => get_theme_mod( 'social_twitter', '' ),
-								'label' => 'Twitter'
+								'label' => __( 'Twitter', 'kx' )
 							),
 							'instagram' => array(
 								'url' => get_theme_mod( 'social_instagram', '' ),
-								'label' => 'Instagram'
+								'label' => __( 'Instagram', 'kx' )
 							),
 							'linkedin' => array(
 								'url' => get_theme_mod( 'social_linkedin', '' ),
-								'label' => 'LinkedIn'
+								'label' => __( 'LinkedIn', 'kx' )
 							),
 							'youtube' => array(
 								'url' => get_theme_mod( 'social_youtube', '' ),
-								'label' => 'YouTube'
+								'label' => __( 'YouTube', 'kx' )
 							),
 							'whatsapp' => array(
 								'url' => get_theme_mod( 'social_whatsapp', '' ),
-								'label' => 'WhatsApp'
+								'label' => __( 'WhatsApp', 'kx' )
 							),
 						);
 						
@@ -74,11 +74,11 @@
 				</div>
 
 				<div class="footer-contact">
-					<h3 class="footer-section-title"><?php _e( 'Kontakt', 'kx' ); ?></h3>
+					<h3 class="footer-section-title"><?php _e( 'Contact', 'kx' ); ?></h3>
 					<div class="footer-contact-info">
 						<?php 
-						$phone = get_theme_mod( 'footer_phone', '+49 123 456 789' );
-						$email = get_theme_mod( 'footer_email', 'info@komoxti.com' );
+						$phone = kx_get_footer_content( 'phone', __( '+49 123 456 789', 'kx' ) );
+						$email = kx_get_footer_content( 'email', __( 'info@komoxti.com', 'kx' ) );
 						
 						if ( $phone ) : ?>
 							<div class="contact-item">
@@ -99,7 +99,7 @@
 						<?php endif; ?>
 						
 						<?php 
-						$footer_address = get_theme_mod( 'footer_address', '' );
+						$footer_address = kx_get_footer_content( 'address', '' );
 						if ( $footer_address ) : ?>
 							<div class="contact-item address-item">
 								<span class="contact-icon location-icon"></span>
@@ -115,7 +115,8 @@
 			<div class="footer-bottom">
 				<div class="footer-copyright">
 					<?php 
-					$copyright_text = get_theme_mod( 'footer_copyright', sprintf( __( 'Copyright %s %d', 'kx' ), get_bloginfo( 'name' ), date( 'Y' ) ) );
+					/* translators: 1: site name, 2: current year */
+					$copyright_text = get_theme_mod( 'footer_copyright', sprintf( __( 'Copyright %1$s %2$d', 'kx' ), get_bloginfo( 'name' ), date( 'Y' ) ) );
 					echo esc_html( $copyright_text );
 					?>
 				</div>
