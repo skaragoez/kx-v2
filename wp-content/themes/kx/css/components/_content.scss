@@ -33,24 +33,61 @@ section {
 }
 
 .facts {
-    > .wp-block-group {
-        align-items: stretch;
+
+    @include media-breakpoint-down(lg) {
+
+        background: transparent !important;
 
         > .wp-block-group {
-            display: flex;
             flex-direction: column;
+    
+            > figure {
+                background-color: $light-blue;
+                display: block;
+                border-radius: 100%;
+                aspect-ratio: 1 / 1;
+                overflow: hidden;
+    
+                + .wp-block-group {                    
+                    h2, p {
+                        text-align: center;
+                    }
 
-            > * {
-                width: 100%;
-            }
+                    .wp-block-columns {
+                        justify-content: center;
+                        row-gap: rem(15px);
 
-            .wp-block-columns {
-                justify-content: center;
-                height: 60%;
-                margin-top: auto;
-                margin-bottom: 0;
+                        .wp-block-column {
+                            flex-basis: 33.33% !important;
+                            max-width: 33.33% !important;
+                        }
+                    }
+                }
             }
+    
         }
+    }
 
+    @include media-breakpoint-up(lg) {
+        > .wp-block-group {
+            align-items: stretch;
+    
+            > .wp-block-group {
+                display: flex;
+                flex-direction: column;
+    
+                > * {
+                    width: 100%;
+                }
+    
+                .wp-block-columns {
+                    justify-content: center;
+                    height: 60%;
+                    margin-top: auto;
+                    margin-bottom: 0;
+                }
+            }
+    
+        }   
     }
 }
