@@ -1,0 +1,88 @@
+/* ==========================================================================
+   Newsticker Block - Mobile Only Animation
+   ========================================================================== */
+
+.wp-block-group.newsticker {
+    position: relative;
+    width: 100%;
+    background: transparent;
+    
+    .newsticker-content {
+        display: flex !important;
+        align-items: center;
+        gap: 3rem; // Desktop: Normal display
+        
+        figure {
+            flex-shrink: 0;
+            margin: 0;
+            
+            img {
+                display: block;
+                max-height: 60px; // Desktop size
+                // width: auto !important;
+                object-fit: contain !important;
+                transition: opacity 0.3s ease;
+            }
+        }
+    }
+    
+    // Desktop: Static display with hover effect
+    @include not-mobile {
+        .newsticker-content {
+            flex-wrap: wrap;
+            justify-content: center;
+            
+            &:hover img {
+                opacity: 0.8;
+            }
+        }
+    }
+    
+    // Mobile: Activate newsticker
+    @include mobile {
+        overflow: hidden !important;
+        
+        .newsticker-content {
+            white-space: nowrap;
+            will-change: transform;
+            gap: 2rem;
+            flex-wrap: nowrap;
+            
+            figure img {
+                max-height: 45px;
+            }
+        }
+        
+        // Hover effect for better UX on touch devices
+        &:hover .newsticker-content {
+            transition: transform 0.3s ease;
+            
+            img {
+                opacity: 0.8;
+            }
+        }
+    }
+}
+
+/* Accessibility: Respect user's motion preferences - mobile only */
+@media (prefers-reduced-motion: reduce) {
+    @include mobile {
+        .wp-block-group.newsticker .newsticker-content {
+            animation: none !important;
+            transform: none !important;
+        }
+    }
+}
+
+/* Print styles */
+@media print {
+    .wp-block-group.newsticker {
+        overflow: visible;
+        
+        .newsticker-content {
+            white-space: normal;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+    }
+}
