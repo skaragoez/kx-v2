@@ -1,22 +1,90 @@
+# Copyright (C) 2025 artcom venture GmbH
+# This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
 "Project-Id-Version: _s 1.10.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/kx\n"
-"Last-Translator: Developer\n"
-"Language-Team: English\n"
+"Last-Translator: Turkish Translator <translator@example.com>\n"
+"Language-Team: Turkish <tr@li.org>\n"
+"Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-06-12T17:54:14+00:00\n"
-"PO-Revision-Date: 2025-06-12T17:54:14+00:00\n"
-"Language: en_US\n"
+"POT-Creation-Date: 2025-08-05T09:47:16+00:00\n"
+"PO-Revision-Date: 2025-01-27 12:00+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: kx\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. Theme Name of the theme
+#: style.css
+msgid "_s"
+msgstr "_s"
+
+#. Description of the theme
+#: style.css
+msgid "I'm the next, most awesome, WordPress theme out there."
+msgstr "Ben bir sonraki, en harika WordPress temasıyım."
+
+#. Author of the theme
+#: style.css
+msgid "artcom venture GmbH"
+msgstr "artcom venture GmbH"
+
+#. Author URI of the theme
+#: style.css
+msgid "https://www.artcom-venture.de"
+msgstr "https://www.artcom-venture.de"
+
+#: 404.php:27
+msgid "Oops! That page can&rsquo;t be found."
+msgstr "Ups! Bu sayfa bulunamadı."
+
+#: 404.php:31
+msgid "It looks like nothing was found at this location."
+msgstr "Bu konumda hiçbir şey bulunamadı."
+
+#: 404.php:33
+#, php-format
+msgid "Maybe try one of the links below%s?"
+msgstr "Belki aşağıdaki bağlantılardan birini deneyebilirsiniz%s?"
+
+#: 404.php:34
+msgid "or a search"
+msgstr "veya arama"
+
+#: 404.php:43
+msgid "Most Used Categories"
+msgstr "En Çok Kullanılan Kategoriler"
+
+#. translators: %1$s: smiley
+#: 404.php:56
+#, php-format
+msgid "Try looking in the monthly archives. %1$s"
+msgstr "Aylık arşivlere bakmayı deneyin. %1$s"
+
+#. translators: 1: title.
+#: comments.php:35
+#, php-format
+msgid "One thought on &ldquo;%1$s&rdquo;"
+msgstr "&ldquo;%1$s&rdquo; üzerine bir düşünce"
+
+#. translators: 1: comment count number, 2: title.
+#: comments.php:41
+#, php-format
+msgctxt "comments title"
+msgid "%1$s thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] "&ldquo;%2$s&rdquo; üzerine %1$s düşünce"
+msgstr[1] "&ldquo;%2$s&rdquo; üzerine %1$s düşünce"
+
+#: comments.php:68
+msgid "Comments are closed."
+msgstr "Yorumlar kapalı."
 
 #: footer.php:28
 msgid "Some footer text about the Agency. Just a little description to help people understand you better"
-msgstr "Some footer text about the Agency. Just a little description to help people understand you better"
+msgstr "Ajans hakkında bazı altbilgi metinleri. İnsanların sizi daha iyi anlamasına yardımcı olacak küçük bir açıklama"
 
 #: footer.php:39
 msgid "Facebook"
@@ -44,11 +112,11 @@ msgstr "WhatsApp"
 
 #: footer.php:77
 msgid "Contact"
-msgstr "Contact"
+msgstr "İletişim"
 
 #: footer.php:80
 msgid "+49 123 456 789"
-msgstr "+1 555 123 4567"
+msgstr "+49 123 456 789"
 
 #: footer.php:81
 msgid "info@komoxti.com"
@@ -59,15 +127,68 @@ msgstr "info@komoxti.com"
 #: functions.php:315
 #, php-format
 msgid "Copyright %1$s %2$d"
-msgstr "Copyright %1$s %2$d"
+msgstr "Telif Hakkı %1$s %2$d"
+
+#: functions.php:47
+msgid "Navigation"
+msgstr "Navigasyon"
+
+#: functions.php:48
+msgid "Footer"
+msgstr "Altbilgi"
+
+#: functions.php:49
+msgid "Footer Legal"
+msgstr "Altbilgi Yasal"
+
+#: functions.php:122
+msgid "Sidebar"
+msgstr "Kenar Çubuğu"
+
+#: functions.php:124
+msgid "Add widgets here."
+msgstr "Buraya widget'lar ekleyin."
 
 #: functions.php:219
 msgid "Footer Settings"
-msgstr "Footer Settings"
+msgstr "Altbilgi Ayarları"
+
+#: functions.php:231
+#, php-format
+msgid "— %s Footer Content —"
+msgstr "— %s Altbilgi İçeriği —"
+
+#: functions.php:252
+#, php-format
+msgid "Footer Description (%s)"
+msgstr "Altbilgi Açıklaması (%s)"
+
+#: functions.php:273
+#, php-format
+msgid "Phone Number (%s)"
+msgstr "Telefon Numarası (%s)"
+
+#: functions.php:294
+#, php-format
+msgid "Email Address (%s)"
+msgstr "E-posta Adresi (%s)"
+
+#: functions.php:306
+#, php-format
+msgid "Address (%s)"
+msgstr "Adres (%s)"
+
+#: functions.php:320
+msgid "Copyright Text (All Languages)"
+msgstr "Telif Hakkı Metni (Tüm Diller)"
+
+#: functions.php:321
+msgid "This text will be automatically translated."
+msgstr "Bu metin otomatik olarak çevrilecektir."
 
 #: functions.php:328
 msgid "Social Media Links"
-msgstr "Social Media Links"
+msgstr "Sosyal Medya Bağlantıları"
 
 #. translators: %s: social media platform name
 #: functions.php:350
@@ -75,347 +196,228 @@ msgstr "Social Media Links"
 msgid "%s URL"
 msgstr "%s URL"
 
-#. Theme Name of the theme
-#: style.css
-msgid "_s"
-msgstr ""
-
-#. Description of the theme
-#: style.css
-msgid "I'm the next, most awesome, WordPress theme out there."
-msgstr ""
-
-#. Author of the theme
-#: style.css
-msgid "artcom venture GmbH"
-msgstr ""
-
-#. Author URI of the theme
-#: style.css
-msgid "https://www.artcom-venture.de"
-msgstr ""
-
-#: 404.php:27
-msgid "Oops! That page can&rsquo;t be found."
-msgstr ""
-
-#: 404.php:31
-msgid "It looks like nothing was found at this location."
-msgstr ""
-
-#: 404.php:33
-#, php-format
-msgid "Maybe try one of the links below%s?"
-msgstr ""
-
-#: 404.php:34
-msgid "or a search"
-msgstr ""
-
-#: 404.php:43
-msgid "Most Used Categories"
-msgstr ""
-
-#. translators: %1$s: smiley
-#: 404.php:56
-#, php-format
-msgid "Try looking in the monthly archives. %1$s"
-msgstr ""
-
-#. translators: 1: title.
-#: comments.php:35
-#, php-format
-msgid "One thought on &ldquo;%1$s&rdquo;"
-msgstr ""
-
-#. translators: 1: comment count number, 2: title.
-#: comments.php:41
-#, php-format
-msgctxt "comments title"
-msgid "%1$s thought on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
-msgstr[0] ""
-msgstr[1] ""
-
-#: comments.php:68
-msgid "Comments are closed."
-msgstr ""
-
-#: functions.php:47
-msgid "Navigation"
-msgstr ""
-
-#: functions.php:48
-msgid "Footer"
-msgstr ""
-
-#: functions.php:49
-msgid "Footer Legal"
-msgstr ""
-
-#: functions.php:122
-msgid "Sidebar"
-msgstr ""
-
-#: functions.php:124
-msgid "Add widgets here."
-msgstr ""
-
-#: functions.php:231
-#, php-format
-msgid "— %s Footer Content —"
-msgstr ""
-
-#: functions.php:252
-#, php-format
-msgid "Footer Description (%s)"
-msgstr ""
-
-#: functions.php:273
-#, php-format
-msgid "Phone Number (%s)"
-msgstr ""
-
-#: functions.php:294
-#, php-format
-msgid "Email Address (%s)"
-msgstr ""
-
-#: functions.php:306
-#, php-format
-msgid "Address (%s)"
-msgstr ""
-
-#: functions.php:320
-msgid "Copyright Text (All Languages)"
-msgstr ""
-
-#: functions.php:321
-msgid "This text will be automatically translated."
-msgstr ""
-
 #: header.php:28
 msgid "Skip to content"
-msgstr ""
+msgstr "İçeriğe geç"
 
 #. translators: %s: post date.
 #: inc/template-tags.php:30
 #, php-format
 msgctxt "post date"
 msgid "Posted on %s"
-msgstr ""
+msgstr "%s tarihinde yayınlandı"
 
 #. translators: %s: post author.
 #: inc/template-tags.php:46
 #, php-format
 msgctxt "post author"
 msgid "by %s"
-msgstr ""
+msgstr "%s tarafından"
 
 #. translators: used between list items, there is a space after the comma
 #: inc/template-tags.php:63
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #. translators: 1: list of categories.
 #: inc/template-tags.php:66
 #, php-format
 msgid "Posted in %1$s"
-msgstr ""
+msgstr "%1$s kategorisinde yayınlandı"
 
 #. translators: used between list items, there is a space after the comma
 #: inc/template-tags.php:70
 msgctxt "list item separator"
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #. translators: 1: list of tags.
 #: inc/template-tags.php:73
 #, php-format
 msgid "Tagged %1$s"
-msgstr ""
+msgstr "%1$s ile etiketlendi"
 
 #. translators: %s: post title
 #: inc/template-tags.php:83
 #, php-format
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
-msgstr ""
+msgstr "Yorum Yap<span class=\"screen-reader-text\"> %s üzerine</span>"
 
 #. translators: %s: Name of current post. Only visible to screen readers
 #: inc/template-tags.php:100
 #: template-parts/content-page.php:44
 #, php-format
 msgid "Edit<span class=\"screen-reader-text\"> %s</span>"
-msgstr ""
+msgstr "Düzenle<span class=\"screen-reader-text\"> %s</span>"
 
 #. translators: %s: search query.
 #: search.php:21
 #, php-format
 msgid "Search Results for: %s"
-msgstr ""
+msgstr "Arama Sonuçları: %s"
 
 #: single.php:23
 msgid "Previous:"
-msgstr ""
+msgstr "Önceki:"
 
 #: single.php:24
 msgid "Next:"
-msgstr ""
+msgstr "Sonraki:"
 
 #: template-parts/content-none.php:14
 msgid "Nothing Found"
-msgstr ""
+msgstr "Hiçbir Şey Bulunamadı"
 
 #. translators: 1: link to WP admin new post page.
 #: template-parts/content-none.php:24
 #, php-format
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
-msgstr ""
+msgstr "İlk yazınızı yayınlamaya hazır mısınız? <a href=\"%1$s\">Buradan başlayın</a>."
 
 #: template-parts/content-none.php:37
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
-msgstr ""
+msgstr "Üzgünüz, arama terimlerinizle eşleşen hiçbir şey bulunamadı. Lütfen farklı anahtar kelimelerle tekrar deneyin."
 
 #: template-parts/content-none.php:42
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for."
-msgstr ""
+msgstr "Aradığınız şeyi bulamıyoruz."
 
 #: template-parts/content-none.php:43
 msgid "Perhaps searching can help."
-msgstr ""
+msgstr "Belki arama yardımcı olabilir."
 
 #: template-parts/content-page.php:30
 #: template-parts/content.php:50
 msgid "Pages:"
-msgstr ""
+msgstr "Sayfalar:"
 
 #. translators: %s: Name of current post. Only visible to screen readers
 #: template-parts/content.php:37
 #, php-format
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
-msgstr ""
+msgstr "Okumaya devam et<span class=\"screen-reader-text\"> \"%s\"</span>"
 
 #: theme.json
 msgctxt "Color name"
 msgid "Orange"
-msgstr ""
+msgstr "Turuncu"
 
 #: theme.json
 msgctxt "Color name"
 msgid "Light Blue"
-msgstr ""
+msgstr "Açık Mavi"
 
 #: theme.json
 msgctxt "Color name"
 msgid "White"
-msgstr ""
+msgstr "Beyaz"
 
 #: theme.json
 msgctxt "Color name"
 msgid "Black"
-msgstr ""
+msgstr "Siyah"
 
 #: theme.json
 msgctxt "Color name"
 msgid "Grey"
-msgstr ""
+msgstr "Gri"
 
 #: theme.json
 msgctxt "Color name"
 msgid "Accent Orange"
-msgstr ""
+msgstr "Vurgu Turuncu"
 
 #: theme.json
 msgctxt "Color name"
 msgid "Dark Blue"
-msgstr ""
+msgstr "Koyu Mavi"
 
 #: theme.json
 msgctxt "Color name"
 msgid "Dark Grey"
-msgstr ""
+msgstr "Koyu Gri"
 
 #: theme.json
 msgctxt "Color name"
 msgid "Lavender"
-msgstr ""
+msgstr "Lavanta"
 
 #: theme.json
 msgctxt "Color name"
 msgid "Light Sky"
-msgstr ""
+msgstr "Açık Gökyüzü"
 
 #: theme.json
 msgctxt "Color name"
 msgid "Off White"
-msgstr ""
+msgstr "Beyazımsı"
 
 #: theme.json
 msgctxt "Color name"
 msgid "Mint"
-msgstr ""
+msgstr "Nane"
 
 #: theme.json
 msgctxt "Color name"
 msgid "Red"
-msgstr ""
+msgstr "Kırmızı"
 
 #: theme.json
 msgctxt "Color name"
 msgid "Blue"
-msgstr ""
+msgstr "Mavi"
 
 #: theme.json
 msgctxt "Color name"
 msgid "Yellow"
-msgstr ""
+msgstr "Sarı"
 
 #: theme.json
 msgctxt "Color name"
 msgid "Green White"
-msgstr ""
+msgstr "Yeşil Beyaz"
 
 #: theme.json
 msgctxt "Color name"
 msgid "Pink"
-msgstr ""
+msgstr "Pembe"
 
 #: theme.json
 msgctxt "Color name"
 msgid "Yellow Light"
-msgstr ""
+msgstr "Açık Sarı"
 
 #: theme.json
 msgctxt "Color name"
 msgid "Grey Dark"
-msgstr ""
+msgstr "Koyu Gri"
 
 #: theme.json
 msgctxt "Font size name"
 msgid "Hero"
-msgstr ""
+msgstr "Kahraman"
 
 #: theme.json
 msgctxt "Font size name"
 msgid "H2"
-msgstr ""
+msgstr "H2"
 
 #: theme.json
 msgctxt "Font size name"
 msgid "H3"
-msgstr ""
+msgstr "H3"
 
 #: theme.json
 msgctxt "Font size name"
 msgid "H4"
-msgstr ""
+msgstr "H4"
 
 #: theme.json
 msgctxt "Font size name"
 msgid "Body"
-msgstr ""
+msgstr "Gövde"
 
 #: theme.json
 msgctxt "Font size name"
 msgid "Small"
-msgstr ""
+msgstr "Küçük" 
