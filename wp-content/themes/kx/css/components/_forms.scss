@@ -254,53 +254,144 @@ textarea {
 // Contact Form 7 Error and Validation Styling
 .wpcf7-form {
   .wpcf7-not-valid {
-    border-color: #dc3545 !important;
+    border-color: #FF302F !important;
   }
 
   .wpcf7-response-output {
     margin-top: 20px;
-    padding: 15px;
-    border-radius: 10px;
+    padding: 16px 20px;
+    border-radius: 12px;
     font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    border: 2px solid;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+
+    &:empty {
+      display: none;
+    }
   }
 
   .wpcf7-mail-sent-ok {
-    background-color: #d4edda;
-    border: 1px solid #c3e6cb;
+    background-color: #F8FFF9;
+    border-color: #46b450;
     color: #155724;
+    
+    &::before {
+      content: "✓";
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-weight: bold;
+      font-size: 18px;
+      color: #46b450;
+    }
+    
+    padding-left: 48px;
   }
 
   .wpcf7-validation-errors {
-    background-color: #f8d7da;
-    border: 1px solid #f5c6cb;
+    background-color: #FFF5F5;
+    border-color: #FF302F;
     color: #721c24;
+    
+    &::before {
+      content: "⚠";
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-weight: bold;
+      font-size: 18px;
+      color: #FF302F;
+    }
+    
+    padding-left: 48px;
+  }
+
+  .wpcf7-spam-blocked {
+    background-color: #FFF8E1;
+    border-color: #FFBA40;
+    color: #856404;
+    
+    &::before {
+      content: "🛡️";
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-weight: bold;
+      font-size: 18px;
+      color: #FFBA40;
+    }
+    
+    padding-left: 48px;
+  }
+
+  .wpcf7-mail-sent-ng {
+    background-color: #FFF5F5;
+    border-color: #FF302F;
+    color: #721c24;
+    
+    &::before {
+      content: "✗";
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-weight: bold;
+      font-size: 18px;
+      color: #FF302F;
+    }
+    
+    padding-left: 48px;
   }
 
   // Individual field error messages
   .wpcf7-not-valid-tip {
     display: block;
-    background-color: #f8d7da;
+    background-color: #FFF5F5;
     color: #721c24;
-    font-size: 13px;
-    padding: 8px 12px;
-    border-radius: 6px;
+    font-size: 14px;
+    padding: 10px 14px;
+    border-radius: 8px;
     margin-top: 8px;
-    border: 1px solid #f5c6cb;
+    border: 1px solid #FF302F;
     font-weight: 500;
+    position: relative;
+    box-shadow: 0 1px 4px rgba(255, 48, 47, 0.1);
+    
+    &::before {
+      content: "⚠";
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-weight: bold;
+      font-size: 14px;
+      color: #FF302F;
+    }
+    
+    padding-left: 32px;
   }
 
   // Screen reader response (global error list)
   .screen-reader-response {
-    background-color: #f8d7da;
-    border: 1px solid #f5c6cb;
-    border-radius: 10px;
-    padding: 15px;
+    background-color: #FFF5F5;
+    border: 2px solid #FF302F;
+    border-radius: 12px;
+    padding: 16px 20px;
     margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(255, 48, 47, 0.1);
 
     p[role="status"] {
-      margin: 0 0 10px 0;
+      margin: 0 0 12px 0;
       font-weight: 600;
       color: #721c24;
+      font-size: 16px;
     }
 
     ul {
@@ -311,16 +402,18 @@ textarea {
       li {
         color: #721c24;
         font-size: 14px;
-        margin-bottom: 5px;
-        padding-left: 20px;
+        margin-bottom: 8px;
+        padding-left: 24px;
         position: relative;
+        line-height: 1.4;
 
         &:before {
           content: "⚠";
           position: absolute;
           left: 0;
-          color: #dc3545;
+          color: #FF302F;
           font-weight: bold;
+          font-size: 14px;
         }
 
         &:last-child {
@@ -330,9 +423,10 @@ textarea {
         a {
           color: #721c24;
           text-decoration: underline;
+          font-weight: 500;
 
           &:hover {
-            color: #dc3545;
+            color: #FF302F;
           }
         }
       }
