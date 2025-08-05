@@ -1,15 +1,11 @@
 "use strict";
 
-// disable client side validation introduced in CF7 5.6 for now
-if (typeof wpcf7 !== 'undefined') {
-    wpcf7.validate = (a,b) => null;
-}
-
 let cf7signature_resized = 0; // for compatibility with contact-form-7-signature-addon
 
 let wpcf7cf_timeout;
 let wpcf7cf_change_time_ms = 100; // the timeout after a change in the form is detected
 
+// needed for multistep validation
 if (window.wpcf7 && !wpcf7.setStatus) {
     wpcf7.setStatus = ( form, status ) => {
         form = form.length ? form[0] : form; // if form is a jQuery object, only grab te html-element
@@ -81,6 +77,42 @@ const Wpcf7cfForm = function($form) {
 
     const form = this;
 
+    // always wait until groups are updated before submitting the form
+    $form[0].addEventListener('submit', function(e) {
+        if (window.wpcf7cf_updatingGroups) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+
+            // Wait until updatingGroups is false, then submit again
+            const retry = () => {
+                if (!window.wpcf7cf_updatingGroups) {
+                    $form.off('.wpcf7cf-autosubmit'); // prevent duplicates
+                    $form[0].requestSubmit(); // safe submit
+                } else {
+                    requestAnimationFrame(retry);
+                }
+            };
+
+            // Attach listener to prevent loop if user resubmits manually
+            $form.on('submit.wpcf7cf-autosubmit', (e) => e.preventDefault());
+
+            retry(); // start retry loop
+            return false;
+        }
+    }, true); // use capture to run before WP's own handler
+
+    // Disable submit buttons while the form is submitting
+    const submitButtons = $form[0].querySelectorAll('button[type=submit], input[type=submit]');
+    const observer = new MutationObserver(() => {
+        const isSubmitting = $form[0].classList.contains('submitting');
+
+        submitButtons.forEach(button => {
+            button.disabled = isSubmitting;
+            button.classList.toggle('is-disabled', isSubmitting);
+        });
+    });
+    observer.observe($form[0], { attributes: true, attributeFilter: ['class'] });
+
     const form_options = JSON.parse(options_element.val());
 
     form.$form = $form;
@@ -108,7 +140,7 @@ const Wpcf7cfForm = function($form) {
         const formdata = new FormData(form.$form[0]);
 
         let formdataEntries = [... formdata.entries()].map(entry => [ entry[0], entry[1].name ?? entry[1] ]);
-        const buttonEntries = [ ... jQuery('button', form.$form) ].map(entry => [entry.name, entry.value]);
+        const buttonEntries = Array.from(form.$form[0].querySelectorAll('button'), b => [b.name, b.value]);
         formdataEntries = formdataEntries.concat(buttonEntries);
 
         inputs.forEach(simpleDomItem => {
@@ -403,12 +435,14 @@ Wpcf7cfForm.prototype.updateEventListeners = function() {
 
     // monitor input changes, and call displayFields() if something has changed
     form.get('input, select, textarea, button').not('.wpcf7cf_add, .wpcf7cf_remove').off(wpcf7cf_change_events).on(wpcf7cf_change_events,form, function(e) {
+        window.wpcf7cf_updatingGroups = true; // while this is true, don't allow the form to be submitted.
         const form = e.data;
         clearTimeout(wpcf7cf_timeout);
         wpcf7cf_timeout = setTimeout(function() {
             window.wpcf7cf.updateMultistepState(form.multistep);
             form.updateSimpleDom();
             form.displayFields();
+            window.wpcf7cf_updatingGroups = false;
         }, wpcf7cf_change_time_ms);
     });
 
@@ -537,6 +571,7 @@ window.wpcf7cf = {
     },
 
     get_simplified_dom_model : function(currentNode, simplified_dom = {}, parentGroups = [], parentRepeaters = []) {
+
 
         const type = currentNode.classList && currentNode.classList.contains('wpcf7cf_repeater') ? 'repeater' :
             currentNode.dataset.class == 'wpcf7cf_group' ? 'group' :
