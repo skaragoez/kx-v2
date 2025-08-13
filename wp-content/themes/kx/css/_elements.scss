@@ -146,6 +146,35 @@ a, .link {
   @extend %link;
 }
 
+
+.icont-linkedin-icon {
+  line-height: 0;
+
+  a {
+    @include icon-before(linkedin) {
+      margin-right: 0;
+    }
+
+    display: inline-block;
+    width: rem(40px);
+    height: rem(40px);
+    overflow: hidden;
+    line-height: 1;
+    position: relative;
+    z-index: 1;
+    font-size: 0; // hide text visually, keep accessible name
+    text-decoration: none !important;
+    margin-left: 1rem;
+  }
+
+  a::before {
+    font-size: rem(40px); // explicit size independent of parent font-size
+    line-height: 1;
+    margin-left: 0;
+    color: #0077B5; // LinkedIn blue
+  }
+}
+
 .site :focus-visible {
   outline: 2px dashed var(--color-error);
   outline-offset: .28em;

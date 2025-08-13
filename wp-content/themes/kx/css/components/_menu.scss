@@ -1,0 +1,47 @@
+[class*="menu"] {
+  @extend %list-unstyled;
+
+  // Menu items hover effect. (Animated underline)
+  // - grows left ➜ right
+  // - orange underline using theme color
+  // - smooth transitions and accessible focus states
+  li {
+    a {
+      position: relative;
+      display: inline-block;
+      text-decoration: none;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -0.15em;
+        width: 100%;
+        height: 2px;
+        background-color: var(--color-orange);
+        transform: scaleX(0);
+        transform-origin: left center;
+        transition: transform 0.28s ease;
+        will-change: transform;
+      }
+
+      &:hover::after,
+      &:focus-visible::after {
+        transform: scaleX(1);
+      }
+    }
+
+    // Persist underline for current/active items
+    &.current-menu-item > a::after,
+    &.current_page_item > a::after,
+    &.current-menu-ancestor > a::after {
+      transform: scaleX(1);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    li a::after {
+      transition: none;
+    }
+  }
+}

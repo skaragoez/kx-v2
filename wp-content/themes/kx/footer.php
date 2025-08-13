@@ -120,6 +120,13 @@
 					echo esc_html( $copyright_text );
 					?>
 				</div>
+				<div class="footer-menu">
+					<?php wp_nav_menu( array(
+						'theme_location' => 'footer',
+						'container' => false,
+						'menu_id' => 'footer-menu'
+					) ); ?>
+				</div>
 			</div>
 		</div>
 	</footer><!-- #colophon -->
