@@ -20,7 +20,7 @@
   gap: 16px;
 
   img {
-    max-width: 300px;
+    max-width: fluid(170px, 300px, 320px, breakpoint(sm));
     height: auto;
     display: block;
   }
@@ -42,6 +42,63 @@
   gap: 24px;
   background: none;
   box-shadow: none;
+}
+
+.language-switcher {
+  margin-left: 8px;
+  .bogo-language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .bogo-language-switcher li {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    position: relative;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    &.de::before { background-image: url('media/images/de.svg'); }
+    &.en::before { background-image: url('media/images/gb.svg'); }
+    &.tr::before { background-image: url('media/images/tr.svg'); }
+  }
+  .bogo-language-switcher a {
+    text-decoration: none;
+    font-size: rem(18px);
+    display: flex;
+  }
+  .bogo-language-switcher a.current,
+  .bogo-language-switcher li.current a {
+    color: $orange;
+  }
+  .bogoflags {
+    display: none !important;
+  }
+
+  // Mobile: show only flags, keep links clickable by overlaying the anchor
+  @include mobile {
+    .bogo-language-switcher { gap: 4px; }
+    .bogo-language-switcher li { position: relative; }
+    .bogo-language-switcher li::before { width: 20px; height: 20px; }
+    .bogo-language-switcher .bogo-language-name a {
+      position: absolute;
+      inset: 0;
+      text-indent: -9999px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+  }
 }
 
 .nav-menu {

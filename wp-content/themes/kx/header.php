@@ -52,4 +52,10 @@
 				<?php echo $navigation; ?>
             </nav><!-- #site-navigation -->
 		<?php endif; ?>
+
+		<?php if ( function_exists( 'bogo_language_switcher' ) ) : ?>
+			<div class="language-switcher" aria-label="<?php echo esc_attr_x( 'Language switcher', 'header', 'kx' ); ?>">
+				<?php echo bogo_language_switcher( [ 'echo' => false ] ); ?>
+			</div>
+		<?php endif; ?>
 	</div></header><!-- #masthead -->
