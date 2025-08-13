@@ -77,6 +77,85 @@ document.addEventListener('DOMContentLoaded', function() {
 })();
 
 // --
+// CTA bar visibility based on hero/contact visibility
+
+(function() {
+    function isBlockEditorPreview() {
+        try {
+            if (window.self !== window.top && window.parent && window.parent.document && window.parent.document.body) {
+                const parentBody = window.parent.document.body;
+                const cls = parentBody.classList;
+                return cls.contains('block-editor-page') || cls.contains('edit-site-page');
+            }
+        } catch (e) {
+            // Cross-origin or access issue; assume not editor
+        }
+        return false;
+    }
+
+    function initCtaBarObserver() {
+        // Do not run inside Gutenberg/Site Editor preview iframe
+        if (isBlockEditorPreview()) return;
+
+        const ctaBar = document.querySelector('.wp-block-group.cta-bar');
+        if (!ctaBar) return;
+
+        const hero = document.querySelector('section.hero, .hero');
+        const contact = document.querySelector('section.contact, .contact');
+
+        let isHeroCompletelyGone = false;
+        let isContactFullyVisible = false;
+
+        function updateCtaVisibility() {
+            const shouldShow = isHeroCompletelyGone && !isContactFullyVisible;
+            if (shouldShow) {
+                ctaBar.classList.add('is-visible');
+            } else {
+                ctaBar.classList.remove('is-visible');
+            }
+        }
+
+        if (hero) {
+            const heroObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    // Show CTA only when hero is completely out of viewport
+                    isHeroCompletelyGone = !entry.isIntersecting;
+                    updateCtaVisibility();
+                });
+            }, {
+                root: null,
+                threshold: 0
+            });
+            heroObserver.observe(hero);
+        } else {
+            // If there is no hero section, keep CTA hidden by default
+            isHeroCompletelyGone = false;
+            updateCtaVisibility();
+        }
+
+        if (contact) {
+            const contactObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    // Hide CTA when contact section is fully visible in viewport
+                    isContactFullyVisible = entry.isIntersecting && entry.intersectionRatio >= 0.1;
+                    updateCtaVisibility();
+                });
+            }, {
+                root: null,
+                threshold: 0.1
+            });
+            contactObserver.observe(contact);
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initCtaBarObserver);
+    } else {
+        initCtaBarObserver();
+    }
+})();
+
+// --
 // Newsticker functionality
 
 (function() {

@@ -86,3 +86,48 @@
         }
     }
 }
+
+/* ==========================================================================
+   CTA bar
+   ========================================================================== */
+
+ body:not(.block-editor-iframe__body) .wp-block-group.cta-bar {
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 -4px 4px 0 rgba(0, 0, 0, 0.25);
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+    transform: translateY(100%);
+    transition: transform 0.35s ease;
+
+    &.is-visible {
+        transform: translateY(0);
+    }
+
+    > .wp-block-group {
+        font-size: fluid(rem(14px), rem(20px));
+
+        @include media-breakpoint-down(lg) {
+            flex-direction: column;
+        }
+    }
+
+    .wp-block-buttons {
+        margin-left: auto;
+
+        @include media-breakpoint-down(lg) {
+            margin-left: 0;
+
+            .wp-block-button a {
+                margin-block-start: 1rem;
+                margin-right: auto;
+                font-size: rem(14px);
+                align-self: center;
+            }
+        }
+    }
+}

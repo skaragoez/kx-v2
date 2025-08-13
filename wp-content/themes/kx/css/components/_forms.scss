@@ -1,7 +1,7 @@
 %button {
   display: inline-block;
   border-radius: 14px !important;
-  padding: 20px 40px;
+  padding: fluid(rem(12px), rem(20px)) fluid(rem(15px), rem(40px));
   text-shadow: none;
   text-align: center;
   cursor: pointer;
