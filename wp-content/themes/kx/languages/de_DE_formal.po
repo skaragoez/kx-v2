@@ -224,7 +224,7 @@ msgstr ""
 
 #: footer.php:77
 msgid "Contact"
-msgstr ""
+msgstr "Kontakt"
 
 #: footer.php:80
 msgid "+49 123 456 789"
