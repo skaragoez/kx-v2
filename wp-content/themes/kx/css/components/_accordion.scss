@@ -1,0 +1,17 @@
+.wp-block-accordion-widget {
+    border: none !important;
+    margin-bottom: 1rem;
+    
+    .wp-block-accordion-item {
+        border: none !important;
+        border-radius: 14px;
+        background: $off-white;
+        padding: rem(30px);
+    }
+    
+    .wp-block-heading {
+        padding: 0 !important;
+        font-size: rem(20px);
+    }
+
+}
