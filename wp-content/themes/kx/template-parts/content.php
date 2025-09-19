@@ -11,6 +11,7 @@ global $more;
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	
 	<?php // don't include header if `<h1>` title block is already added to content
 	if ( !hasH1( parse_blocks( $post->post_content ) ) ) : ?>
         <header class="entry-header">
