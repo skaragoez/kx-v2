@@ -358,3 +358,11 @@ add_action( 'customize_register', 'kx_customize_register' );
 // auto-include theme's /inc/ files see utilities/auto-include-files.php
 require_once get_template_directory() . '/utilities/utilities.php';
 auto_include_files( get_template_directory() . '/media/fonts' );
+
+// Globally enforce avatar dimensions to 60x60px
+add_filter( 'get_avatar_data', function( array $args ) : array {
+	$args['size'] = 60;
+	$args['width'] = 60;
+	$args['height'] = 60;
+	return $args;
+}, 10 );

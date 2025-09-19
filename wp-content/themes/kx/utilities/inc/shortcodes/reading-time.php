@@ -16,7 +16,7 @@ add_shortcode( 'kx_reading_time', function( $atts = [] ) {
     $minutes = max( 1, (int) ceil( $words / 220 ) );
 
     $text = sprintf( (string) $atts['format'], $minutes );
-    return '<span class="reading-time">' . esc_html( $text ) . '</span>';
+    return '<span class="reading-time has-small-font-size">' . esc_html( $text ) . '</span>';
 } );
 
 

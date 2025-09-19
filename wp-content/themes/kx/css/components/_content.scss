@@ -8,12 +8,52 @@ section {
 }
 
 // --- Blog enhancements styles ---
-.post-meta {
-	
+[rel="tag"] {
+    display: inline-block;
+	background-color: $dark-blue;
+	color: $white;
+	padding: 0.5rem;
+    margin-block: 0.5rem;
+	border-radius: 0.5rem;
+	font-size: rem(14px);
+	text-decoration: none !important;
+
+	&:hover {
+		background-color: $dark-blue-hover !important;
+        color: $white;
+	}
 }
 
-.toc {
-	
+.post-meta-box {
+	margin-block: rem(20px);
+
+    > .wp-block-group {
+        > .wp-block-group {
+            padding: .5rem;
+        }
+    }
+}
+
+.post-toc-box {
+	margin-block: rem(20px);
+
+    > .wp-block-group {
+        padding: rem(20px);
+        border-radius: rem(10px);
+        background-color: $off-white;
+
+        h2 {
+            margin-block: rem(20px);
+        }
+    }
+}
+
+.wp-block-post-author {
+    margin-block: rem(50px);
+
+    img {
+        border-radius: 100%;
+    }
 }
 
 .alignfull {
