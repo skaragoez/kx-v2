@@ -8,6 +8,16 @@ section {
 }
 
 // --- Blog enhancements styles ---
+.blog, .single-post {
+    #masthead {
+        background: transparent;
+    }
+
+    #primary {
+        padding-block-start: rem(50px);
+    }
+}
+
 [rel="tag"] {
     display: inline-block;
 	background-color: $dark-blue;
@@ -89,8 +99,8 @@ section {
 .facts {
 
     padding-block-end: 0;
-    @include media-breakpoint-down(lg) {
 
+    @include media-breakpoint-down(lg) {
         background: transparent !important;
 
         > .wp-block-group {
@@ -113,8 +123,16 @@ section {
                         row-gap: rem(15px);
 
                         .wp-block-column {
-                            flex-basis: 33.33% !important;
-                            max-width: 33.33% !important;
+
+                            &[style*="flex-basis:33%"] {    
+                                flex-basis: 33.33% !important;
+                                max-width: 33.33% !important;
+                            }
+
+                            &[style*="flex-basis:100%"] {
+                                justify-items: center;
+                            }
+                            
                         }
                     }
                 }
@@ -132,6 +150,10 @@ section {
     @include media-breakpoint-up(lg) {
         > .wp-block-group {
             align-items: stretch;
+
+            > figure {
+                margin-right: rem(60px);
+            }
     
             > .wp-block-group {
                 display: flex;
