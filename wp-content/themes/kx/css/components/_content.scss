@@ -8,7 +8,7 @@ section {
 }
 
 // --- Blog enhancements styles ---
-.blog, .single-post {
+[class*="blog"], [class*="single-post"] {
     #masthead {
         background: transparent;
     }
