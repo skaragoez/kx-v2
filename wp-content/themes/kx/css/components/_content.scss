@@ -176,7 +176,7 @@ section {
 }
 
 // --- Blog excerpt styles ---
-.kx-posts-grid {
+.kx-posts-grid, .archive {
 
     .kx-posts-grid__filters {
         display: flex;
@@ -193,7 +193,7 @@ section {
         }
     }
 
-    .kx-posts-grid__items {
+    .kx-posts-grid__items, .blog-posts-section {
 
         margin-block: rem(50px);
     
@@ -253,4 +253,13 @@ section {
         justify-content: center;
         margin-block-end: rem(50px);
     }
+}
+
+// --- Pagination styles ---
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: fluid(rem(20px), rem(200px));
+    margin-block: rem(50px);
 }

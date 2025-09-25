@@ -27,8 +27,6 @@ global $more;
         </header><!-- .entry-header -->
 	<?php endif; ?>
 
-	<?php kx_post_thumbnail(); ?>
-
 	<div class="entry-content">
 		<?php
 		the_content(

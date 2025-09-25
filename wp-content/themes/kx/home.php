@@ -46,8 +46,8 @@ get_header();
 				<?php
 				while ( $blog_posts->have_posts() ) :
 					$blog_posts->the_post();
-					// Use excerpt view instead of full content
-					get_template_part( 'template-parts/content', 'excerpt' );
+					// Card layout to match posts-grid
+					get_template_part( 'template-parts/content', 'card' );
 				endwhile;
 				?>
 			</div>

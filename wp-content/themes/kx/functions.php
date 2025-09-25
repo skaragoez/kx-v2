@@ -352,6 +352,19 @@ function kx_customize_register( $wp_customize ) {
 			'type'    => 'url',
 		) );
 	}
+
+	// Add Secondary Logo under Site Identity
+	$wp_customize->add_setting( 'secondary_logo', array(
+		'default'           => '',
+		'sanitize_callback' => 'esc_url_raw',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'secondary_logo', array(
+		'label'       => __( 'Secondary Logo', 'kx' ),
+		'description' => __( 'Optional second logo (used on Tag archive header)', 'kx' ),
+		'section'     => 'title_tagline', // Site Identity
+		'settings'    => 'secondary_logo',
+	) ) );
 }
 add_action( 'customize_register', 'kx_customize_register' );
 
