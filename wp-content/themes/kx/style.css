@@ -2601,10 +2601,10 @@ section > .wp-block-columns {
   margin-block: clamp(2rem, 2rem + 4.5rem * (var(--rootWidth) - 782) / 878, 6.5rem);
 }
 
-[class*=blog] #masthead, [class*=single-post] #masthead {
+body:not(.home) #masthead {
   background: transparent;
 }
-[class*=blog] #primary, [class*=single-post] #primary {
+body:not(.home) #primary {
   padding-block-start: 5rem;
 }
 

@@ -98,7 +98,8 @@ document.addEventListener('DOMContentLoaded', function() {
             _ajax_nonce: nonce,
             paged: String(page),
             per_page: String(perPage),
-            tag: tag || ''
+            tag: tag || '',
+            current_lang: document.documentElement.lang || ''
         });
 
         try {

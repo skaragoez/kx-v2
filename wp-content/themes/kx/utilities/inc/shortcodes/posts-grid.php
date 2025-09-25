@@ -84,6 +84,7 @@ function kx_posts_grid_fetch(): void {
     $paged = isset($_POST['paged']) ? max(1, (int) $_POST['paged']) : 1;
     $per_page = isset($_POST['per_page']) ? max(1, (int) $_POST['per_page']) : 9;
     $tag = isset($_POST['tag']) ? sanitize_text_field((string) $_POST['tag']) : '';
+    $current_lang = isset($_POST['current_lang']) ? sanitize_text_field((string) $_POST['current_lang']) : '';
 
     $args = [
         'post_type'      => 'post',
@@ -98,6 +99,24 @@ function kx_posts_grid_fetch(): void {
         } else {
             $args['tag'] = $tag;
         }
+    }
+
+    // Add simple language filtering if language is provided
+    if ($current_lang) {
+
+        // Fix invalid locale format like de-DE or de to valid locale format like de_DE
+        $valid_locale = str_replace('-', '_', $current_lang);
+        if (strlen($valid_locale) === 2) {
+            $valid_locale .= '_' . strtoupper($valid_locale);
+        }
+
+        $args['meta_query'] = [
+            [
+                'key'     => '_locale',
+                'value'   => $valid_locale,
+                'compare' => '='
+            ]
+        ];
     }
 
     $q = new WP_Query($args);
@@ -129,7 +148,18 @@ function kx_render_posts_grid_items(WP_Query $q): string {
                 </a>
                 <div class="kx-post-card__meta">
                     <div class="tags-links">
-                        <?php echo get_the_tag_list('', ''); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                        <?php
+                            $posttags = get_the_tags();
+                            if ($posttags) {
+                                $out = [];
+                                foreach ($posttags as $t) {
+                                    $locale = bogo_get_post_locale(get_the_ID());
+                                    $url = bogo_get_url_with_lang(get_tag_link($t->term_id), $locale);
+                                    $out[] = '<a href="' . esc_url($url) . '" rel="tag">' . esc_html($t->name) . '</a>';
+                                }
+                                echo implode('', $out);
+                            }
+                        ?>
                     </div>
                 </div>
                 <h3 class="kx-post-card__title">
@@ -137,7 +167,7 @@ function kx_render_posts_grid_items(WP_Query $q): string {
                 </h3>
                 <div class="kx-post-card__byline">
                     <span class="kx-post-card__author"><?php echo esc_html(get_the_author()); ?></span>
-                    <span class="kx-post-card__date">&middot; <?php echo esc_html(get_the_date()); ?></span>
+                    <span class="kx-post-card__date">&middot; <?php echo esc_html(get_the_date('d.m.Y')); ?></span>
                 </div>
             </article>
             <?php
