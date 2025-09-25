@@ -73,7 +73,7 @@ msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] "%1$s Gedanke zu &ldquo;%2$s&rdquo;"
 msgstr[1] "%1$s Gedanken zu &ldquo;%2$s&rdquo;"
 
-#: comments.php:68
+#: comments.php:69
 msgid "Comments are closed."
 msgstr "Kommentarfunktion ist geschlossen."
 
@@ -111,37 +111,14 @@ msgctxt "post author"
 msgid "by %s"
 msgstr "von %s"
 
-#. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:63
-msgid ", "
-msgstr ", "
-
-#. translators: 1: list of categories.
-#: inc/template-tags.php:66
-#, php-format
-msgid "Posted in %1$s"
-msgstr "Veröffentlicht in %1$s"
-
-#. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:70
-msgctxt "list item separator"
-msgid ", "
-msgstr ", "
-
-#. translators: 1: list of tags.
-#: inc/template-tags.php:73
-#, php-format
-msgid "Tagged %1$s"
-msgstr "Markiert mit %1$s"
-
 #. translators: %s: post title
-#: inc/template-tags.php:83
+#: inc/template-tags.php:85
 #, php-format
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr "Hinterlasse einen Kommentar<span class=\"screen-reader-text\"> zu %s</span>"
 
 #. translators: %s: Name of current post. Only visible to screen readers
-#: inc/template-tags.php:100
+#: inc/template-tags.php:102
 #: template-parts/content-page.php:44
 #, php-format
 msgid "Edit<span class=\"screen-reader-text\"> %s</span>"
@@ -184,43 +161,43 @@ msgid "Perhaps searching can help."
 msgstr "Vielleicht hilft die Suche weiter."
 
 #: template-parts/content-page.php:30
-#: template-parts/content.php:50
+#: template-parts/content.php:49
 msgid "Pages:"
 msgstr "Seiten:"
 
 #. translators: %s: Name of current post. Only visible to screen readers
-#: template-parts/content.php:37
+#: template-parts/content.php:36
 #, php-format
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr "<span class=\"screen-reader-text\">\"%s\" </span>weiterlesen"
 
 #: footer.php:28
 msgid "Some footer text about the Agency. Just a little description to help people understand you better"
-msgstr ""
+msgstr "Ein kurzer Text über die Agentur. Nur eine kleine Beschreibung, um Dir zu helfen, uns besser zu verstehen"
 
 #: footer.php:39
 msgid "Facebook"
-msgstr ""
+msgstr "Facebook"
 
 #: footer.php:43
 msgid "Twitter"
-msgstr ""
+msgstr "Twitter"
 
 #: footer.php:47
 msgid "Instagram"
-msgstr ""
+msgstr "Instagram"
 
 #: footer.php:51
 msgid "LinkedIn"
-msgstr ""
+msgstr "LinkedIn"
 
 #: footer.php:55
 msgid "YouTube"
-msgstr ""
+msgstr "YouTube"
 
 #: footer.php:59
 msgid "WhatsApp"
-msgstr ""
+msgstr "WhatsApp"
 
 #: footer.php:77
 msgid "Contact"
@@ -228,69 +205,69 @@ msgstr "Kontakt"
 
 #: footer.php:80
 msgid "+49 123 456 789"
-msgstr ""
+msgstr "+49 123 456 789"
 
 #: footer.php:81
 msgid "info@komoxti.com"
-msgstr ""
+msgstr "info@komoxti.de"
 
 #. translators: 1: site name, 2: current year
 #: footer.php:119
 #: functions.php:315
 #, php-format
 msgid "Copyright %1$s %2$d"
-msgstr ""
+msgstr "Copyright %1$s %2$d"
 
 #: functions.php:49
 msgid "Footer Legal"
-msgstr ""
+msgstr "Footer Rechtliches"
 
 #: functions.php:219
 msgid "Footer Settings"
-msgstr ""
+msgstr "Footer-Einstellungen"
 
 #: functions.php:231
 #, php-format
 msgid "— %s Footer Content —"
-msgstr ""
+msgstr "— %s Footer-Inhalt —"
 
 #: functions.php:252
 #, php-format
 msgid "Footer Description (%s)"
-msgstr ""
+msgstr "Footer-Beschreibung (%s)"
 
 #: functions.php:273
 #, php-format
 msgid "Phone Number (%s)"
-msgstr ""
+msgstr "Telefonnummer (%s)"
 
 #: functions.php:294
 #, php-format
 msgid "Email Address (%s)"
-msgstr ""
+msgstr "E-Mail-Adresse (%s)"
 
 #: functions.php:306
 #, php-format
 msgid "Address (%s)"
-msgstr ""
+msgstr "Adresse (%s)"
 
 #: functions.php:320
 msgid "Copyright Text (All Languages)"
-msgstr ""
+msgstr "Copyright-Text (Alle Sprachen)"
 
 #: functions.php:321
 msgid "This text will be automatically translated."
-msgstr ""
+msgstr "Dieser Text wird automatisch übersetzt."
 
 #: functions.php:328
 msgid "Social Media Links"
-msgstr ""
+msgstr "Social Media Links"
 
 #. translators: %s: social media platform name
 #: functions.php:350
 #, php-format
 msgid "%s URL"
-msgstr ""
+msgstr "%s URL"
 
 #: theme.json
 msgctxt "Color name"
@@ -416,3 +393,39 @@ msgstr ""
 msgctxt "Font size name"
 msgid "Small"
 msgstr ""
+
+#: functions.php:363
+msgid "Secondary Logo"
+msgstr "Sekundäres Logo"
+
+#: functions.php:364
+msgid "Optional second logo (used on Tag archive header)"
+msgstr "Optionales zweites Logo (wird im Tag-Archiv-Header verwendet)"
+
+#: header.php:57
+msgctxt "header"
+msgid "Language switcher"
+msgstr "Sprachauswahl"
+
+#: home.php:58
+#: tag.php:56
+msgid "Older posts"
+msgstr "Ältere Beiträge"
+
+#: home.php:59
+#: tag.php:57
+msgid "Newer posts"
+msgstr "Neuere Beiträge"
+
+#: tag.php:32
+#, php-format
+msgid "Articles on %s"
+msgstr "Artikel zu %s"
+
+#: utilities/inc/shortcodes/posts-grid.php:44
+msgid "All"
+msgstr "Alle"
+
+#: utilities/inc/shortcodes/posts-grid.php:60
+msgid "Load more"
+msgstr "Mehr laden"

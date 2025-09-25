@@ -137,7 +137,7 @@ msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: comments.php:68
+#: comments.php:69
 msgid "Comments are closed."
 msgstr ""
 
@@ -212,37 +212,14 @@ msgctxt "post author"
 msgid "by %s"
 msgstr ""
 
-#. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:63
-msgid ", "
-msgstr ""
-
-#. translators: 1: list of categories.
-#: inc/template-tags.php:66
-#, php-format
-msgid "Posted in %1$s"
-msgstr ""
-
-#. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:70
-msgctxt "list item separator"
-msgid ", "
-msgstr ""
-
-#. translators: 1: list of tags.
-#: inc/template-tags.php:73
-#, php-format
-msgid "Tagged %1$s"
-msgstr ""
-
 #. translators: %s: post title
-#: inc/template-tags.php:83
+#: inc/template-tags.php:85
 #, php-format
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
 
 #. translators: %s: Name of current post. Only visible to screen readers
-#: inc/template-tags.php:100
+#: inc/template-tags.php:102
 #: template-parts/content-page.php:44
 #, php-format
 msgid "Edit<span class=\"screen-reader-text\"> %s</span>"
@@ -285,12 +262,12 @@ msgid "Perhaps searching can help."
 msgstr ""
 
 #: template-parts/content-page.php:30
-#: template-parts/content.php:50
+#: template-parts/content.php:49
 msgid "Pages:"
 msgstr ""
 
 #. translators: %s: Name of current post. Only visible to screen readers
-#: template-parts/content.php:37
+#: template-parts/content.php:36
 #, php-format
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
@@ -418,4 +395,40 @@ msgstr ""
 #: theme.json
 msgctxt "Font size name"
 msgid "Small"
+msgstr ""
+
+#: functions.php:363
+msgid "Secondary Logo"
+msgstr ""
+
+#: functions.php:364
+msgid "Optional second logo (used on Tag archive header)"
+msgstr ""
+
+#: header.php:57
+msgctxt "header"
+msgid "Language switcher"
+msgstr ""
+
+#: home.php:58
+#: tag.php:56
+msgid "Older posts"
+msgstr ""
+
+#: home.php:59
+#: tag.php:57
+msgid "Newer posts"
+msgstr ""
+
+#: tag.php:32
+#, php-format
+msgid "Articles on %s"
+msgstr ""
+
+#: utilities/inc/shortcodes/posts-grid.php:44
+msgid "All"
+msgstr ""
+
+#: utilities/inc/shortcodes/posts-grid.php:60
+msgid "Load more"
 msgstr ""

@@ -78,55 +78,55 @@ msgstr "%s URL"
 #. Theme Name of the theme
 #: style.css
 msgid "_s"
-msgstr ""
+msgstr "KX Theme"
 
 #. Description of the theme
 #: style.css
 msgid "I'm the next, most awesome, WordPress theme out there."
-msgstr ""
+msgstr "Ich bin das nächste, tollste WordPress-Theme da draußen."
 
 #. Author of the theme
 #: style.css
 msgid "artcom venture GmbH"
-msgstr ""
+msgstr "artcom venture GmbH"
 
 #. Author URI of the theme
 #: style.css
 msgid "https://www.artcom-venture.de"
-msgstr ""
+msgstr "https://www.artcom-venture.de"
 
 #: 404.php:27
 msgid "Oops! That page can&rsquo;t be found."
-msgstr ""
+msgstr "Hoppla! Diese Seite kann nicht gefunden werden."
 
 #: 404.php:31
 msgid "It looks like nothing was found at this location."
-msgstr ""
+msgstr "Es sieht so aus, als ob an dieser Stelle nichts gefunden wurde."
 
 #: 404.php:33
 #, php-format
 msgid "Maybe try one of the links below%s?"
-msgstr ""
+msgstr "Versuche es vielleicht mit einem der untenstehenden Links%s?"
 
 #: 404.php:34
 msgid "or a search"
-msgstr ""
+msgstr "oder einer Suche"
 
 #: 404.php:43
 msgid "Most Used Categories"
-msgstr ""
+msgstr "Meist genutzte Kategorien"
 
 #. translators: %1$s: smiley
 #: 404.php:56
 #, php-format
 msgid "Try looking in the monthly archives. %1$s"
-msgstr ""
+msgstr "Versuche in den monatlichen Archiven nachzusehen. %1$s"
 
 #. translators: 1: title.
 #: comments.php:35
 #, php-format
 msgid "One thought on &ldquo;%1$s&rdquo;"
-msgstr ""
+msgstr "Ein Gedanke zu &ldquo;%1$s&rdquo;"
 
 #. translators: 1: comment count number, 2: title.
 #: comments.php:41
@@ -134,166 +134,143 @@ msgstr ""
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$s Gedanke zu &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s Gedanken zu &ldquo;%2$s&rdquo;"
 
-#: comments.php:68
+#: comments.php:69
 msgid "Comments are closed."
-msgstr ""
+msgstr "Kommentarfunktion ist geschlossen."
 
 #: functions.php:47
 msgid "Navigation"
-msgstr ""
+msgstr "Navigation"
 
 #: functions.php:48
 msgid "Footer"
-msgstr ""
+msgstr "Fussbereich"
 
 #: functions.php:49
 msgid "Footer Legal"
-msgstr ""
+msgstr "Footer Rechtliches"
 
 #: functions.php:122
 msgid "Sidebar"
-msgstr ""
+msgstr "Seitenleiste"
 
 #: functions.php:124
 msgid "Add widgets here."
-msgstr ""
+msgstr "Füge hier Widgets hinzu."
 
 #: functions.php:231
 #, php-format
 msgid "— %s Footer Content —"
-msgstr ""
+msgstr "— %s Footer-Inhalt —"
 
 #: functions.php:252
 #, php-format
 msgid "Footer Description (%s)"
-msgstr ""
+msgstr "Footer-Beschreibung (%s)"
 
 #: functions.php:273
 #, php-format
 msgid "Phone Number (%s)"
-msgstr ""
+msgstr "Telefonnummer (%s)"
 
 #: functions.php:294
 #, php-format
 msgid "Email Address (%s)"
-msgstr ""
+msgstr "E-Mail-Adresse (%s)"
 
 #: functions.php:306
 #, php-format
 msgid "Address (%s)"
-msgstr ""
+msgstr "Adresse (%s)"
 
 #: functions.php:320
 msgid "Copyright Text (All Languages)"
-msgstr ""
+msgstr "Copyright-Text (Alle Sprachen)"
 
 #: functions.php:321
 msgid "This text will be automatically translated."
-msgstr ""
+msgstr "Dieser Text wird automatisch übersetzt."
 
 #: header.php:28
 msgid "Skip to content"
-msgstr ""
+msgstr "Zum Inhalt springen"
 
 #. translators: %s: post date.
 #: inc/template-tags.php:30
 #, php-format
 msgctxt "post date"
 msgid "Posted on %s"
-msgstr ""
+msgstr "Veröffentlicht am %s"
 
 #. translators: %s: post author.
 #: inc/template-tags.php:46
 #, php-format
 msgctxt "post author"
 msgid "by %s"
-msgstr ""
-
-#. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:63
-msgid ", "
-msgstr ""
-
-#. translators: 1: list of categories.
-#: inc/template-tags.php:66
-#, php-format
-msgid "Posted in %1$s"
-msgstr ""
-
-#. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:70
-msgctxt "list item separator"
-msgid ", "
-msgstr ""
-
-#. translators: 1: list of tags.
-#: inc/template-tags.php:73
-#, php-format
-msgid "Tagged %1$s"
-msgstr ""
+msgstr "von %s"
 
 #. translators: %s: post title
-#: inc/template-tags.php:83
+#: inc/template-tags.php:85
 #, php-format
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
-msgstr ""
+msgstr "Hinterlasse einen Kommentar<span class=\"screen-reader-text\"> zu %s</span>"
 
 #. translators: %s: Name of current post. Only visible to screen readers
-#: inc/template-tags.php:100
+#: inc/template-tags.php:102
 #: template-parts/content-page.php:44
 #, php-format
 msgid "Edit<span class=\"screen-reader-text\"> %s</span>"
-msgstr ""
+msgstr "<span class=\"screen-reader-text\">%s </span>bearbeiten"
 
 #. translators: %s: search query.
 #: search.php:21
 #, php-format
 msgid "Search Results for: %s"
-msgstr ""
+msgstr "Suchergebnisse für: %s"
 
 #: single.php:23
 msgid "Previous:"
-msgstr ""
+msgstr "Vorherige:"
 
 #: single.php:24
 msgid "Next:"
-msgstr ""
+msgstr "Nächste:"
 
 #: template-parts/content-none.php:14
 msgid "Nothing Found"
-msgstr ""
+msgstr "Nichts gefunden"
 
 #. translators: 1: link to WP admin new post page.
 #: template-parts/content-none.php:24
 #, php-format
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
-msgstr ""
+msgstr "Bereit Deinen ersten Post zu veröffentlichen? <a href=\"%1$s\">Fang hier an</a>."
 
 #: template-parts/content-none.php:37
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
-msgstr ""
+msgstr "Es tut uns leid, aber nichts passt zu Deinen Suchbegriffen. Bitte versuche es erneut mit anderen Schlüsselwörtern."
 
 #: template-parts/content-none.php:42
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for."
-msgstr ""
+msgstr "Anscheinend können wir nicht finden, was Du suchst."
 
 #: template-parts/content-none.php:43
 msgid "Perhaps searching can help."
-msgstr ""
+msgstr "Vielleicht hilft die Suche weiter."
 
 #: template-parts/content-page.php:30
-#: template-parts/content.php:50
+#: template-parts/content.php:49
 msgid "Pages:"
-msgstr ""
+msgstr "Seiten:"
 
 #. translators: %s: Name of current post. Only visible to screen readers
-#: template-parts/content.php:37
+#: template-parts/content.php:36
 #, php-format
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
-msgstr ""
+msgstr "<span class=\"screen-reader-text\">\"%s\" </span>weiterlesen"
 
 #: theme.json
 msgctxt "Color name"
@@ -419,3 +396,39 @@ msgstr ""
 msgctxt "Font size name"
 msgid "Small"
 msgstr ""
+
+#: functions.php:363
+msgid "Secondary Logo"
+msgstr "Sekundäres Logo"
+
+#: functions.php:364
+msgid "Optional second logo (used on Tag archive header)"
+msgstr "Optionales zweites Logo (wird im Tag-Archiv-Header verwendet)"
+
+#: header.php:57
+msgctxt "header"
+msgid "Language switcher"
+msgstr "Sprachauswahl"
+
+#: home.php:58
+#: tag.php:56
+msgid "Older posts"
+msgstr "Ältere Beiträge"
+
+#: home.php:59
+#: tag.php:57
+msgid "Newer posts"
+msgstr "Neuere Beiträge"
+
+#: tag.php:32
+#, php-format
+msgid "Articles on %s"
+msgstr "Artikel zu %s"
+
+#: utilities/inc/shortcodes/posts-grid.php:44
+msgid "All"
+msgstr "Alle"
+
+#: utilities/inc/shortcodes/posts-grid.php:60
+msgid "Load more"
+msgstr "Mehr laden"
