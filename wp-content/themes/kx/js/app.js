@@ -77,6 +77,125 @@ document.addEventListener('DOMContentLoaded', function() {
 })();
 
 // --
+// KX Posts Grid (filters + load more) - Simple, native, delegated
+(function(){
+    const SELECTOR_ROOT = '.kx-posts-grid';
+    const SELECTOR_FILTER = '.kx-posts-grid__filters [data-tag]';
+    const SELECTOR_ITEMS = '.kx-posts-grid__items';
+    const SELECTOR_LOAD_MORE = '.kx-posts-grid__load-more';
+
+    function getAjaxUrl(root){
+        return root?.dataset?.ajaxUrl || window.ajaxurl || (window.location.origin + '/wp-admin/admin-ajax.php');
+    }
+
+    async function fetchPage(root, { page = 1, perPage = 9, tag = '', append = false, nonce = '' }){
+        const itemsEl = root.querySelector(SELECTOR_ITEMS);
+        if (!itemsEl) return;
+
+        root.classList.add('is-loading');
+        const params = new URLSearchParams({
+            action: 'kx_posts_grid_fetch',
+            _ajax_nonce: nonce,
+            paged: String(page),
+            per_page: String(perPage),
+            tag: tag || ''
+        });
+
+        try {
+            const res = await fetch(getAjaxUrl(root), {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+                credentials: 'same-origin',
+                body: params.toString()
+            });
+            const data = await res.json();
+            if (!data || !data.success || !data.data) throw new Error('Invalid response');
+
+            if (append) itemsEl.insertAdjacentHTML('beforeend', data.data.html);
+            else itemsEl.innerHTML = data.data.html;
+
+            itemsEl.dataset.page = String(data.data.page);
+            itemsEl.dataset.tag = tag || '';
+
+            const loadMoreBtn = root.querySelector(SELECTOR_LOAD_MORE);
+            if (loadMoreBtn) loadMoreBtn.style.display = data.data.has_more ? '' : 'none';
+        } catch (e) {
+            console.error(e);
+            if (!append) itemsEl.innerHTML = '<p class="notice">Failed to load posts.</p>';
+        } finally {
+            root.classList.remove('is-loading');
+        }
+    }
+
+    function initRoot(root){
+        // Nothing to bind directly; we use delegation below
+        // Ensure dataset defaults are present
+        const itemsEl = root.querySelector(SELECTOR_ITEMS);
+        if (itemsEl) {
+            itemsEl.dataset.page = itemsEl.dataset.page || '1';
+            itemsEl.dataset.tag = itemsEl.dataset.tag || '';
+        }
+    }
+
+    function initAll(){
+        document.querySelectorAll(SELECTOR_ROOT).forEach(initRoot);
+    }
+
+    // Initialize on DOM ready
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initAll);
+    else initAll();
+
+    // Expose manual init for dynamically added content
+    window.kxPostsGridInit = initAll;
+
+    // Delegated: filter click
+    document.addEventListener('click', function(e){        
+        const link = e.target.closest(SELECTOR_FILTER);
+        if (!link) return;
+        const root = link.closest(SELECTOR_ROOT);
+        if (!root) return;
+        e.preventDefault();
+
+        // Active state
+        const filtersEl = root.querySelector('.kx-posts-grid__filters');
+        if (filtersEl) {
+            filtersEl.querySelectorAll('[data-tag]').forEach(a => a.classList.toggle('is-active', a === link));
+        }
+
+        const perPage = parseInt(root.dataset.perPage || '9', 10);
+        const nonce = root.dataset.nonce || '';
+        const tag = link.dataset.tag || '';
+        fetchPage(root, { page: 1, perPage, tag, append: false, nonce });
+    }, true);
+
+    // Delegated: keyboard active on filters
+    document.addEventListener('keydown', function(e){
+        if (!(e.key === 'Enter' || e.key === ' ')) return;
+        const link = e.target.closest(SELECTOR_FILTER);
+        if (!link) return;
+        e.preventDefault();
+        link.click();
+    });
+
+    // Delegated: load more
+    document.addEventListener('click', function(e){
+        const btn = e.target.closest(SELECTOR_ROOT + ' ' + SELECTOR_LOAD_MORE);
+        if (!btn) return;
+        const root = btn.closest(SELECTOR_ROOT);
+        if (!root) return;
+        e.preventDefault();
+
+        const itemsEl = root.querySelector(SELECTOR_ITEMS);
+        if (!itemsEl) return;
+        const perPage = parseInt(root.dataset.perPage || '9', 10);
+        const nonce = root.dataset.nonce || '';
+        const page = parseInt(itemsEl.dataset.page || '1', 10) + 1;
+        const tag = itemsEl.dataset.tag || '';
+        fetchPage(root, { page, perPage, tag, append: true, nonce });
+    }, true);
+})();
+
+// --
 // CTA bar visibility based on hero/contact visibility
 
 (function() {

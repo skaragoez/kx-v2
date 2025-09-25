@@ -64,4 +64,4 @@ backup/
 /wp-content/debug.log
 
 # Allow index.php in wp-content (for security)
-!wp-content/index.php
+!wp-content/index.phpwp-config.php
