@@ -23,6 +23,10 @@ add_filter( 'allowed_block_types_all', function( $allowed_blocks, $post ) {
 //		'ub/content-toggle'
 //	);
 
+    $blocks = array(
+        
+    );
+
     if ( is_array( $allowed_blocks ) && count($blocks ?? []) )
 	    $allowed_blocks = array_unique( array_merge( $allowed_blocks, $blocks ) );
 

@@ -91,12 +91,21 @@
     .bogo-language-switcher { gap: 4px; }
     .bogo-language-switcher li { position: relative; }
     .bogo-language-switcher li::before { width: 20px; height: 20px; }
-    .bogo-language-switcher .bogo-language-name a {
-      position: absolute;
-      inset: 0;
-      text-indent: -9999px;
-      overflow: hidden;
-      white-space: nowrap;
+    .bogo-language-switcher .bogo-language-name { 
+      &:not(:has(a)) {
+        text-indent: -9999px;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+
+      a {
+        position: absolute;
+        inset: 0;
+        text-indent: -9999px;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+ 
     }
   }
 }
