@@ -94,6 +94,26 @@ body:not(.home) {
         }
     }
 
+    // Mobile: Optimize spacing and alignment
+    @include media-breakpoint-down(sm) {
+        padding-block: rem(15px) rem(20px);
+        margin-block-end: 1rem;
+
+        h1, h2, h3, h4, h5, h6 {
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+            margin-bottom: rem(16px);
+        }
+
+        .wp-block-buttons {
+            justify-content: center;
+            margin-top: rem(10px);
+        }
+    }
+
 }
 
 .facts {
