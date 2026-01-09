@@ -22,6 +22,14 @@
   }
 
   .is-style-outline & {
+    background-color: transparent;
+    border: 2px solid $dark-blue;
+    color: $dark-blue;
+    &:hover, &.active {
+      background-color: $dark-blue;
+      color: #fff;
+    }
+
     @each $name, $color in $colors {
       &.has-#{$name}-color {
         &:hover,
@@ -56,6 +64,16 @@
           background-color: transparent !important;
         }
       }
+    }
+  }
+
+  .is-style-whatsapp & {
+    text-align: left;
+    display: flex;
+    align-items: center;
+    @include icon-before(whatsapp) {
+      font-size: rem(64px);
+      margin-right: 0;
     }
   }
 }

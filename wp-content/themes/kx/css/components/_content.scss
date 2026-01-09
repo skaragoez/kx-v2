@@ -94,6 +94,24 @@ body:not(.home) {
         }
     }
 
+    .wp-block-buttons {
+        .wp-block-button {
+            flex-basis: 50%;
+            .wp-block-button__link {
+                padding-block: 0;
+                min-height: 90px;
+            }
+        }
+
+        @include media-breakpoint-down(376px) {
+            flex-direction: column;
+            & .wp-block-button {
+                width: 100%;
+                flex-basis: 100%;
+            }
+        }
+    }
+
     // Mobile: Optimize spacing and alignment
     @include media-breakpoint-down(sm) {
         padding-block: rem(15px) rem(20px);

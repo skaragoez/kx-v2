@@ -111,7 +111,8 @@ $Icont: ();
     facebook,
     linkedin,
     location,
-    phone
+    phone,
+    whatsapp
 ) {
   $index: length($Icont) + 1;
   $hex-value: dec2hex($index);

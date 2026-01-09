@@ -118,6 +118,27 @@
 
     .wp-block-buttons {
         margin-left: auto;
+        flex-wrap: nowrap;
+
+        .wp-block-button {
+            flex-basis: 50%;
+            
+            .wp-block-button__link {
+                padding-block: 0;
+                min-height: 64px;
+            }
+
+            &.is-style-outline {
+                .wp-block-button__link {
+                    border-color: $white;
+                    color: $white;
+                    &:hover, &.active {
+                        border-color: $orange;
+                        color: $orange;
+                    }
+                }
+            }
+        }
 
         @include media-breakpoint-down(lg) {
             margin-left: 0;
