@@ -94,7 +94,7 @@ body:not(.home) {
         }
     }
 
-    .wp-block-buttons {
+    > .wp-block-buttons {
         flex-wrap: nowrap;
         .wp-block-button {
             flex-basis: 50%;
