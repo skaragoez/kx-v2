@@ -120,6 +120,14 @@
         margin-left: auto;
         flex-wrap: nowrap;
 
+        @include media-breakpoint-down(376px) {
+            flex-direction: column;
+            & .wp-block-button {
+                width: 100%;
+                flex-basis: 100%;
+            }
+        }
+
         .wp-block-button {
             flex-basis: 50%;
             
