@@ -8,6 +8,7 @@ section {
 }
 
 // --- Blog enhancements styles ---
+html:not(.landing-page)
 body:not(.home) {
     #masthead {
         background: transparent;
@@ -76,6 +77,20 @@ body:not(.home) {
 
     > .wp-block-columns {
         margin-bottom: 0;
+        position: relative;
+
+        .wp-block-image {
+            img {
+                margin-inline: auto;
+                @include media-breakpoint-up(sm) {
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    width: 50%;
+                    height: auto;
+                }
+            }
+        }
     }
 
     > .wp-block-group {
