@@ -590,3 +590,46 @@ document.addEventListener('DOMContentLoaded', function() {
         isMobile: isMobile
     };
 })();
+
+// --
+// Works Ticker - Infinite vertical scroll with content duplication
+
+(function() {
+    const TICKER_SELECTOR = '.works-ticker';
+    
+    function initWorksTicker() {
+        const ticker = document.querySelector(TICKER_SELECTOR);
+        if (!ticker) return;
+        
+        // Get all children
+        const children = Array.from(ticker.children);
+        
+        // Create inner wrapper for animation
+        const inner = document.createElement('div');
+        inner.className = 'works-ticker-inner';
+        
+        // Move all children into the inner wrapper
+        children.forEach(child => {
+            inner.appendChild(child);
+        });
+        
+        // Duplicate all children for seamless loop
+        children.forEach(child => {
+            const clone = child.cloneNode(true);
+            clone.classList.add('works-ticker-clone');
+            inner.appendChild(clone);
+        });
+        
+        // Add inner wrapper to ticker
+        ticker.appendChild(inner);
+        
+        console.log('Works ticker initialized with duplicated content in inner wrapper');
+    }
+    
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initWorksTicker);
+    } else {
+        initWorksTicker();
+    }
+})();

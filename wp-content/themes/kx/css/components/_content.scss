@@ -74,19 +74,23 @@ body:not(.home) {
 .hero {
     padding-bottom: 35px;
     margin-block-end: 2rem;
+    overflow-y: clip;
 
     > .wp-block-columns {
         margin-bottom: 0;
         position: relative;
+        perspective: 1500px;  // Enable 3D space for children
+        perspective-origin: center center;
 
-        .wp-block-image {
+        > .wp-block-image {
             img {
                 margin-inline: auto;
+                max-width: 70%;
                 @include media-breakpoint-up(sm) {
                     position: absolute;
                     bottom: 0;
                     right: 0;
-                    width: 50%;
+                    width: fluid(rem(390px), rem(450px));
                     height: auto;
                 }
             }
@@ -148,6 +152,76 @@ body:not(.home) {
         }
     }
 
+    // Works Ticker styles - 3D with infinite loop scroll animation
+    .works-ticker {
+        position: absolute;
+        z-index: -1;
+        opacity: 0.3;
+        bottom: 0;
+        right: -170px;
+        transform-style: preserve-3d;
+        
+        // 3D positioning (static, no animation here)
+        transform: perspective(500px) rotateX(12deg) rotateY(356deg);
+        transform-origin: bottom right;
+        overflow: hidden;
+        height: 100vh;
+        width: 600px; // Set a fixed width for the ticker
+        
+        // Inner wrapper for animation
+        &-inner {
+            // Force vertical stacking (override Gutenberg styles)
+            display: flex !important;
+            flex-direction: column !important;
+            flex-wrap: nowrap !important;
+            gap: rem(20px) !important;
+            align-items: flex-start !important;
+            
+            // Animation: Infinite scroll from bottom to top
+            // Content is duplicated via JavaScript, so we move -50% for seamless loop
+            animation: tickerScrollUpInfinite 30s linear infinite;
+            will-change: transform;
+        }
+        
+        // Target all child elements (figures, divs, etc.)
+        > *,
+        &-inner > * {
+            width: 100%;
+            flex-shrink: 0;
+            margin: 0;
+        }
+        
+        figure,
+        .wp-block-image {
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid $grey;
+            flex-shrink: 0;
+            display: block;
+            width: 100%;
+        }
+
+        &:before {
+            z-index: 1;
+            position: absolute;
+            content: '';
+            display: block;
+            height: 80px;
+            width: 100%;
+            background: linear-gradient(to top, rgba(255, 255, 255, 0), $light-blue);
+        }
+    }
+
+    // Keyframes for infinite vertical ticker animation
+    // Moves 50% because content is duplicated (original + clone = 200%)
+    @keyframes tickerScrollUpInfinite {
+        0% {
+            transform: translateY(0);
+        }
+        100% {
+            transform: translateY(-50%);
+        }
+    }
 }
 
 .facts {
