@@ -110,15 +110,37 @@
 
     > .wp-block-group {
         font-size: fluid(rem(14px), rem(20px));
+        gap: 1rem;
+        align-items: center;
 
         @include media-breakpoint-down(lg) {
             flex-direction: column;
+        }
+
+        // Row layout (lg+): copy may shrink/wrap; do not squeeze the button group beside it
+        @include media-breakpoint-up(lg) {
+            > *:not(.wp-block-buttons) {
+                flex: 1 1 0%;
+                min-width: 0;
+            }
+
+            > .wp-block-buttons {
+                flex: 0 0 auto;
+            }
         }
     }
 
     .wp-block-buttons {
         margin-left: auto;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        column-gap: 0.75rem;
+        row-gap: 0.5rem;
+
+        // Core may add .is-nowrap; CTA still needs wrapping when the row is tight
+        &.is-nowrap {
+            flex-wrap: wrap !important;
+        }
 
         @include media-breakpoint-down(376px) {
             flex-direction: column;
@@ -129,8 +151,8 @@
         }
 
         .wp-block-button {
-            flex-basis: 50%;
-            
+            flex: 0 0 auto;
+
             .wp-block-button__link {
                 padding-block: 0;
                 min-height: 64px;
