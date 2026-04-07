@@ -76,7 +76,9 @@ body:not(.home) {
 }
 
 .hero {
-    padding-block-start: 0px;
+    padding-block-start: 0;
+    // Override global `section { padding-block }` — no extra bottom padding on hero band
+    padding-block-end: 0;
     margin-block-end: 2rem;
     overflow-y: clip;
 

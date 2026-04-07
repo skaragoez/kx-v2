@@ -15,6 +15,6 @@ When a task is finished, set the `## Status` section to `[x] completed` inside t
 
 | ID | Title | Status |
 |----|-------|--------|
-| — | No task files yet | — |
+| — | No active task files | — |
 
 Add task files under `.context/tasks/` when work is tracked in this format.
