@@ -11,16 +11,6 @@ msgstr ""
 "PO-Revision-Date: 2024-02-29T17:03:59+00:00\n"
 "Language: \n"
 
-#. Theme Name of the theme
-#: style.css
-msgid "_s"
-msgstr "_s"
-
-#. Description of the theme
-#: style.css
-msgid "I'm the next, most awesome, WordPress theme out there."
-msgstr "Ich bin das nächste, tollste WordPress-Theme da draußen."
-
 #. Author of the theme
 #: style.css
 msgid "artcom venture GmbH"
@@ -429,3 +419,13 @@ msgstr "Alle"
 #: utilities/inc/shortcodes/posts-grid.php:60
 msgid "Load more"
 msgstr "Mehr laden"
+
+#. Theme Name of the theme
+#: style.css
+msgid "KX"
+msgstr ""
+
+#. Description of the theme
+#: style.css
+msgid "KX — premium WordPress theme for professional business sites."
+msgstr ""
