@@ -143,9 +143,10 @@ body:not(.home) {
         }
     }
 
-    // Mobile: Optimize spacing and alignment
+    // Mobile: Optimize spacing and alignment (no bottom padding — matches desktop hero band)
     @include media-breakpoint-down(sm) {
-        padding-block: rem(15px) rem(20px);
+        padding-block-start: rem(15px);
+        padding-block-end: 0;
         margin-block-end: 1rem;
 
         h1, h2, h3, h4, h5, h6 {
