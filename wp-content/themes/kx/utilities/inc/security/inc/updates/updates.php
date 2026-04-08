@@ -11,7 +11,9 @@ add_filter( 'security_checks', function( $checks ) {
 
 		$plugins = get_site_transient( 'update_plugins' );
 		$themes = get_site_transient( 'update_themes' );
-		if ( !empty( $plugins->response ) || !empty( $themes->response ) || wp_get_translation_updates() ) {
+		$has_plugin_updates = is_object( $plugins ) && ! empty( $plugins->response );
+		$has_theme_updates = is_object( $themes ) && ! empty( $themes->response );
+		if ( $has_plugin_updates || $has_theme_updates || wp_get_translation_updates() ) {
 			return 'warning';
 		}
 
@@ -132,6 +134,10 @@ add_filter( 'handle_bulk_actions-plugins', function( $sendback, $action, $plugin
  * Eventually remove plugins update notification (BE and CLI).
  */
 add_filter( 'site_transient_update_plugins', function( $value ) {
+	if ( ! is_object( $value ) ) {
+		return $value;
+	}
+
 	if ( !wp_is_file_mod_allowed( 'capability_update_core' ) ) $value->response = [];
 	else foreach ( (array) get_site_option( 'disable_update_plugins', [] ) as $plugin_file ) {
 		unset( $value->response[$plugin_file] );
@@ -144,6 +150,10 @@ add_filter( 'site_transient_update_plugins', function( $value ) {
  * Eventually remove themes update notification (BE and CLI).
  */
 add_filter( 'site_transient_update_themes', function( $value ) {
+	if ( ! is_object( $value ) ) {
+		return $value;
+	}
+
 	if ( !wp_is_file_mod_allowed( 'capability_update_core' ) ) $value->response = [];
 	return $value;
 } );
