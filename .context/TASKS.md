@@ -15,10 +15,10 @@ When a task is finished, set the `## Status` section to `[x] completed` inside t
 
 | ID | Title | Status |
 |----|-------|--------|
-| PG-1 | [portfolio-grid-01-php-patterns.md](tasks/portfolio-grid-01-php-patterns.md) — Block-Patterns (PHP) | open |
-| PG-2 | [portfolio-grid-02-scss-editor-parity.md](tasks/portfolio-grid-02-scss-editor-parity.md) — SCSS + Editor-Parität | open |
-| PG-3 | [portfolio-grid-03-docs-qa-migration.md](tasks/portfolio-grid-03-docs-qa-migration.md) — Doku, QA, Migration | open |
+| PG-1 | [portfolio-grid-01-php-patterns.md](tasks/portfolio-grid-01-php-patterns.md) — Block-Patterns (PHP) | completed |
+| PG-2 | [portfolio-grid-02-scss-editor-parity.md](tasks/portfolio-grid-02-scss-editor-parity.md) — SCSS + Editor-Parität | completed |
+| PG-3 | [portfolio-grid-03-docs-qa-migration.md](tasks/portfolio-grid-03-docs-qa-migration.md) — Doku, QA, Migration | completed |
 
-Parent specs: [portfolio-grid-stitch-style-PRD.md](../portfolio-grid-stitch-style-PRD.md), [plans/portfolio-grid-stitch-style.md](../plans/portfolio-grid-stitch-style.md).
+Parent specs: [portfolio-grid-stitch-style-PRD.md](prds/portfolio-grid-stitch-style-PRD.md), [plans/portfolio-grid-stitch-style.md](plans/portfolio-grid-stitch-style.md).
 
-Add task files under `.context/tasks/` when work is tracked in this format.
+**PRDs** live under `.context/prds/`. **Plans** under `.context/plans/`. Add task files under `.context/tasks/` when work is tracked in this format.

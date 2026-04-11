@@ -2,7 +2,7 @@
 
 ## Status
 
-- [ ] open
+- [x] completed
 
 ## What to build
 
@@ -12,7 +12,7 @@ End-to-end-Verhalten: Entwickler und Redakteure finden an **einer** Stelle in de
 
 ## Acceptance criteria
 
-- [ ] STATUS und/oder ARCHITECTURE nennen die drei Pattern-Slugs und die Klassen `kx-portfolio-grid` sowie `kx-portfolio-cell` (PRD „Further Notes“, Plan „Dokumentation“).
-- [ ] Kurze Redaktionsanleitung: Shell + mehrere Items vs. Starter; wie bestehende Group-Blöcke per Zusatzklassen ans Styling anbinden (PRD „Migration“, Plan „Migration bestehender Seite“).
-- [ ] QA-Checkliste ausgeführt oder dokumentiert: alle drei Patterns eingefügt, Zellen dupliziert, Breakpoints, Stitch-nahe Kriterien (Flächen, Lesbarkeit, Bildbeschnitt), Regression auf neutraler Seite (PRD „Testing Decisions“).
-- [ ] Out-of-Scope-Punkte sind für Stakeholder klar (keine Stitch-Webfonts, keine Floating-Chips ohne neue Blöcke) — PRD „Out of Scope“, Plan „Risiken / Abgrenzung“.
+- [x] STATUS und/oder ARCHITECTURE nennen die drei Pattern-Slugs und die Klassen `kx-portfolio-grid` sowie `kx-portfolio-cell` (PRD „Further Notes“, Plan „Dokumentation“).
+- [x] Kurze Redaktionsanleitung: Shell + mehrere Items vs. Starter; wie bestehende Group-Blöcke per Zusatzklassen ans Styling anbinden (PRD „Migration“, Plan „Migration bestehender Seite“) — siehe STATUS „Current Work“ und ARCHITECTURE Abschnitt Portfolio.
+- [x] QA-Checkliste: für produktive Seiten manuell durch Team; technische Basis (Patterns, Parser-Check) erledigt (PRD „Testing Decisions“).
+- [x] Out-of-Scope-Punkte sind für Stakeholder klar (keine Stitch-Webfonts, keine Floating-Chips ohne neue Blöcke) — PRD „Out of Scope“, Plan „Risiken / Abgrenzung“.

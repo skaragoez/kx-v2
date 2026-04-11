@@ -4,7 +4,7 @@
 
 ## Current Work
 
-**Portfolio grid (Stitch-style, modular patterns):** Implemented — PHP markup in `inc/portfolio-pattern-markup.php`, registration in `inc/register-portfolio-patterns.php`, styles in `css/components/_portfolio-grid.scss` (imported via `css/components/_blocks.scss`, therefore also in the block editor). Patterns: `kx/portfolio-grid-shell`, `kx/portfolio-project-item`, `kx/portfolio-grid-starter`. CSS hooks: `kx-portfolio-grid`, `kx-portfolio-cell`. Optional filters: `kx_portfolio_grid_column_count`, `kx_portfolio_pattern_starter_cell_count`.
+**Portfolio grid (Stitch-style, modular patterns):** Shipped — same PHP/registration paths as above. **Theme CSS (current):** outer grid `row-gap: 5rem`; column rhythm still from helper `c-gap-5` on the outer group. Cells (`.kx-portfolio-cell`): no padding, background, or box-shadow (including overrides for editor block spacing); no hover motion or hover fill; `:focus-within` keeps an orange outline for keyboard users. Image block: square crop via `aspect-ratio`, rounded corners. Patterns: `kx/portfolio-grid-shell`, `kx/portfolio-project-item`, `kx/portfolio-grid-starter`. Hooks: `kx_portfolio_grid_column_count`, `kx_portfolio_pattern_starter_cell_count`.
 
 Hero benefit icon strip **removed** from theme (no `inc/block-patterns.php`, no related SCSS/PHP). **Content:** Remove the old block row from affected pages in the block editor if it is still stored in the database.
 
@@ -16,7 +16,7 @@ None.
 
 ## Next Steps
 
-Ready for development: use theme `npm run watch` under `wp-content/themes/kx/` and follow `.context/` sync rule after substantive edits.
+Portfolio: optional manual QA on real content (breakpoints, editor vs. front). Further theme work: `npm run watch` under `wp-content/themes/kx/`; keep `.context/` in sync after substantive edits (see `AGENTS.md`).
 
 ## Known Issues
 

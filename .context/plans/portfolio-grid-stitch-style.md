@@ -16,6 +16,8 @@ todos:
     status: completed
 ---
 
+**PRD:** [portfolio-grid-stitch-style-PRD.md](../prds/portfolio-grid-stitch-style-PRD.md)
+
 # Portfolio-Grid (Gutenberg) im Stitch-Layout – Umsetzungsplan
 
 ## Ausgangslage
@@ -111,3 +113,7 @@ flowchart TB
 
 - **Floating Tags / Chips** aus Stitch ohne zusätzliche Blöcke nicht abbildbar — out of scope.
 - Pattern ersetzt nicht automatisch die Live-Seite; **einmalige** Editor-Anpassung nötig.
+
+## Abweichung zum ursprünglichen Layout-Text (Theme-Stand)
+
+Die ausgelieferte SCSS setzt Zellen **flach** um: kein Karten-Hintergrund, kein Schatten, `padding: 0` (teilweise `!important` gegen Block-Spacing), kein Hover. Vertikaler Rhythmus: **`row-gap: 5rem`** am äußeren `.kx-portfolio-grid`; horizontal weiterhin **`c-gap-5`** am äußeren Group. Fokus: **`outline`** bei `:focus-within`. Abschnitte oben zu „Karte“ / Hover / `prefers-reduced-motion` auf Hover beziehen sich damit nicht mehr wortgetreu auf den aktuellen CSS-Stand; **PHP-Pattern-Architektur** (Shell, Item, Starter, eine Markup-Quelle) bleibt unverändert gültig.

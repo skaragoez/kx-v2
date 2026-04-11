@@ -89,6 +89,8 @@ After any substantive change, update all affected files:
 | `.context/DECISIONS.md` | Architectural choices with trade-offs |
 | `.context/CONVENTIONS.md` | New coding rules, pitfalls discovered |
 | `.context/TASKS.md` | Task tracking/doc updates when task overview or statuses change |
+| `.context/prds/` | New or moved product requirement documents (PRDs) |
+| `.context/plans/` | New or moved technical implementation plans |
 | `AGENTS.md` | Tech stack changes, new critical rules |
 
 A change is NOT complete until all affected documentation is in sync.
@@ -107,3 +109,5 @@ Hierarchy: Code > AGENTS.md > .context/ files
 | `.context/ARCHITECTURE.md` | Detailed architecture, patterns, data flow |
 | `.context/DECISIONS.md` | Architectural decision log |
 | `.context/CONVENTIONS.md` | Coding standards, examples, pitfalls |
+| `.context/prds/` | PRDs (product specs) |
+| `.context/plans/` | Implementation plans (often paired with a PRD) |

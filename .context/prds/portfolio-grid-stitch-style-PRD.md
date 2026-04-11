@@ -17,7 +17,7 @@ Zusätzlich soll die Lösung **skalierbar und wartbar** sein: Redakteure sollen 
 
 3. **Migration:** Bestehende Inhalte bleiben im Editor erhalten; es genügt, die **CSS-Klassen** am äußeren bzw. inneren Group-Block zu setzen — oder Inhalte schrittweise durch die neuen Patterns zu ersetzen.
 
-Ein detaillierter technischer Ablauf und Aufgabenliste liegen im begleitenden Plandokument im Ordner **plans** innerhalb des Projekt-Kontext-Verzeichnisses.
+Ein detaillierter technischer Ablauf und Aufgabenliste liegen im Plandokument [plans/portfolio-grid-stitch-style.md](../plans/portfolio-grid-stitch-style.md) (Projektkontext `.context/`).
 
 ## Implementation Decisions
 
@@ -43,7 +43,11 @@ Ein detaillierter technischer Ablauf und Aufgabenliste liegen im begleitenden Pl
 - Umstellung der Portfolio-Inhalte auf Custom Post Types, Shortcodes oder dynamische Loops.
 - Automatische Migration bestehender Seiteninhalte ohne Redaktionsaktion.
 
+## Shipped theme (CSS vs. ursprüngliche „Karten“-Optik)
+
+Die ausgelieferte SCSS hält Zellen **flach** (transparent, kein Schatten, kein Innenpadding am Zellen-Wrapper, kein Hover). Der äußere Grid-Container nutzt u. a. **`row-gap: 5rem`**. PRD-Formulierungen zu Stitch-näher „weicher Tiefe“ und Hover beschreiben damit die **Zielrichtung** nicht mehr vollständig das **laufende** Styling; **Block-Patterns**, PHP-Markup-Modul und die Klassen **`kx-portfolio-grid`** / **`kx-portfolio-cell`** inkl. Migrationspfad bleiben maßgeblich.
+
 ## Further Notes
 
-- Pattern-Slugs und CSS-Klassennamen sollten in der Projektdokumentation (STATUS / ARCHITECTURE) erwähnt werden, sobald die Umsetzung live geht.
+- Pattern-Slugs und CSS-Klassennamen sind in **STATUS** und **ARCHITECTURE** dokumentiert.
 - Wenn künftig echte „Tags“ auf Karten gewünscht sind, ist ein separates PRD für Block-Erweiterung oder zusätzliche innere Blöcke sinnvoll.

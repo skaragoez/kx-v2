@@ -44,6 +44,7 @@ kx-v2/                              # WordPress document root
 - **Markup (single source):** `inc/portfolio-pattern-markup.php` builds serialized block strings for the outer grid (`kx-portfolio-grid` + `c-gap-5`) and inner cells (`kx-portfolio-cell`).
 - **Registration:** `inc/register-portfolio-patterns.php` hooks `init`, registers pattern category `kx`, and three patterns: `kx/portfolio-grid-shell`, `kx/portfolio-project-item`, `kx/portfolio-grid-starter`.
 - **Styles:** `css/components/_portfolio-grid.scss`, pulled in through `css/components/_blocks.scss` (same partial is imported by `utilities/inc/gutenberg/_editor-style.scss` for editor parity).
+- **Layout / look (as implemented):** `.kx-portfolio-grid` grid uses `row-gap: 5rem` (explicit vertical rhythm); horizontal gap remains the `c-gap-5` utility on the outer group. `.kx-portfolio-grid > .wp-block-group.kx-portfolio-cell` is intentionally minimal: transparent background, no box-shadow, `padding: 0` (with `!important` where needed to beat block inline spacing), no hover animation or hover background; `:focus-within` outline for accessibility. Inner `.wp-block-image` gets border-radius, overflow clip, and square `aspect-ratio` + `object-fit: cover` on `img`. Below the `sm` breakpoint the grid is forced to one column.
 
 ## State Management
 

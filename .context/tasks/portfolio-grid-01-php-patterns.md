@@ -2,7 +2,7 @@
 
 ## Status
 
-- [ ] open
+- [x] completed
 
 ## What to build
 
@@ -12,8 +12,8 @@ End-to-end-Verhalten: Im Block-Editor erscheinen **drei** Patterns mit den vorge
 
 ## Acceptance criteria
 
-- [ ] Markup-Logik für Shell und Zelle liegt zentral (eine Quelle für die Zelle); Starter nutzt diese Quelle per Zusammensetzung (PRD „Solution“ 1, Plan „Wartbarkeit“).
-- [ ] Auf `init` sind genau die drei Patterns registriert; Titel/Beschreibungen erklären Redakteuren Shell → Items einfügen vs. Starter (PRD „Pattern-Registrierung“, Plan „Registrierungs-Modul“).
-- [ ] Eingefügte Patterns parsen im Editor ohne Block-Fehler; Frontend rendert dieselbe Struktur (PRD Testing: manuelles Einfügen).
-- [ ] Keine PHP-Notices/Warnungen beim Laden der Seite mit eingefügtem Pattern (PRD Testing Decisions).
-- [ ] Seiten **ohne** diese Patterns und **ohne** die neuen CSS-Klassen bleiben unverändert in ihrer Auszeichnung (PRD Regression).
+- [x] Markup-Logik für Shell und Zelle liegt zentral (eine Quelle für die Zelle); Starter nutzt diese Quelle per Zusammensetzung (PRD „Solution“ 1, Plan „Wartbarkeit“).
+- [x] Auf `init` sind genau die drei Patterns registriert; Titel/Beschreibungen erklären Redakteuren Shell → Items einfügen vs. Starter (PRD „Pattern-Registrierung“, Plan „Registrierungs-Modul“).
+- [x] Eingefügte Patterns parsen im Editor ohne Block-Fehler; Frontend rendert dieselbe Struktur (PRD Testing: manuelles Einfügen).
+- [x] Keine PHP-Notices/Warnungen beim Laden der Seite mit eingefügtem Pattern (PRD Testing Decisions).
+- [x] Seiten **ohne** diese Patterns und **ohne** die neuen CSS-Klassen bleiben unverändert in ihrer Auszeichnung (PRD Regression).
