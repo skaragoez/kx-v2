@@ -9,13 +9,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-08T01:04:34+03:00\n"
+"POT-Creation-Date: 2026-04-09T21:26:35+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.11.0\n"
+"X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: kx\n"
 
 #. Theme Name of the theme
 #: style.css
+#: inc/register-portfolio-patterns.php:25
 msgid "KX"
 msgstr ""
 
@@ -43,6 +44,7 @@ msgid "It looks like nothing was found at this location."
 msgstr ""
 
 #: 404.php:33
+#, php-format
 msgid "Maybe try one of the links below%s?"
 msgstr ""
 
@@ -56,16 +58,19 @@ msgstr ""
 
 #. translators: %1$s: smiley
 #: 404.php:56
+#, php-format
 msgid "Try looking in the monthly archives. %1$s"
 msgstr ""
 
 #. translators: 1: title.
 #: comments.php:35
+#, php-format
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
 #. translators: 1: comment count number, 2: title.
 #: comments.php:41
+#, php-format
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
@@ -119,6 +124,7 @@ msgstr ""
 #. translators: 1: site name, 2: current year
 #: footer.php:119
 #: functions.php:315
+#, php-format
 msgid "Copyright %1$s %2$d"
 msgstr ""
 
@@ -147,22 +153,27 @@ msgid "Footer Settings"
 msgstr ""
 
 #: functions.php:231
+#, php-format
 msgid "— %s Footer Content —"
 msgstr ""
 
 #: functions.php:252
+#, php-format
 msgid "Footer Description (%s)"
 msgstr ""
 
 #: functions.php:273
+#, php-format
 msgid "Phone Number (%s)"
 msgstr ""
 
 #: functions.php:294
+#, php-format
 msgid "Email Address (%s)"
 msgstr ""
 
 #: functions.php:306
+#, php-format
 msgid "Address (%s)"
 msgstr ""
 
@@ -180,6 +191,7 @@ msgstr ""
 
 #. translators: %s: social media platform name
 #: functions.php:350
+#, php-format
 msgid "%s URL"
 msgstr ""
 
@@ -210,31 +222,82 @@ msgstr ""
 msgid "Newer posts"
 msgstr ""
 
+#. translators: Default portfolio card title in block pattern.
+#: inc/portfolio-pattern-markup.php:100
+msgid "Projekttitel"
+msgstr ""
+
+#. translators: Default portfolio card body in block pattern.
+#: inc/portfolio-pattern-markup.php:102
+msgid "Kurzer Projekttext — Bild und Text im Editor anpassen."
+msgstr ""
+
+#: inc/register-portfolio-patterns.php:29
+msgid "Portfolio-Raster"
+msgstr ""
+
+#: inc/register-portfolio-patterns.php:30
+msgid "Portfolio-Projektzelle"
+msgstr ""
+
+#: inc/register-portfolio-patterns.php:31
+msgid "Portfolio-Starter"
+msgstr ""
+
+#: inc/register-portfolio-patterns.php:36
+msgid "Portfolio: Raster (nur Außen-Grid)"
+msgstr ""
+
+#: inc/register-portfolio-patterns.php:37
+msgid "Äußeres Grid mit Klassen für das Portfolio-Layout. Danach die Projektzelle einfügen oder duplizieren."
+msgstr ""
+
+#: inc/register-portfolio-patterns.php:47
+msgid "Portfolio: Projektzelle"
+msgstr ""
+
+#: inc/register-portfolio-patterns.php:48
+msgid "Eine Karte mit Bild, Titel und Text — beliebig oft einfügen oder duplizieren."
+msgstr ""
+
+#: inc/register-portfolio-patterns.php:58
+msgid "Portfolio: Raster mit Platzhalter-Zellen"
+msgstr ""
+
+#: inc/register-portfolio-patterns.php:59
+msgid "Grid plus mehrere Zellen aus derselben Vorlage — Struktur zentral im Theme gepflegt."
+msgstr ""
+
 #. translators: %s: post date.
 #: inc/template-tags.php:30
+#, php-format
 msgctxt "post date"
 msgid "Posted on %s"
 msgstr ""
 
 #. translators: %s: post author.
 #: inc/template-tags.php:46
+#, php-format
 msgctxt "post author"
 msgid "by %s"
 msgstr ""
 
 #. translators: %s: post title
 #: inc/template-tags.php:85
+#, php-format
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
 
 #. translators: %s: Name of current post. Only visible to screen readers
 #: inc/template-tags.php:102
 #: template-parts/content-page.php:44
+#, php-format
 msgid "Edit<span class=\"screen-reader-text\"> %s</span>"
 msgstr ""
 
 #. translators: %s: search query.
 #: search.php:21
+#, php-format
 msgid "Search Results for: %s"
 msgstr ""
 
@@ -247,6 +310,7 @@ msgid "Next:"
 msgstr ""
 
 #: tag.php:32
+#, php-format
 msgid "Articles on %s"
 msgstr ""
 
@@ -256,6 +320,7 @@ msgstr ""
 
 #. translators: 1: link to WP admin new post page.
 #: template-parts/content-none.php:24
+#, php-format
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
@@ -278,6 +343,7 @@ msgstr ""
 
 #. translators: %s: Name of current post. Only visible to screen readers
 #: template-parts/content.php:36
+#, php-format
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 

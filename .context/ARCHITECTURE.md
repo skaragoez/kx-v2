@@ -39,6 +39,12 @@ kx-v2/                              # WordPress document root
 4. **Front end** → Compiled `style.css` and `*.min.js` handle layout, sliders (Swiper events from plugin/theme), forms (CF7 DOM enhancements in `app.js`), newsticker/CTA behavior as implemented in theme JS.
 5. **Content** → Posts/pages and Gutenberg blocks; theme SCSS under `css/components/` maps to block and section styling.
 
+### Portfolio grid (block patterns)
+
+- **Markup (single source):** `inc/portfolio-pattern-markup.php` builds serialized block strings for the outer grid (`kx-portfolio-grid` + `c-gap-5`) and inner cells (`kx-portfolio-cell`).
+- **Registration:** `inc/register-portfolio-patterns.php` hooks `init`, registers pattern category `kx`, and three patterns: `kx/portfolio-grid-shell`, `kx/portfolio-project-item`, `kx/portfolio-grid-starter`.
+- **Styles:** `css/components/_portfolio-grid.scss`, pulled in through `css/components/_blocks.scss` (same partial is imported by `utilities/inc/gutenberg/_editor-style.scss` for editor parity).
+
 ## State Management
 
 No SPA framework: state is **server-rendered WordPress** plus **DOM-oriented JavaScript** (event listeners, observers, CF7 hooks). Admin/session state is WordPress core. Customizer options persist in the database via WordPress APIs.

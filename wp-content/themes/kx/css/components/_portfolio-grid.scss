@@ -1,0 +1,55 @@
+/* ==========================================================================
+   Portfolio grid (Gutenberg) — Stitch-inspired surfaces, KX tokens
+   Targets: .kx-portfolio-grid (outer), .kx-portfolio-cell (inner card only)
+   ========================================================================== */
+
+.kx-portfolio-grid {
+    &.is-layout-grid,
+    &.wp-block-group.is-layout-grid {
+        row-gap: 5rem;
+        align-items: stretch;
+    }
+
+    @include media-breakpoint-down(sm) {
+        &.is-layout-grid,
+        &.wp-block-group.is-layout-grid {
+            grid-template-columns: 1fr !important;
+        }
+    }
+
+    > .wp-block-group.kx-portfolio-cell {
+        background-color: transparent !important;
+        border-radius: 12px;
+        padding: 0 !important;
+        box-shadow: none !important;
+
+        &:focus-within {
+            outline: 2px solid $orange;
+            outline-offset: 3px;
+        }
+
+        .wp-block-image {
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0;
+
+            img {
+                display: block;
+                width: 100%;
+                height: auto;
+                aspect-ratio: 1 / 1;
+                object-fit: cover;
+            }
+        }
+
+        > *:first-child.wp-block-image {
+            margin-top: 0;
+        }
+
+        .wp-block-paragraph {
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
