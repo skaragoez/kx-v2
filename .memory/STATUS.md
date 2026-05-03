@@ -10,14 +10,15 @@ Hero benefit icon strip **removed** from theme (no `inc/block-patterns.php`, no 
 
 Previously — theme cleanup: `package.json` → **kx**, repo URL `skaragoez/kx-v2`; i18n scripts use `languages/kx.pot`; `--subtract` paths updated (incl. fixes for `accordion`, `data-href`, `bodyclass`). Theme header in `css/style.scss` → **KX**; `style.css` rebuilt. `kx.pot` regenerated; removed stale `languages/_s.pot` and duplicate `tr_TR.pot`. PO headers aligned (`theme:i18n:po` + manual `Project-Id-Version` where needed).
 
+**Agentic WordPress (T005):** Implemented — [`tools/agentic-wp/`](../tools/agentic-wp/) bash helpers (`post-find`, `post-update-content`, `theme-mod`) wrapping `ddev wp`; see [README](../tools/agentic-wp/README.md) and [ARCHITECTURE.md](ARCHITECTURE.md).
+
 ## Open Items
 
-- **T005** — Agentic WordPress tooling (CLI/MCP, modular; minimal wp-admin for content/code).
 - **T006** — Raleway headings + CRO hero (benefits + trust).
 
 ## Next Steps
 
-Portfolio: optional manual QA on real content (breakpoints, editor vs. front). Execute T005/T006 per `.memory/tasks/`. Theme work: `npm run watch` under `wp-content/themes/kx/`; keep `.memory/` in sync after substantive edits (see `AGENTS.md`).
+Portfolio: optional manual QA on real content (breakpoints, editor vs. front). **T006** per `.memory/tasks/`. Theme work: `npm run watch` under `wp-content/themes/kx/`; keep `.memory/` in sync after substantive edits (see `AGENTS.md`).
 
 ## Known Issues
 

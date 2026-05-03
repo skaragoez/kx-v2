@@ -36,6 +36,6 @@ auto_include_files( get_template_directory() . '/inc' );
 
 - **`.ddev/config.yaml`**: Applies to **local development only**. Adjust PHP/services there when needed for dev; production hosting has its own configuration.
 - **i18n**: Theme POT is `languages/kx.pot`; nested packages subtract it to avoid duplicate strings. After changing translatable strings, run `theme:i18n:pot` (and update POs as needed).
-- **Compiled assets**: Edits to `css/` or `js/` require `npm run watch` or `npm run build` for changes to appear if the server serves compiled `style.css` and `*.min.js`.
+- **Compiled assets**: Edits to `css/` or `js/` require `npm run watch` (local) or **`npm run build`** (before shipping / when an agent completes a task). Prefer the **full** `npm run build` from `wp-content/themes/kx` so both compiled `style.css` and `*.min.js` stay in sync.
 - **Core directories**: Avoid patching `wp-admin` / `wp-includes`; updates will overwrite them.
 - **Secrets**: Never commit real `wp-config.php` credentials or `.env` equivalents.

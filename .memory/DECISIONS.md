@@ -4,6 +4,7 @@ Architectural decisions and their rationale. Newest first.
 
 | Date | Decision | Rationale |
 |------|----------|-----------|
+| 2026-05-03 | Agentic WP v1: `tools/agentic-wp/` bash scripts wrapping `ddev wp` (post find/update, theme_mod get/set); local-only; MCP deferred | Matches T005 grill: modular CLI, no admin UI, no secrets in Git; MCP can wrap the same commands later. |
 | 2026-05-03 | Canonical agent/human docs under `.memory/`; `.context/` deprecated | Aligns with project-memory style hub; single tree for STATUS, ARCHITECTURE, tasks, PRDs, plans; reduces split-brain between tooling docs and repo conventions. |
 | 2026-04-10 | Portfolio cells: flat presentation (no card padding/background/shadow, no hover animation); grid `row-gap: 5rem` | Editorial preference for a cleaner grid; `!important` on a few properties overrides Gutenberg inline spacing/shadow when classes `kx-portfolio-grid` / `kx-portfolio-cell` are used. |
 | 2026-04-07 | Align npm metadata and i18n scripts with `kx`; master POT `languages/kx.pot`; fix subtract paths for deep Gutenberg packages | Removes leftover `_s` naming; single source for theme strings; corrected `../../../../` paths to theme `languages/`. |

@@ -19,7 +19,7 @@ When a task is finished, set the `## Status` section to `[x] completed` inside t
 | PG-2 | [portfolio-grid-02-scss-editor-parity.md](tasks/portfolio-grid-02-scss-editor-parity.md) — SCSS + Editor-Parität | completed |
 | PG-3 | [portfolio-grid-03-docs-qa-migration.md](tasks/portfolio-grid-03-docs-qa-migration.md) — Doku, QA, Migration | completed |
 | T004 | [T004-memory-hub-migration.md](tasks/T004-memory-hub-migration.md) — Hub `.context` → `.memory` | completed |
-| T005 | [T005-agentic-wordpress-tooling.md](tasks/T005-agentic-wordpress-tooling.md) — Agentic WordPress (CLI/MCP, modular) | open |
+| T005 | [T005-agentic-wordpress-tooling.md](tasks/T005-agentic-wordpress-tooling.md) — Agentic WordPress (CLI/MCP, modular) | completed |
 | T006 | [T006-raleway-hero-cro.md](tasks/T006-raleway-hero-cro.md) — Raleway headings + CRO Hero | open |
 
 Parent specs: [portfolio-grid-stitch-style-PRD.md](prds/portfolio-grid-stitch-style-PRD.md), [plans/portfolio-grid-stitch-style.md](plans/portfolio-grid-stitch-style.md).

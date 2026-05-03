@@ -7,6 +7,8 @@
 ```
 kx-v2/                              # WordPress document root
 ├── .memory/                        # Canonical project docs for agents & humans (STATUS, tasks, PRDs, plans)
+├── tools/
+│   └── agentic-wp/                 # Bash + WP-CLI (DDEV) helpers — see README there
 ├── .ddev/
 │   └── config.yaml                 # Dev-only: local environment / services (authoritative for dev tuning)
 ├── wp-admin/                       # WordPress core (admin)
@@ -31,6 +33,13 @@ kx-v2/                              # WordPress document root
 ├── wp-config.php                 # DB credentials, salts (environment-specific)
 └── index.php                     # Front controller
 ```
+
+## Agentic WordPress tooling (local)
+
+- **Location:** [tools/agentic-wp/README.md](../tools/agentic-wp/README.md).
+- **Purpose:** List/update posts and theme mods via **`ddev wp`** without using wp-admin (agent- and script-friendly).
+- **Modules:** `lib/common.sh` (repo root + `ddev wp` wrapper); `post-find.sh`; `post-update-content.sh`; `theme-mod.sh`.
+- **Scope:** Local DDEV project only in v1; no credentials in repo; MCP may wrap these commands in a later phase.
 
 ## Data Flow
 

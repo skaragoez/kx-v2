@@ -61,7 +61,7 @@ kx-v2/                          # WordPress root
 
 - **DO NOT** commit database dumps, full `backup/` trees, or secrets; keep `wp-config.php` credentials out of version control if applicable.
 - **DO NOT** edit files under `wp-admin/` or `wp-includes/` for feature work — use theme/plugins/hooks.
-- **DO** run theme build (`npm run build` or `watch`) after SCSS/JS changes intended for production.
+- **DO** run a full theme production build after changing SCSS or JS: `cd wp-content/themes/kx && npm run build` — run it **before** treating the task as done (not only `theme:build:scss` / `theme:build:js` unless you touch a single pipeline and explicitly want a partial build).
 - **DO** follow **README** and `.cursor/rules/backup-process.mdc` for backups and DB work on your local machine.
 - Align Swiper/breakpoint numbers in JS with SCSS breakpoints to avoid layout drift.
 

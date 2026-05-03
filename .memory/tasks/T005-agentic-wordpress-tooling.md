@@ -2,7 +2,7 @@
 
 ## Status
 
-- [ ] open
+- [x] completed
 
 ## Goal
 
@@ -24,14 +24,14 @@ Target stack: **local DDEV** + **WP-CLI** (`ddev wp`) as the default path; optio
 
 ## Phases (suggested)
 
-- **Phase 1:** WP-CLI wrapper scripts + short `.memory/` doc (or README section) listing MVP operations: hero text update, option set, theme asset workflow.
+- **Phase 1:** WP-CLI wrapper scripts + short `.memory/` doc (or README section) listing MVP operations: hero text update, option set, theme asset workflow. **Done** — see [tools/agentic-wp/README.md](../../tools/agentic-wp/README.md) and [.memory/ARCHITECTURE.md](../ARCHITECTURE.md) § Agentic WordPress.
 - **Phase 2 (optional):** MCP server exposing a narrow tool surface (read-only first, then gated writes).
 
 ## Acceptance criteria
 
-- [ ] Documented **non–admin** path for at least three MVP operations (e.g. update a defined page title/body, set one theme option or `theme_mod`, list/find posts by slug).
-- [ ] At least **two** independent modules or scripts demonstrate reusability (not one monolithic file).
-- [ ] `.memory/DECISIONS.md` or `ARCHITECTURE.md` updated with where tooling lives and how agents should invoke it.
+- [x] Documented **non–admin** path for at least three MVP operations (e.g. update a defined page title/body, set one theme option or `theme_mod`, list/find posts by slug).
+- [x] At least **two** independent modules or scripts demonstrate reusability (not one monolithic file).
+- [x] `.memory/DECISIONS.md` or `ARCHITECTURE.md` updated with where tooling lives and how agents should invoke it.
 
 ## References
 

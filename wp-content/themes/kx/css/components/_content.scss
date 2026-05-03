@@ -124,13 +124,63 @@ body:not(.home) {
         }
     }
 
-    > .wp-block-buttons {
+    // Buttons live inside `.wp-block-column`, not as direct children of `.hero`
+    .wp-block-buttons {
         flex-wrap: nowrap;
+        gap: fluid(rem(12px), rem(20px));
+
         .wp-block-button {
             flex-basis: 50%;
+
             .wp-block-button__link {
-                padding-block: 0;
-                min-height: 90px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 0;
+                padding-block: fluid(rem(18px), rem(26px)) !important; // beat `.is-style-whatsapp` padding reset
+                padding-inline: fluid(rem(18px), rem(36px)) !important;
+                border-radius: fluid(rem(16px), rem(22px)) !important;
+                font-size: fluid(rem(15px), rem(18px));
+                line-height: 1.2;
+                letter-spacing: 0.02em;
+                box-shadow:
+                    0 rem(3px) rem(12px) rgba($dark-blue, 0.14),
+                    0 rem(1px) rem(3px) rgba($orange, 0.35);
+                transition:
+                    transform 0.28s ease,
+                    box-shadow 0.28s ease,
+                    background-color 0.2s ease,
+                    color 0.2s ease,
+                    border-color 0.2s ease;
+
+                &:hover,
+                &.active {
+                    transform: translateY(-#{rem(3px)});
+                    box-shadow:
+                        0 rem(10px) rem(28px) rgba($dark-blue, 0.18),
+                        0 rem(4px) rem(14px) rgba($orange, 0.42);
+                }
+
+                &:active {
+                    transform: translateY(-#{rem(1px)});
+                }
+
+                &:focus-visible {
+                    outline: rem(3px) solid $dark-blue;
+                    outline-offset: rem(3px);
+                }
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .wp-block-button .wp-block-button__link {
+                transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+                &:hover,
+                &.active,
+                &:active {
+                    transform: none;
+                }
             }
         }
 
@@ -140,6 +190,22 @@ body:not(.home) {
                 width: 100%;
                 flex-basis: 100%;
             }
+        }
+    }
+
+    // WhatsApp block style adds a large ::before icon; hero CTA should be text-only
+    .wp-block-button.is-style-whatsapp .wp-block-button__link {
+        justify-content: center;
+        text-align: center;
+
+        &::before {
+            content: none !important;
+            display: none !important;
+            font-size: 0 !important;
+            width: 0 !important;
+            height: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
         }
     }
 
