@@ -17,7 +17,7 @@ Zusätzlich soll die Lösung **skalierbar und wartbar** sein: Redakteure sollen 
 
 3. **Migration:** Bestehende Inhalte bleiben im Editor erhalten; es genügt, die **CSS-Klassen** am äußeren bzw. inneren Group-Block zu setzen — oder Inhalte schrittweise durch die neuen Patterns zu ersetzen.
 
-Ein detaillierter technischer Ablauf und Aufgabenliste liegen im Plandokument [plans/portfolio-grid-stitch-style.md](../plans/portfolio-grid-stitch-style.md) (Projektkontext `.context/`).
+Ein detaillierter technischer Ablauf und Aufgabenliste liegen im Plandokument [plans/portfolio-grid-stitch-style.md](../plans/portfolio-grid-stitch-style.md) (Projektkontext `.memory/`).
 
 ## Implementation Decisions
 

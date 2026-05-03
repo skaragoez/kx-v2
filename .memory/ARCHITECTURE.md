@@ -6,6 +6,7 @@
 
 ```
 kx-v2/                              # WordPress document root
+├── .memory/                        # Canonical project docs for agents & humans (STATUS, tasks, PRDs, plans)
 ├── .ddev/
 │   └── config.yaml                 # Dev-only: local environment / services (authoritative for dev tuning)
 ├── wp-admin/                       # WordPress core (admin)

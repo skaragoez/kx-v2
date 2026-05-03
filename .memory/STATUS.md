@@ -1,6 +1,6 @@
 # Project Status
 
-> Last updated: 2026-04-10
+> Last updated: 2026-05-03
 
 ## Current Work
 
@@ -12,11 +12,12 @@ Previously — theme cleanup: `package.json` → **kx**, repo URL `skaragoez/kx-
 
 ## Open Items
 
-None.
+- **T005** — Agentic WordPress tooling (CLI/MCP, modular; minimal wp-admin for content/code).
+- **T006** — Raleway headings + CRO hero (benefits + trust).
 
 ## Next Steps
 
-Portfolio: optional manual QA on real content (breakpoints, editor vs. front). Further theme work: `npm run watch` under `wp-content/themes/kx/`; keep `.context/` in sync after substantive edits (see `AGENTS.md`).
+Portfolio: optional manual QA on real content (breakpoints, editor vs. front). Execute T005/T006 per `.memory/tasks/`. Theme work: `npm run watch` under `wp-content/themes/kx/`; keep `.memory/` in sync after substantive edits (see `AGENTS.md`).
 
 ## Known Issues
 

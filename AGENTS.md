@@ -34,7 +34,7 @@ kx-v2/                          # WordPress root
 └── README.md                   # Setup, commands, conventions
 ```
 
-→ Details: [.context/ARCHITECTURE.md](.context/ARCHITECTURE.md)
+→ Details: [.memory/ARCHITECTURE.md](.memory/ARCHITECTURE.md)
 
 ## Architecture Principles
 
@@ -45,7 +45,7 @@ kx-v2/                          # WordPress root
 - Third-party plugin behavior is integrated via theme/utility code and enqueue order — coordinate changes with plugin expectations (e.g. Contact Form 7, Swiper/slider).
 - Developer machines: local stack tuning belongs in `.ddev/config.yaml` (development only; production is separate).
 
-→ Details: [.context/ARCHITECTURE.md](.context/ARCHITECTURE.md)
+→ Details: [.memory/ARCHITECTURE.md](.memory/ARCHITECTURE.md)
 
 ## Coding Conventions
 
@@ -55,7 +55,7 @@ kx-v2/                          # WordPress root
 - i18n: POT/PO/MO via `wp i18n` scripts in theme `package.json`; master catalog `languages/kx.pot`.
 - Project Cursor rules: `.cursor/rules/wordpress.mdc`, `development.mdc`, `underscores.mdc`, `backup-process.mdc`.
 
-→ Details: [.context/CONVENTIONS.md](.context/CONVENTIONS.md)
+→ Details: [.memory/CONVENTIONS.md](.memory/CONVENTIONS.md)
 
 ## Critical Rules
 
@@ -84,13 +84,13 @@ After any substantive change, update all affected files:
 
 | File | Update when... |
 |------|----------------|
-| `.context/STATUS.md` | Always — current work, open items, next steps |
-| `.context/ARCHITECTURE.md` | New components, changed structure, new patterns |
-| `.context/DECISIONS.md` | Architectural choices with trade-offs |
-| `.context/CONVENTIONS.md` | New coding rules, pitfalls discovered |
-| `.context/TASKS.md` | Task tracking/doc updates when task overview or statuses change |
-| `.context/prds/` | New or moved product requirement documents (PRDs) |
-| `.context/plans/` | New or moved technical implementation plans |
+| `.memory/STATUS.md` | Always — current work, open items, next steps |
+| `.memory/ARCHITECTURE.md` | New components, changed structure, new patterns |
+| `.memory/DECISIONS.md` | Architectural choices with trade-offs |
+| `.memory/CONVENTIONS.md` | New coding rules, pitfalls discovered |
+| `.memory/TASKS.md` | Task tracking/doc updates when task overview or statuses change |
+| `.memory/prds/` | New or moved product requirement documents (PRDs) |
+| `.memory/plans/` | New or moved technical implementation plans |
 | `AGENTS.md` | Tech stack changes, new critical rules |
 
 A change is NOT complete until all affected documentation is in sync.
@@ -99,15 +99,15 @@ A change is NOT complete until all affected documentation is in sync.
 
 When documentation conflicts with code, the **code is the source of truth**. Inspect the actual codebase when in doubt.
 
-Hierarchy: Code > AGENTS.md > .context/ files
+Hierarchy: Code > AGENTS.md > .memory/ files
 
 ## Key References
 
 | Document | Purpose |
 |----------|---------|
-| `.context/STATUS.md` | Current work state, open items, next steps |
-| `.context/ARCHITECTURE.md` | Detailed architecture, patterns, data flow |
-| `.context/DECISIONS.md` | Architectural decision log |
-| `.context/CONVENTIONS.md` | Coding standards, examples, pitfalls |
-| `.context/prds/` | PRDs (product specs) |
-| `.context/plans/` | Implementation plans (often paired with a PRD) |
+| `.memory/STATUS.md` | Current work state, open items, next steps |
+| `.memory/ARCHITECTURE.md` | Detailed architecture, patterns, data flow |
+| `.memory/DECISIONS.md` | Architectural decision log |
+| `.memory/CONVENTIONS.md` | Coding standards, examples, pitfalls |
+| `.memory/prds/` | PRDs (product specs) |
+| `.memory/plans/` | Implementation plans (often paired with a PRD) |
