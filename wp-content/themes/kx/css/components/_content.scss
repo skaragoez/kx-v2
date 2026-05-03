@@ -1,3 +1,6 @@
+// Editor stylesheet is under `/css/` — set `$kx-theme-asset-base: '../'` before importing this partial (see `utilities/inc/gutenberg/_editor-style.scss`).
+$kx-theme-asset-base: '' !default;
+
 main {
     margin-block-start: -1px;
 }
@@ -76,7 +79,8 @@ body:not(.home) {
 }
 
 .hero {
-    padding-block-start: 0;
+    // Room below header / entry — avoid cramped headline against nav
+    padding-block-start: fluid(rem(28px), rem(56px));
     // Override global `section { padding-block }` — no extra bottom padding on hero band
     padding-block-end: 0;
     margin-block-end: 2rem;
@@ -84,6 +88,9 @@ body:not(.home) {
 
     h1 {
         text-transform: uppercase;
+    }
+
+    h1:not(.hero-cro__title) {
         line-height: 1.1em;
     }
 
@@ -97,6 +104,25 @@ body:not(.home) {
             img {
                 margin-inline: auto;
                 max-width: 70%;
+                @include media-breakpoint-up(sm) {
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    width: fluid(rem(390px), rem(450px));
+                    height: auto;
+                }
+            }
+        }
+
+        /* Two-column markup: hero image sits in `.hero__visual-column` (above `.works-ticker`). */
+        > .wp-block-column.hero__visual-column {
+            position: relative;
+
+            > .wp-block-image.hero-visual__featured:first-child img,
+            > .wp-block-image:first-child img {
+                margin-inline: auto;
+                max-width: 70%;
+
                 @include media-breakpoint-up(sm) {
                     position: absolute;
                     bottom: 0;
@@ -228,6 +254,539 @@ body:not(.home) {
             justify-content: center;
             margin-top: rem(10px);
         }
+    }
+
+    .hero-copy {
+        margin-block-end: 0 !important;
+        padding-block-start: fluid(rem(12px), rem(28px));
+        // Less empty band below testimonial / last block in the column
+        padding-block-end: fluid(rem(20px), rem(40px));
+        // Lives inside `.hero` columns — outer section/column provide rhythm; large inline padding made copy too narrow
+        padding-inline: 0;
+        border-radius: 0;
+
+        &.is-layout-constrained {
+            max-width: none !important;
+            margin-inline: 0 !important;
+        }
+
+        // Core `is-layout-constrained` uses margin-inline:auto !important on children — flush copy to column start
+        &.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+            max-width: none !important;
+            margin-inline: 0 !important;
+            text-align: start !important;
+        }
+
+        @include media-breakpoint-down(sm) {
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            p {
+                text-align: left !important;
+            }
+
+            .wp-block-buttons {
+                justify-content: flex-start !important;
+            }
+
+            // Stack mobile column with explicit order: quote before CTAs, logos stay after CTAs
+            &.hero-cro__inner {
+                display: flex !important;
+                flex-direction: column !important;
+
+                > .wp-block-group.hero-cro__trust {
+                    order: 10;
+                }
+
+                > h1.hero-cro__title {
+                    order: 11;
+                }
+
+                > p.hero-cro__lead {
+                    order: 12;
+                }
+
+                > .wp-block-group.hero-cro__benefits {
+                    order: 13;
+                }
+
+                > .wp-block-group.hero-cro__testimonial {
+                    order: 14;
+                }
+
+                > .wp-block-buttons.hero-cro__ctas {
+                    order: 15;
+                }
+
+                // Optional CTA micro-copy (`<p>` in editor) — default flex order:0 sorts before order:10+; keep after buttons
+                > p:not(.hero-cro__lead):not(.hero-cro__logos-heading) {
+                    order: 16;
+                }
+
+                > p.hero-cro__logos-heading {
+                    order: 17;
+                }
+
+                > .wp-block-group.hero-cro__logos-row {
+                    order: 18;
+                }
+            }
+        }
+
+        .hero-cro__trust {
+            display: inline-flex;
+            align-items: center;
+            gap: fluid(rem(10px), rem(16px));
+            padding: fluid(rem(8px), rem(12px)) fluid(rem(14px), rem(22px));
+            margin-block-end: fluid(rem(20px), rem(28px));
+            background-color: $white;
+            border-radius: rem(999px);
+            box-shadow:
+                0 rem(4px) rem(18px) rgba($cro-navy, 0.08),
+                0 rem(2px) rem(6px) rgba($cro-navy, 0.06);
+        }
+
+        .hero-cro__trust-avatars {
+            display: flex;
+            align-items: center;
+
+            figure,
+            .wp-block-image,
+            .wp-element-caption {
+                margin: 0;
+            }
+
+            p {
+                display: grid;
+                place-items: center;
+                width: fluid(rem(32px), rem(38px));
+                height: fluid(rem(32px), rem(38px));
+                margin: 0 !important;
+                border-radius: 50%;
+                font-size: rem(11px);
+                font-weight: $font-weight-bold;
+                line-height: 1;
+                color: $white;
+                border: 2px solid $white;
+
+                &.hero-cro__avatar--navy {
+                    background-color: $cro-navy;
+                    position: relative;
+                    z-index: 1;
+                }
+
+                &.hero-cro__avatar--orange {
+                    background-color: $cro-orange;
+                    position: relative;
+                    z-index: 2;
+                }
+
+                &:not(:first-child) {
+                    margin-inline-start: rem(-14px);
+                }
+            }
+        }
+
+        .hero-cro__trust-meta {
+            margin: 0;
+
+            .hero-cro__stars {
+                color: $cro-orange;
+                margin-inline-end: rem(8px);
+                letter-spacing: 0.04em;
+            }
+
+            .hero-cro__trust-label {
+                font-size: fluid(rem(12px), rem(14px));
+                font-weight: $font-weight-semibold;
+                color: $cro-navy;
+            }
+        }
+
+        .hero-cro__title {
+            font-family: $font-family-heading;
+            margin-block-start: 0;
+            margin-block-end: fluid(rem(16px), rem(24px));
+            margin-inline: 0 !important;
+            max-width: 22ch;
+            font-weight: $font-weight-bold;
+            text-align: start !important;
+            // Explicit fluid size: global `h1` in `_elements.scss` is 32–50px; Core `.has-hero-font-size` uses
+            // `theme.json` + can lose in cascade/order/caching — this matches JSON intent (desktop ~68px peak).
+            font-size: fluid(rem(36px), rem(68px)) !important;
+            // Tight two-line stack; preset size from theme.json (`has-hero-font-size`)
+            line-height: 1 !important;
+
+            br {
+                display: none;
+            }
+
+            .hero-cro__title-line {
+                display: block;
+                color: $black;
+                letter-spacing: 0.04em;
+                line-height: 1;
+
+                &--accent {
+                    color: $cro-orange;
+                    margin-block-start: 0.05em;
+                }
+            }
+        }
+
+        .hero-cro__lead {
+            margin-block-end: fluid(rem(24px), rem(32px)) !important;
+            margin-inline: 0 !important;
+            max-width: 38rem;
+            color: $cro-body-text;
+            font-size: fluid(rem(16px), rem(20px));
+            line-height: 1.55;
+            text-align: start !important;
+        }
+
+        /* Core layout + `.hero` mobile rules can centre blocks/text; hero copy stays flush left */
+        &.is-layout-constrained > .hero-cro__title,
+        &.is-layout-constrained > h1.hero-cro__title {
+            margin-inline: 0 !important;
+            max-width: 22ch;
+            text-align: start !important;
+        }
+
+        &.is-layout-constrained > .hero-cro__lead {
+            margin-inline: 0 !important;
+            max-width: 38rem;
+        }
+
+        &.is-layout-flex .hero-cro__lead,
+        &.is-layout-flow .hero-cro__lead {
+            margin-inline-start: 0 !important;
+        }
+
+        /* Avoid double bottom band: core stack margins + our padding */
+        > :last-child {
+            margin-block-end: 0 !important;
+        }
+
+        .hero-cro__benefits {
+            // Core `.wp-container-*` sets `gap` — override so rows sit tighter
+            gap: fluid(rem(6px), rem(10px)) !important;
+            row-gap: fluid(rem(6px), rem(10px)) !important;
+            margin-block-end: fluid(rem(20px), rem(28px));
+
+            &.is-layout-flex {
+                align-items: stretch;
+                flex-direction: column;
+            }
+        }
+
+        .hero-cro__benefit {
+            display: flex;
+            align-items: center;
+            gap: fluid(rem(12px), rem(18px));
+            margin-block: 0 !important;
+
+            &::before {
+                flex-shrink: 0;
+                content: '';
+                width: fluid(rem(40px), rem(48px));
+                height: fluid(rem(40px), rem(48px));
+                border-radius: rem(12px);
+                box-sizing: border-box;
+                // Align tile with Facts strip: pale fill + navy hairline frame; icons = black strokes (Lucide SVGs)
+                background-color: $light-sky;
+                border: rem(1px) solid rgba($dark-blue, 0.42);
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 54% auto;
+            }
+
+            p {
+                margin: 0 !important;
+                color: $cro-body-text;
+                font-size: fluid(rem(15px), rem(17px));
+                line-height: 1.45;
+            }
+
+            &--trend::before {
+                background-image: url('#{$kx-theme-asset-base}media/icons/lucide-hero-benefits/trending-up.svg');
+            }
+
+            &--bolt::before {
+                background-image: url('#{$kx-theme-asset-base}media/icons/lucide-hero-benefits/zap.svg');
+            }
+
+            &--shield::before {
+                background-image: url('#{$kx-theme-asset-base}media/icons/lucide-hero-benefits/shield-check.svg');
+            }
+
+            &--support::before {
+                background-image: url('#{$kx-theme-asset-base}media/icons/lucide-hero-benefits/headphones.svg');
+                background-size: 52% auto;
+            }
+        }
+
+        .wp-block-buttons.hero-cro__ctas {
+            flex-wrap: wrap;
+            gap: fluid(rem(12px), rem(18px));
+            width: 100%;
+
+            .wp-block-button.hero-cro__cta {
+                flex: 0 1 auto;
+
+                .wp-block-button__link {
+                    min-height: 0;
+                    padding-block: fluid(rem(16px), rem(22px)) !important;
+                    padding-inline: fluid(rem(22px), rem(32px)) !important;
+                    border-radius: fluid(rem(14px), rem(18px)) !important;
+                    font-size: fluid(rem(15px), rem(17px)) !important;
+                    font-weight: $font-weight-bold;
+                    letter-spacing: 0.02em;
+                    box-shadow: none;
+
+                    &:hover,
+                    &.active {
+                        transform: translateY(-#{rem(2px)});
+                        box-shadow: 0 rem(8px) rem(22px) rgba($cro-navy, 0.12);
+                    }
+                }
+
+                &--solid .wp-block-button__link {
+                    background-color: $cro-orange !important;
+                    color: $white !important;
+                    border: 2px solid transparent !important;
+
+                    &:hover {
+                        filter: brightness(1.06);
+                        color: $white !important;
+                    }
+                }
+
+                &--outline .wp-block-button__link {
+                    background-color: transparent !important;
+                    color: $cro-navy !important;
+                    border: 2px solid $cro-navy !important;
+                    box-shadow: none !important;
+
+                    &:hover {
+                        background-color: rgba($cro-navy, 0.06) !important;
+                        color: $cro-navy !important;
+                    }
+                }
+
+                .wp-block-button__link:focus-visible {
+                    outline: rem(3px) solid $cro-navy !important;
+                    outline-offset: rem(3px);
+                }
+            }
+
+            // Very small viewports: full-width stacked buttons
+            @include media-breakpoint-down(376px) {
+                flex-direction: column !important;
+                flex-wrap: nowrap !important;
+                align-items: stretch !important;
+
+                .wp-block-button.hero-cro__cta {
+                    flex: 1 1 auto !important;
+                    width: 100% !important;
+                    max-width: none !important;
+
+                    .wp-block-button__link {
+                        width: 100%;
+                        justify-content: center;
+                        text-align: center;
+                        box-sizing: border-box;
+                    }
+                }
+            }
+
+            // Hero column mobile/tablet portrait: equal-width pair in one row (between phone and `sm`)
+            @include media-breakpoint-between(377px, sm) {
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                align-items: stretch !important;
+
+                .wp-block-button.hero-cro__cta {
+                    flex: 1 1 0 !important;
+                    min-width: 0 !important;
+                    width: auto !important;
+                    max-width: none !important;
+
+                    .wp-block-button__link {
+                        width: 100%;
+                        justify-content: center;
+                        text-align: center;
+                        box-sizing: border-box;
+                    }
+                }
+            }
+        }
+
+        .hero-cro__logos-heading {
+            margin-block: fluid(rem(32px), rem(44px)) rem(14px);
+            margin-inline: 0;
+            padding: 0;
+            font-size: rem(12px);
+            font-weight: $font-weight-semibold;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: $grey !important;
+        }
+
+        .hero-cro__logos-row.is-layout-flex {
+            flex-wrap: wrap;
+            gap: fluid(rem(10px), rem(14px));
+            margin-block-end: fluid(rem(28px), rem(40px));
+        }
+
+        .hero-cro__logo-card {
+            display: inline-flex !important;
+            align-items: center;
+            gap: rem(12px);
+            padding: fluid(rem(10px), rem(14px));
+            margin: 0;
+            border-radius: rem(14px);
+            background-color: $white;
+            box-shadow:
+                0 rem(3px) rem(14px) rgba($cro-navy, 0.06),
+                0 rem(1px) rem(4px) rgba($cro-navy, 0.05);
+
+            p.hero-cro__logo-initials {
+                display: grid;
+                place-items: center;
+                width: rem(40px);
+                height: rem(40px);
+                flex-shrink: 0;
+                margin: 0 !important;
+                border-radius: rem(8px);
+                font-size: rem(13px);
+                font-weight: $font-weight-bold;
+                color: $white;
+                line-height: 1;
+
+                &.hero-cro__logo-initials--navy {
+                    background-color: $cro-navy;
+                }
+
+                &.hero-cro__logo-initials--orange {
+                    background-color: $cro-orange;
+                }
+            }
+
+            &.is-layout-flex {
+                flex-shrink: 0;
+            }
+
+            .hero-cro__logo-name {
+                margin: 0 !important;
+                font-size: rem(13px);
+                font-weight: $font-weight-semibold;
+                white-space: nowrap;
+                color: $cro-navy !important;
+
+                @media (max-width: 480px) {
+                    white-space: normal;
+                    max-width: 8rem;
+                }
+            }
+        }
+
+        .hero-cro__testimonial {
+            position: relative;
+            padding: fluid(rem(20px), rem(28px));
+            padding-block-start: fluid(rem(26px), rem(34px));
+            border-radius: rem(14px);
+            background-color: rgba($white, 0.78);
+            border: rem(1px) solid rgba($dark-blue, 0.1);
+            box-shadow: 0 rem(2px) rem(12px) rgba($cro-navy, 0.04);
+
+            &::before {
+                content: '"';
+                position: absolute;
+                inset-block-start: rem(10px);
+                inset-inline-start: fluid(rem(16px), rem(22px));
+                font-family: Georgia, serif;
+                font-size: fluid(rem(40px), rem(52px));
+                line-height: 1;
+                color: rgba($cro-navy, 0.12);
+                font-weight: 400;
+                pointer-events: none;
+            }
+        }
+
+        .hero-cro__quote {
+            margin: 0 !important;
+            padding-block-start: rem(28px);
+            font-size: fluid(rem(15px), rem(18px));
+            font-style: normal;
+            font-weight: $font-weight-regular;
+            line-height: 1.55;
+            color: rgba($cro-body-text, 0.88) !important;
+        }
+
+        .hero-cro__testimonial-footer.is-layout-flex {
+            flex-wrap: wrap;
+            align-items: flex-end !important;
+            justify-content: space-between !important;
+            gap: rem(14px);
+            margin-block-start: fluid(rem(20px), rem(28px));
+        }
+
+        .hero-cro__testimonial-meta.is-layout-flex {
+            align-items: center;
+            gap: rem(14px);
+        }
+
+        .hero-cro__testimonial-avatar {
+            display: grid !important;
+            place-items: center !important;
+            width: fluid(rem(44px), rem(50px));
+            height: fluid(rem(44px), rem(50px));
+            margin: 0 !important;
+            border-radius: 50%;
+            background-color: rgba($cro-navy, 0.78);
+            font-size: rem(12px);
+            font-weight: $font-weight-semibold;
+            color: $white !important;
+            line-height: 1 !important;
+        }
+
+        .hero-cro__testimonial-name {
+            margin: 0 0 rem(4px);
+            margin-inline: 0 !important;
+            font-size: rem(16px);
+            font-weight: $font-weight-semibold !important;
+            color: rgba($cro-navy, 0.92) !important;
+            line-height: 1.2;
+        }
+
+        .hero-cro__testimonial-role {
+            margin: 0 !important;
+            margin-inline: 0 !important;
+            font-size: rem(13px);
+            font-weight: $font-weight-regular;
+            color: $grey !important;
+            line-height: 1.2;
+        }
+
+        .hero-cro__testimonial-stars {
+            margin-block: auto 0;
+            margin-inline: 0 auto;
+            align-self: center;
+            letter-spacing: 0.06em;
+
+            &.has-text-align-right {
+                align-self: center;
+                margin-inline: 0 auto;
+            }
+
+            .hero-cro__stars {
+                color: rgba($cro-orange, 0.55) !important;
+            }
+        }
+
     }
 
     // Works Ticker styles - 3D with infinite loop scroll animation

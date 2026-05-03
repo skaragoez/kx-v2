@@ -6,6 +6,10 @@
 @import "../../../utilities/css/misc";
 @import "../../../css/components/blocks";
 
+// `editor-style.css` lives in `/css/`; theme assets resolve from `/media/` via one `../`.
+$kx-theme-asset-base: '../';
+@import "../../../css/components/content";
+
 body {
   @include vars;
   @extend %copy;

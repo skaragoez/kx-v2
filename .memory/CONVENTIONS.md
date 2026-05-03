@@ -34,6 +34,7 @@ auto_include_files( get_template_directory() . '/inc' );
 
 ## Pitfalls & Gotchas
 
+- **Hero CRO / `css/components/_content.scss` asset URLs:** The block editor stylesheet is **`css/editor-style.css`** (one directory deeper than root **`style.css`**). Icons or other **`url(...)`** files under **`themes/kx/media/`** must use Sass **`$kx-theme-asset-base`**: **`''`** for the front bundle (**default** at top of `_content.scss`), and **`../`** set in **`utilities/inc/gutenberg/_editor-style.scss`** immediately before **`@import`…`content`** so editor and frontend both resolve **`media/icons/...`** correctly.
 - **`.ddev/config.yaml`**: Applies to **local development only**. Adjust PHP/services there when needed for dev; production hosting has its own configuration.
 - **i18n**: Theme POT is `languages/kx.pot`; nested packages subtract it to avoid duplicate strings. After changing translatable strings, run `theme:i18n:pot` (and update POs as needed).
 - **Compiled assets**: Edits to `css/` or `js/` require `npm run watch` (local) or **`npm run build`** (before shipping / when an agent completes a task). Prefer the **full** `npm run build` from `wp-content/themes/kx` so both compiled `style.css` and `*.min.js` stay in sync.

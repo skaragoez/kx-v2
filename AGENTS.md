@@ -12,6 +12,7 @@ KX is a premium, conversion-focused WordPress theme (Underscores-based) for prof
 | Theme | KX (`wp-content/themes/kx/`), based on [_s](https://underscores.me/) |
 | Language (server) | PHP 7.4+ |
 | Styling | SCSS (Dart Sass), fluid typography, BEM-like nesting |
+| Typography | **Raleway** (headings stack in `$font-family-heading`), **Avenir**/system stack for body; Google Fonts Raleway enqueued via `media/fonts/fonts.php` (+ optional Adobe Typekit filter) |
 | Client JS | ES6+ → Babel (`@babel/preset-env`, minify in production) |
 | Icons | Fantasticon (SVG → icon font in `media/fonts/Icont/`) |
 | Local dev (only) | `.ddev/config.yaml` — environment/service settings for developers; not documented in depth in AGENTS |

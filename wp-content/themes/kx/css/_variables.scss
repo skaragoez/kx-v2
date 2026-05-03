@@ -8,6 +8,11 @@ $success: #61c653;
 $error: #ec695e;
 
 $orange: #FC7016;
+// CRO hero / marketing accents (screens T006 — distinct from legacy orange token)
+$cro-orange: #FF7324;
+$cro-navy: #002B45;
+$cro-body-text: #4A4A4A;
+$cro-benefit-surface: #FFEDE3;
 $light-blue: #B3D3E6;
 $grey: #8B8B8B;
 $accent-orange: #F55F1D;
@@ -34,6 +39,8 @@ $colors: (
     'light-blue': $light-blue,
     'grey': $grey,
     'accent-orange': $accent-orange,
+    'cro-orange': $cro-orange,
+    'cro-navy': $cro-navy,
     'dark-blue': $dark-blue,
     'dark-grey': $dark-grey,
     'lavender': $lavender,
@@ -63,7 +70,7 @@ $font-color-link-active: $font-color-text;
 $rpx: 10px; // rem
 
 $font-family-base: 'Avenir', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-$font-family-heading: 'Poppins', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+$font-family-heading: 'Raleway', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
 $font-weight-regular: 400;
 $font-weight-medium: 500;
 $font-weight-semibold: 600;

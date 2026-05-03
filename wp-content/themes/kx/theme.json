@@ -23,7 +23,9 @@
         { "name": "Green White", "slug": "green-white", "color": "#FAFFFB" },
         { "name": "Pink", "slug": "pink", "color": "#F62B54" },
         { "name": "Yellow Light", "slug": "yellow-light", "color": "#FFCC00" },
-        { "name": "Grey Dark", "slug": "grey-dark", "color": "#333333" }
+        { "name": "Grey Dark", "slug": "grey-dark", "color": "#333333" },
+        { "name": "CRO Orange", "slug": "cro-orange", "color": "#FF7324" },
+        { "name": "CRO Navy", "slug": "cro-navy", "color": "#002B45" }
       ]
     },
     "layout": {
@@ -33,14 +35,28 @@
     "typography": {
       "fluid": true,
       "fontSizes": [
-        { "name": "Hero", "slug": "hero", "size": "50px" },
+        {
+          "name": "Hero",
+          "slug": "hero",
+          "size": "3.25rem",
+          "fluid": {
+            "min": "2.25rem",
+            "max": "4.25rem"
+          }
+        },
         { "name": "H2", "slug": "h2", "size": "39.2px" },
         { "name": "H3", "slug": "h3", "size": "30px" },
         { "name": "H4", "slug": "h4", "size": "24px" },
         { "name": "Body", "slug": "body", "size": "20px" },
         { "name": "Small", "slug": "small", "size": "18px" }
       ],
-      "fontFamilies": [],
+      "fontFamilies": [
+        {
+          "name": "Raleway",
+          "slug": "raleway",
+          "fontFamily": "Raleway, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+        }
+      ],
       "fontWeight": false,
       "textTransform": false,
       "textDecoration": false,

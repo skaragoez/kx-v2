@@ -4,22 +4,29 @@
 
 ## Current Work
 
-**Portfolio grid (Stitch-style, modular patterns):** Shipped — same PHP/registration paths as above. **Theme CSS (current):** outer grid `row-gap: 5rem`; column rhythm still from helper `c-gap-5` on the outer group. Cells (`.kx-portfolio-cell`): no padding, background, or box-shadow (including overrides for editor block spacing); no hover motion or hover fill; `:focus-within` keeps an orange outline for keyboard users. Image block: square crop via `aspect-ratio`, rounded corners. Patterns: `kx/portfolio-grid-shell`, `kx/portfolio-project-item`, `kx/portfolio-grid-starter`. Hooks: `kx_portfolio_grid_column_count`, `kx_portfolio_pattern_starter_cell_count`.
+_Nothing active — T006 + Hero-Copy-Feinschliff dokumentiert._
 
-Hero benefit icon strip **removed** from theme (no `inc/block-patterns.php`, no related SCSS/PHP). **Content:** Remove the old block row from affected pages in the block editor if it is still stored in the database.
+**T006 — Raleway + CRO-Hero (abgeschlossen):** **`kx/hero-copy`** — Registrierung/Markup wie zuvor. Zusätzlich umgesetzt (Stand 2026-05-03):
 
-Previously — theme cleanup: `package.json` → **kx**, repo URL `skaragoez/kx-v2`; i18n scripts use `languages/kx.pot`; `--subtract` paths updated (incl. fixes for `accordion`, `data-href`, `bodyclass`). Theme header in `css/style.scss` → **KX**; `style.css` rebuilt. `kx.pot` regenerated; removed stale `languages/_s.pot` and duplicate `tr_TR.pot`. PO headers aligned (`theme:i18n:po` + manual `Project-Id-Version` where needed).
+- **Layout / Core:** Overrides für **`is-layout-constrained`** auf **`.hero .hero-copy`** (kein „pseudo-zentrierter“ schmaler H1‑Block durch `margin-inline: auto`; Lead/Stack linksbündig).
+- **Typo Hero-H1:** **`theme.json`** Preset Hero fluid (min/max); **Frontend** zusätzlich explizites **`font-size`** in SCSS (`!important`), weil globales `h1` in **`_elements.scss`** und Reihenfolge der Stylesheets das Preset sonst kaum sichtbar machen.
+- **Spacing:** weniger Unterabstand Benefits/innen; **`margin-block-end: 0`** auf **`.hero-copy`**; **`padding-block-start`** auf **`.hero`** für Abstand unter Header.
+- **Benefits-Icons:** statische **[Lucide](https://lucide.dev/)**-SVGs unter **`themes/kx/media/icons/lucide-hero-benefits/`**, Outline/Stil näher an Facts; Kachel **`$light-sky`** + dezenter Rahmen. **`$kx-theme-asset-base`** in **`_content.scss`** (`''`) / **`utilities/inc/gutenberg/_editor-style.scss`** (`../`) damit **`editor-style.css`** dieselben `url(...)` korrekt auflöst.
+- **Testimonial:** dezentere Card (halbtransparent, leichter Schatten/Rahmen, kleineres Zitat‑Glyph, keine Kursiven auf dem Quote, gedämpfte Sterne/Avatar).
+- **Mobile (< `sm`, 782px):** **Flex-`order`** auf **`.hero-copy.hero-cro__inner`** — Testimonial **über** CTAs; Logos weiter **unter** den Buttons. Zusätzliche **`<p>`** ohne **`.hero-cro__lead`** / **`.hero-cro__logos-heading`** (z. B. CTA-Micro-Copy) erhalten **`order: 16`**, damit sie nicht mit Standard-**`order: 0`** vor dem Trust-Pill landen. **CTAs:** ≤376px volle Breite gestapelt; 377–781px zwei **gleich breite** Buttons nebeneinander.
 
-**Agentic WordPress (T005):** Implemented — [`tools/agentic-wp/`](../tools/agentic-wp/) bash helpers (`post-find`, `post-update-content`, `theme-mod`) wrapping `ddev wp`; see [README](../tools/agentic-wp/README.md) and [ARCHITECTURE.md](ARCHITECTURE.md).
+**Portfolio grid (Stitch-style, modular patterns):** Shipped — outer grid `row-gap: 5rem`; **`c-gap-5`** horizontal rhythm; cells **`.kx-portfolio-cell`** minimal (no hover fill); patterns `kx/portfolio-grid-shell`, `kx/portfolio-project-item`, `kx/portfolio-grid-starter`.
+
+Previously — theme cleanup: `package.json` → **kx**, i18n `languages/kx.pot`; **Agentic WordPress (T005):** [`tools/agentic-wp/`](../tools/agentic-wp/).
 
 ## Open Items
 
-- **T006** — Raleway headings + CRO hero (benefits + trust).
+_None._
 
 ## Next Steps
 
-Portfolio: optional manual QA on real content (breakpoints, editor vs. front). **T006** per `.memory/tasks/`. Theme work: `npm run watch` under `wp-content/themes/kx/`; keep `.memory/` in sync after substantive edits (see `AGENTS.md`).
+Optional: weitere QA (echte Geräte, Editor vs. Frontend, Cache/CDN nach Deploy). Bei neuen Icons im gleichen Pfad weiterhin **`npm run build`** unter **`wp-content/themes/kx/`**.
 
 ## Known Issues
 
-None documented in this initialization pass.
+None documented in this pass.
