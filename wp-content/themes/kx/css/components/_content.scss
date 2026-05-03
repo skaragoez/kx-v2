@@ -695,18 +695,23 @@ body:not(.home) {
 
         .hero-cro__testimonial {
             position: relative;
-            padding: fluid(rem(20px), rem(28px));
-            padding-block-start: fluid(rem(26px), rem(34px));
+            padding: fluid(rem(10px), rem(18px));
+            padding-block-start: fluid(rem(16px), rem(24px));
             border-radius: rem(14px);
             background-color: rgba($white, 0.78);
             border: rem(1px) solid rgba($dark-blue, 0.1);
             box-shadow: 0 rem(2px) rem(12px) rgba($cro-navy, 0.04);
 
+            // Editor helper often adds `.mt-5` (5rem) — shave 10px as on card internals
+            &.mt-5 {
+                margin-top: calc(5rem - #{rem(10px)});
+            }
+
             &::before {
                 content: '"';
                 position: absolute;
                 inset-block-start: rem(10px);
-                inset-inline-start: fluid(rem(16px), rem(22px));
+                inset-inline-start: fluid(rem(6px), rem(12px));
                 font-family: Georgia, serif;
                 font-size: fluid(rem(40px), rem(52px));
                 line-height: 1;
@@ -718,7 +723,7 @@ body:not(.home) {
 
         .hero-cro__quote {
             margin: 0 !important;
-            padding-block-start: rem(28px);
+            padding-block-start: rem(18px);
             font-size: fluid(rem(15px), rem(18px));
             font-style: normal;
             font-weight: $font-weight-regular;
@@ -731,7 +736,7 @@ body:not(.home) {
             align-items: flex-end !important;
             justify-content: space-between !important;
             gap: rem(14px);
-            margin-block-start: fluid(rem(20px), rem(28px));
+            margin-block-start: fluid(rem(10px), rem(18px));
         }
 
         .hero-cro__testimonial-meta.is-layout-flex {
@@ -776,6 +781,7 @@ body:not(.home) {
             margin-inline: 0 auto;
             align-self: center;
             letter-spacing: 0.06em;
+            transform: translateY(#{rem(-10px)});
 
             &.has-text-align-right {
                 align-self: center;
