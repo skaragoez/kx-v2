@@ -22,7 +22,7 @@ When a task is finished, set the `## Status` section to `[x] completed` inside t
 | T005 | [T005-agentic-wordpress-tooling.md](tasks/T005-agentic-wordpress-tooling.md) — Agentic WordPress (CLI/MCP, modular) | completed |
 | T006 | [T006-raleway-hero-cro.md](tasks/T006-raleway-hero-cro.md) — Raleway headings + CRO Hero | completed |
 | T007 | [T007-lcp-image-optimization.md](tasks/T007-lcp-image-optimization.md) — LCP-Bild: loading="eager" + fetchpriority via PHP-Filter | completed |
-| T008 | [T008-dashicons-dequeue.md](tasks/T008-dashicons-dequeue.md) — Dashicons für nicht-eingeloggte Besucher dequeuen | open |
+| T008 | [T008-dashicons-dequeue.md](tasks/T008-dashicons-dequeue.md) — Dashicons für nicht-eingeloggte Besucher dequeuen | completed |
 | T009 | [T009-script-defer.md](tasks/T009-script-defer.md) — Complianz + Google Site Kit per defer laden | open |
 | T010 | [T010-htaccess-cache-security.md](tasks/T010-htaccess-cache-security.md) — .htaccess: Cache-Headers + Security-Headers | open |
 | T011 | [T011-srcset-reaktivieren.md](tasks/T011-srcset-reaktivieren.md) — srcset reaktivieren + media regenerate | open |

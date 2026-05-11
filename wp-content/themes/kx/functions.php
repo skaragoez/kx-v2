@@ -135,7 +135,7 @@ add_action( 'widgets_init', 'kx_widgets_init' );
  * Enqueue scripts and styles.
  */
 function kx_scripts() {
-	wp_enqueue_style( 'kx-style', get_stylesheet_uri(), ['dashicons'] );
+	wp_enqueue_style( 'kx-style', get_stylesheet_uri(), [] );
 
 	wp_enqueue_script( 'kx-app', get_template_directory_uri() . '/js/app.js', ['behaviours'], false, true );
 	wp_enqueue_script( 'kx-navigation', get_template_directory_uri() . '/js/navigation.js', ['behaviours'], false, true );

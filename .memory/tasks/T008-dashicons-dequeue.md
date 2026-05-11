@@ -1,6 +1,6 @@
 ## Status
 
-[ ] open
+[x] completed
 
 ## What to build
 
@@ -14,7 +14,7 @@ Referenz: Plan-Abschnitt „Fix B" in `.claude/plans/hier-ist-die-precious-scone
 
 ## Acceptance criteria
 
-- [ ] `post-edit-link.php`: `current_user_can('edit_posts')` Guard gesetzt
-- [ ] `functions.php:138`: `['dashicons']` → `[]`
+- [x] `post-edit-link.php`: `current_user_can('edit_posts')` Guard gesetzt
+- [x] `functions.php:138`: `['dashicons']` → `[]`
 - [ ] Als nicht-eingeloggter Besucher: DevTools → Network → `dashicons` fehlt komplett
 - [ ] Als eingeloggter Editor: Dashicons lädt weiterhin (Edit-Link-Icons funktionieren)

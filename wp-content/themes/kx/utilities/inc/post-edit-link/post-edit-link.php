@@ -4,6 +4,7 @@ define( 'POST_EDIT_LINK_DIRECTORY', dirname( __FILE__ ) );
 define( 'POST_EDIT_LINK_DIRECTORY_URI', UTILITIES_DIRECTORY_URI . '/inc/post-edit-link' );
 
 add_action( 'wp_enqueue_scripts', function() {
+	if ( ! current_user_can( 'edit_posts' ) ) return;
 	wp_enqueue_style( 'utilities--post-edit-link', POST_EDIT_LINK_DIRECTORY_URI . '/style.css', ['dashicons'] );
 } );
 
