@@ -1,6 +1,6 @@
 ## Status
 
-[ ] open
+[x] completed
 
 ## What to build
 
@@ -15,7 +15,7 @@ Referenz: Plan-Abschnitt „Fix D" in `.claude/plans/hier-ist-die-precious-scone
 
 ## Acceptance criteria
 
-- [ ] `.htaccess` existiert im WordPress-Root
+- [x] `.htaccess` existiert im WordPress-Root
 - [ ] WordPress-Routing funktioniert weiterhin (alle Seiten erreichbar)
 - [ ] DevTools → Network → `style.css` Response-Header enthält `Cache-Control: public, max-age=31536000`
 - [ ] DevTools → Network → Response-Header enthält `X-Frame-Options: SAMEORIGIN`
