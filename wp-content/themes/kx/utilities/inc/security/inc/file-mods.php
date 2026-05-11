@@ -2,7 +2,7 @@
 
 /**
  * File modifications (plugin/theme install, updates, editors) follow WordPress core
- * and wp-config (e.g. DISALLOW_FILE_MODS). No extra lockdown in this theme.
+ * and wp-config (e.g. DISALLOW_FILE_MODS). This theme does not lock down file mods by default.
  */
 
 add_filter( 'security_checks', function ( $checks ) {

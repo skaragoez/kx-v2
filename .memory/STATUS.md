@@ -1,10 +1,12 @@
 # Project Status
 
-> Last updated: 2026-05-03
+> Last updated: 2026-05-04
 
 ## Current Work
 
-_Nothing active — T006 + Hero-Copy-Feinschliff dokumentiert._
+**Admin Dateiänderungen (2026-05-04):** Keine theme-seitige **`file_mod_allowed`**-Sperre mehr in **`utilities/inc/security/inc/file-mods.php`**; Plugin-/Theme-Installation richtet sich nach WordPress und **`wp-config.php`**. Decision Log: **`.memory/DECISIONS.md`**; Pattern: **`ARCHITECTURE.md`** → Key Patterns; Troubleshooting: **`.memory/CONVENTIONS.md`** (Gotchas).
+
+Zum Kontext — zuletzt abgeschlossen: **T006** (Hero-Copy) und Portfolio-Patterns; Details unten.
 
 **T006 — Raleway + CRO-Hero (abgeschlossen):** **`kx/hero-copy`** — Registrierung/Markup wie zuvor. Zusätzlich umgesetzt (Stand 2026-05-03):
 

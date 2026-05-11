@@ -76,6 +76,7 @@ No SPA framework: state is **server-rendered WordPress** plus **DOM-oriented Jav
 
 ## Key Patterns
 
+- **Security / admin file modifications:** The utilities security package still contributes a **`security_checks`** entry for dashboard file mods ([`utilities/inc/security/inc/file-mods.php`](../wp-content/themes/kx/utilities/inc/security/inc/file-mods.php)). By default there is no theme **`file_mod_allowed`** lockdown; **`DISALLOW_FILE_MODS`** / hosting policy stays the single source of truth.
 - **Auto-include pattern**: `utilities/auto-include-files.php` loads PHP modules from convention-based directories — new features often add a file under `utilities/inc/` or `inc/` rather than a single giant `functions.php`.
 - **Asset pipeline**: Sass compiles from `css/style.scss`; Babel transpiles `js/*.js` to co-located `*.min.js` (watch mode keeps source maps).
 - **Plugin integration**: e.g. Contact Form 7 — theme JS enhances `.wpcf7` markup; Slider plugin provides Swiper — theme listens for `swiper:afterInit` to adjust breakpoints.

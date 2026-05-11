@@ -4,6 +4,7 @@ Architectural decisions and their rationale. Newest first.
 
 | Date | Decision | Rationale |
 |------|----------|-----------|
+| 2026-05-04 | Remove theme-enforced `file_mod_allowed` lockdown (`utilities/inc/security/inc/file-mods.php`) | Production/staging need plugin install and updates from wp-admin; the previous filter forced disallowed file mods everywhere except `isLocal()` or Customizer `loose_security`. Hardening can still be done with `DISALLOW_FILE_MODS` (or hosting policy) without duplicating logic in the theme. |
 | 2026-05-03 | Hero copy benefits: bundled Lucide (ISC-style) SVGs + `$kx-theme-asset-base`; explicit H1 font-size in SCSS; mobile flex-order (testimonial above CTAs) + stacked vs equal-width CTAs by breakpoint | Reliable styling vs global `h1` and stylesheet order; Facts-like outline icons without npm; editor URL parity without duplicating rules; UX on small screens without reordering serialized block markup. |
 | 2026-05-03 | Agentic WP v1: `tools/agentic-wp/` bash scripts wrapping `ddev wp` (post find/update, theme_mod get/set); local-only; MCP deferred | Matches T005 grill: modular CLI, no admin UI, no secrets in Git; MCP can wrap the same commands later. |
 | 2026-05-03 | Canonical agent/human docs under `.memory/`; `.context/` deprecated | Aligns with project-memory style hub; single tree for STATUS, ARCHITECTURE, tasks, PRDs, plans; reduces split-brain between tooling docs and repo conventions. |

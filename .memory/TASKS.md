@@ -21,6 +21,20 @@ When a task is finished, set the `## Status` section to `[x] completed` inside t
 | T004 | [T004-memory-hub-migration.md](tasks/T004-memory-hub-migration.md) — Hub `.context` → `.memory` | completed |
 | T005 | [T005-agentic-wordpress-tooling.md](tasks/T005-agentic-wordpress-tooling.md) — Agentic WordPress (CLI/MCP, modular) | completed |
 | T006 | [T006-raleway-hero-cro.md](tasks/T006-raleway-hero-cro.md) — Raleway headings + CRO Hero | completed |
+| T007 | [T007-lcp-image-optimization.md](tasks/T007-lcp-image-optimization.md) — LCP-Bild: loading="eager" + fetchpriority via PHP-Filter | completed |
+| T008 | [T008-dashicons-dequeue.md](tasks/T008-dashicons-dequeue.md) — Dashicons für nicht-eingeloggte Besucher dequeuen | open |
+| T009 | [T009-script-defer.md](tasks/T009-script-defer.md) — Complianz + Google Site Kit per defer laden | open |
+| T010 | [T010-htaccess-cache-security.md](tasks/T010-htaccess-cache-security.md) — .htaccess: Cache-Headers + Security-Headers | open |
+| T011 | [T011-srcset-reaktivieren.md](tasks/T011-srcset-reaktivieren.md) — srcset reaktivieren + media regenerate | open |
+| T012 | [T012-appjs-dom-batching.md](tasks/T012-appjs-dom-batching.md) — app.js Newsticker: DOM-Reads per requestAnimationFrame batchen | open |
+
+**T007–T012** entstammen der PSI-Analyse (komoxti.com Desktop, Score 80). Plan: [`.claude/plans/hier-ist-die-precious-scone.md`](../../.claude/plans/hier-ist-die-precious-scone.md).
+
+Externe Schritte (kein Code, manuell):
+- GTM-Tags in GTM-Interface bereinigen (4 parallele Scripts → konsolidieren)
+- `sener-corporate-id.png` (927 KiB) → WebP neu hochladen
+- CF7 Formular-Labels für Radio-Buttons und Checkbox in CF7-Admin ergänzen
+- Farbkontrast Orange-Akzent gegen WCAG AA prüfen
 
 Parent specs: [portfolio-grid-stitch-style-PRD.md](prds/portfolio-grid-stitch-style-PRD.md), [plans/portfolio-grid-stitch-style.md](plans/portfolio-grid-stitch-style.md).
 
