@@ -1,6 +1,6 @@
 ## Status
 
-[ ] open
+[x] completed
 
 ## What to build
 
@@ -12,8 +12,8 @@ Referenz: Plan-Abschnitt „Fix C" in `.claude/plans/hier-ist-die-precious-scone
 
 ## Acceptance criteria
 
-- [ ] Datei `utilities/inc/performance/inc/script-defer.php` existiert
-- [ ] Filter prüft per `str_contains( $tag, 'defer' )` auf Doppel-Attribute
-- [ ] Initial-Handles: `complianz`, `googlesitekit`, `googlesitekit-base`
+- [x] Datei `utilities/inc/performance/inc/script-defer.php` existiert
+- [x] Filter prüft per `str_contains( $tag, 'defer' )` auf Doppel-Attribute
+- [x] Initial-Handles: `complianz`, `googlesitekit`, `googlesitekit-base`
 - [ ] DevTools → Sources → `complianz.min.js` Script-Tag enthält `defer`
 - [ ] Seite lädt korrekt (kein JS-Fehler durch falsches Defer-Timing)
