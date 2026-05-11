@@ -1,6 +1,6 @@
 ## Status
 
-[ ] open
+[x] completed
 
 ## What to build
 
@@ -15,8 +15,8 @@ Referenz: Plan-Abschnitt „Fix E" in `.claude/plans/hier-ist-die-precious-scone
 
 ## Acceptance criteria
 
-- [ ] `max_srcset_image_width` Filter entfernt/auskommentiert
-- [ ] `medium_large` in `intermediate_image_sizes_advanced` nicht mehr entfernt
+- [x] `max_srcset_image_width` Filter entfernt
+- [x] `medium_large` in `intermediate_image_sizes_advanced` nicht mehr entfernt
 - [ ] `ddev wp media regenerate --yes` erfolgreich ausgeführt
 - [ ] DevTools → Portfolio-Bild → `<img>`-Tag enthält `srcset` mit mehreren Größen
 - [ ] Seite lädt korrekte Bildgröße je nach Viewport (Network-Tab → Bild-URL enthält `-348x` o.ä.)

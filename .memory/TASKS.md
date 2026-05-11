@@ -25,7 +25,7 @@ When a task is finished, set the `## Status` section to `[x] completed` inside t
 | T008 | [T008-dashicons-dequeue.md](tasks/T008-dashicons-dequeue.md) — Dashicons für nicht-eingeloggte Besucher dequeuen | completed |
 | T009 | [T009-script-defer.md](tasks/T009-script-defer.md) — Complianz + Google Site Kit per defer laden | completed |
 | T010 | [T010-htaccess-cache-security.md](tasks/T010-htaccess-cache-security.md) — .htaccess: Cache-Headers + Security-Headers | completed |
-| T011 | [T011-srcset-reaktivieren.md](tasks/T011-srcset-reaktivieren.md) — srcset reaktivieren + media regenerate | open |
+| T011 | [T011-srcset-reaktivieren.md](tasks/T011-srcset-reaktivieren.md) — srcset reaktivieren + media regenerate | completed |
 | T012 | [T012-appjs-dom-batching.md](tasks/T012-appjs-dom-batching.md) — app.js Newsticker: DOM-Reads per requestAnimationFrame batchen | open |
 
 **T007–T012** entstammen der PSI-Analyse (komoxti.com Desktop, Score 80). Plan: [`.claude/plans/hier-ist-die-precious-scone.md`](../../.claude/plans/hier-ist-die-precious-scone.md).
